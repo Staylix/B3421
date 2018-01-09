@@ -1,14 +1,15 @@
 /*************************************************************************
-                           Xxx  -  description
+                           Graph  -  description
                              -------------------
-    début                : $DATE$
-    copyright            : (C) $YEAR$ par $AUTHOR$
-    e-mail               : $EMAIL$
+     début                : 09/01/2018
+     copyright            : (C) 2018 par B3421
+     e-mail               : safia.el-bayed@insa-lyon.fr
+                            gregoire.gentil@insa-lyon.fr
 *************************************************************************/
 
-//---------- Interface de la classe <Xxx> (fichier Xxx.h) ----------------
-#if ! defined ( XXX_H )
-#define XXX_H
+//---------- Interface de la classe <Graph> (fichier Graph.h) ----------------
+#if ! defined ( Graph_H )
+#define Graph_H
 
 //--------------------------------------------------- Interfaces utilisées
 
@@ -17,12 +18,12 @@
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Xxx>
+// Rôle de la classe <Graph>
 //
 //
 //------------------------------------------------------------------------
 
-class Xxx : public Ancetre
+class Graph : public Ancetre
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -36,7 +37,7 @@ public:
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-    Xxx & operator = ( const Xxx & unXxx );
+    Graph & operator = ( const Graph & unGraph );
     // Mode d'emploi :
     //
     // Contrat :
@@ -44,19 +45,19 @@ public:
 
 
 //-------------------------------------------- Constructeurs - destructeur
-    Xxx ( const Xxx & unXxx );
+    Graph ( const Graph & unGraph );
     // Mode d'emploi (constructeur de copie) :
     //
     // Contrat :
     //
 
-    Xxx ( );
+    Graph ( );
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    virtual ~Xxx ( );
+    virtual ~Graph ( );
     // Mode d'emploi :
     //
     // Contrat :
@@ -71,7 +72,6 @@ protected:
 
 };
 
-//-------------------------------- Autres définitions dépendantes de <Xxx>
+//-------------------------------- Autres définitions dépendantes de <Graph>
 
-#endif // XXX_H
-
+#endif // Graph_H

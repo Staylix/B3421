@@ -1,12 +1,13 @@
 /*************************************************************************
-                           Xxx  -  description
+                           Graph  -  description
                              -------------------
-    début                : $DATE$
-    copyright            : (C) $YEAR$ par $AUTHOR$
-    e-mail               : $EMAIL$
+     début                : 09/01/2018
+     copyright            : (C) 2018 par B3421
+     e-mail               : safia.el-bayed@insa-lyon.fr
+                            gregoire.gentil@insa-lyon.fr
 *************************************************************************/
 
-//---------- Réalisation de la classe <Xxx> (fichier Xxx.cpp) ------------
+//---------- Réalisation de la classe <Graph> (fichier Graph.cpp) ------------
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -15,14 +16,14 @@ using namespace std;
 #include <iostream>
 
 //------------------------------------------------------ Include personnel
-#include "Xxx.h"
+#include "Graph.h"
 
 //------------------------------------------------------------- Constantes
 
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Xxx::Méthode ( liste des paramètres )
+// type Graph::Méthode ( liste des paramètres )
 // Algorithme :
 //
 //{
@@ -30,7 +31,7 @@ using namespace std;
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-Xxx & Xxx::operator = ( const Xxx & unXxx )
+Graph & Graph::operator = ( const Graph & unGraph )
 // Algorithme :
 //
 {
@@ -38,37 +39,36 @@ Xxx & Xxx::operator = ( const Xxx & unXxx )
 
 
 //-------------------------------------------- Constructeurs - destructeur
-Xxx::Xxx ( const Xxx & unXxx )
+Graph::Graph ( const Graph & unGraph )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <Xxx>" << endl;
+    cout << "Appel au constructeur de copie de <Graph>" << endl;
 #endif
-} //----- Fin de Xxx (constructeur de copie)
+} //----- Fin de Graph (constructeur de copie)
 
 
-Xxx::Xxx ( )
+Graph::Graph ( )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <Xxx>" << endl;
+    cout << "Appel au constructeur de <Graph>" << endl;
 #endif
-} //----- Fin de Xxx
+} //----- Fin de Graph
 
 
-Xxx::~Xxx ( )
+Graph::~Graph ( )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <Xxx>" << endl;
+    cout << "Appel au destructeur de <Graph>" << endl;
 #endif
-} //----- Fin de ~Xxx
+} //----- Fin de ~Graph
 
 
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-

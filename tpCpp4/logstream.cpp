@@ -1,12 +1,13 @@
 /*************************************************************************
-                           Xxx  -  description
+                           logstream  -  description
                              -------------------
-    début                : $DATE$
-    copyright            : (C) $YEAR$ par $AUTHOR$
-    e-mail               : $EMAIL$
+     début                : 09/01/2018
+     copyright            : (C) 2018 par B3421
+     e-mail               : safia.el-bayed@insa-lyon.fr
+                            gregoire.gentil@insa-lyon.fr
 *************************************************************************/
 
-//---------- Réalisation de la classe <Xxx> (fichier Xxx.cpp) ------------
+//---------- Réalisation de la classe <logstream> (fichier logstream.cpp) ------------
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -15,14 +16,14 @@ using namespace std;
 #include <iostream>
 
 //------------------------------------------------------ Include personnel
-#include "Xxx.h"
+#include "logstream.h"
 
 //------------------------------------------------------------- Constantes
 
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type Xxx::Méthode ( liste des paramètres )
+// type logstream::Méthode ( liste des paramètres )
 // Algorithme :
 //
 //{
@@ -30,7 +31,7 @@ using namespace std;
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-Xxx & Xxx::operator = ( const Xxx & unXxx )
+logstream & logstream::operator = ( const logstream & unlogstream )
 // Algorithme :
 //
 {
@@ -38,37 +39,36 @@ Xxx & Xxx::operator = ( const Xxx & unXxx )
 
 
 //-------------------------------------------- Constructeurs - destructeur
-Xxx::Xxx ( const Xxx & unXxx )
+logstream::logstream ( const logstream & unlogstream )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de copie de <Xxx>" << endl;
+    cout << "Appel au constructeur de copie de <logstream>" << endl;
 #endif
-} //----- Fin de Xxx (constructeur de copie)
+} //----- Fin de logstream (constructeur de copie)
 
 
-Xxx::Xxx ( )
+logstream::logstream ( )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au constructeur de <Xxx>" << endl;
+    cout << "Appel au constructeur de <logstream>" << endl;
 #endif
-} //----- Fin de Xxx
+} //----- Fin de logstream
 
 
-Xxx::~Xxx ( )
+logstream::~logstream ( )
 // Algorithme :
 //
 {
 #ifdef MAP
-    cout << "Appel au destructeur de <Xxx>" << endl;
+    cout << "Appel au destructeur de <logstream>" << endl;
 #endif
-} //----- Fin de ~Xxx
+} //----- Fin de ~logstream
 
 
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
-

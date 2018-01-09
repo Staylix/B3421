@@ -1,17 +1,18 @@
 /*************************************************************************
-                           Xxx  -  description
+                           Manager  -  description
                              -------------------
-    début                : $DATE$
-    copyright            : (C) $YEAR$ par $AUTHOR$
-    e-mail               : $EMAIL$
+     début                : 09/01/2018
+     copyright            : (C) 2018 par B3421
+     e-mail               : safia.el-bayed@insa-lyon.fr
+                            gregoire.gentil@insa-lyon.fr
 *************************************************************************/
 
-//---------- Interface du module <Xxx> (fichier Xxx.h) -------------------
-#if ! defined ( XXX_H )
-#define XXX_H
+//---------- Interface du module <Manager> (fichier Manager.h) -------------------
+#if ! defined ( Manager_H )
+#define Manager_H
 
 //------------------------------------------------------------------------
-// Rôle du module <Xxx>
+// Rôle du module <Manager>
 //
 //
 //------------------------------------------------------------------------
@@ -31,5 +32,4 @@
 // Contrat :
 //
 
-#endif // XXX_H
-
+#endif // Manager_H

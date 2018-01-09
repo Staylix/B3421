@@ -1,14 +1,15 @@
 /*************************************************************************
-                           Xxx  -  description
+                           logstream  -  description
                              -------------------
-    début                : $DATE$
-    copyright            : (C) $YEAR$ par $AUTHOR$
-    e-mail               : $EMAIL$
+     début                : 09/01/2018
+     copyright            : (C) 2018 par B3421
+     e-mail               : safia.el-bayed@insa-lyon.fr
+                            gregoire.gentil@insa-lyon.fr
 *************************************************************************/
 
-//---------- Interface de la classe <Xxx> (fichier Xxx.h) ----------------
-#if ! defined ( XXX_H )
-#define XXX_H
+//---------- Interface de la classe <logstream> (fichier logstream.h) ----------------
+#if ! defined ( logstream_H )
+#define logstream_H
 
 //--------------------------------------------------- Interfaces utilisées
 
@@ -17,12 +18,15 @@
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Xxx>
-//
-//
+// Rôle de la classe <logstream>
+//  La classe logstream hérite de la classe ifstream
+//  Elle permet de gérer le fichier .log passé en paramètre de la commande
+//  de façon propre à la structure d'un fichier journal
+//  Cette spécificité lui permet d'être réutilisable pour manipuler
+//  ces fichiers dans d'autres applications
 //------------------------------------------------------------------------
 
-class Xxx : public Ancetre
+class logstream : public Ancetre
 {
 //----------------------------------------------------------------- PUBLIC
 
@@ -36,7 +40,7 @@ public:
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-    Xxx & operator = ( const Xxx & unXxx );
+    logstream & operator = ( const logstream & unlogstream );
     // Mode d'emploi :
     //
     // Contrat :
@@ -44,19 +48,19 @@ public:
 
 
 //-------------------------------------------- Constructeurs - destructeur
-    Xxx ( const Xxx & unXxx );
+    logstream ( const logstream & unlogstream );
     // Mode d'emploi (constructeur de copie) :
     //
     // Contrat :
     //
 
-    Xxx ( );
+    logstream ( );
     // Mode d'emploi :
     //
     // Contrat :
     //
 
-    virtual ~Xxx ( );
+    virtual ~logstream ( );
     // Mode d'emploi :
     //
     // Contrat :
@@ -71,7 +75,6 @@ protected:
 
 };
 
-//-------------------------------- Autres définitions dépendantes de <Xxx>
+//-------------------------------- Autres définitions dépendantes de <logstream>
 
-#endif // XXX_H
-
+#endif // logstream_H

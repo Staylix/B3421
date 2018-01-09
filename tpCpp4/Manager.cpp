@@ -1,18 +1,19 @@
 /*************************************************************************
-                           Xxx  -  description
+                           Manager  -  description
                              -------------------
-    début                : $DATE$
-    copyright            : (C) $YEAR$ par $AUTHOR$
-    e-mail               : $EMAIL$
+    début                : 09/01/2018
+    copyright            : (C) 2018 par B3421
+    e-mail               : safia.el-bayed@insa-lyon.fr
+                           gregoire.gentil@insa-lyon.fr
 *************************************************************************/
 
-//---------- Réalisation du module <Xxx> (fichier Xxx.cpp) ---------------
+//---------- Réalisation du module <Manager> (fichier Manager.cpp) ---------------
 
 /////////////////////////////////////////////////////////////////  INCLUDE
 //-------------------------------------------------------- Include système
 
 //------------------------------------------------------ Include personnel
-#include "Xxx.h"
+#include "Manager.h"
 
 ///////////////////////////////////////////////////////////////////  PRIVE
 //------------------------------------------------------------- Constantes
@@ -39,4 +40,3 @@ type Nom ( liste de paramètres )
 //
 {
 } //----- fin de Nom
-
