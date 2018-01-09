@@ -13,14 +13,15 @@
 
 //--------------------------------------------------- Interfaces utilisées
 #include <iostream>
+#include <fstream>
 #include <string>
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
 
-/*Structure servant à la décomposition d'une ligne du fichier journal de 
+/*Structure servant à la décomposition d'une ligne du fichier journal de
 façon à pouvoir être réutilisée par la suite.*/
-struct log{
+struct log {
 	string IP;
 	string userLog;
 	string authUser;
@@ -32,7 +33,7 @@ struct log{
 	string size;
 	string referer;
 	string client;
-}log;
+};
 
 //------------------------------------------------------------------------
 // Rôle de la classe <logstream>
@@ -49,16 +50,16 @@ class logstream : public ifstream
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    log * getLog (bool g,string nomFichier,bool e,bool t, string heure);
+    log * getLog (bool g, string nomFichier, bool e, bool t, string heure);
     // Mode d'emploi :
-    // Cette méthode permet de lire le fichier log ligne par ligne, et de 
-    // mettre son contenu dans un objet log, structure contenant un 
-    // ensemble de chaines de caractères qui correspondent aux 
+    // Cette méthode permet de lire le fichier log ligne par ligne, et de
+    // mettre son contenu dans un objet log, structure contenant un
+    // ensemble de chaines de caractères qui correspondent aux
     // données contenues dans le fichier journal (adresseIP, userLog,...).
     // Contrat :
     // Aucun.
 
-  
+
 
 
 //------------------------------------------------- Surcharge d'opérateurs

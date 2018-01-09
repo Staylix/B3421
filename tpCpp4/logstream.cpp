@@ -23,7 +23,7 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-log * logstream::getLog ()
+log * logstream::getLog (bool g, string nomFichier, bool e, bool t, string heure)
 // Algorithme :
 //
 {
