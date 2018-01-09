@@ -13,8 +13,8 @@
 
 //------------------------------------------------------------------------
 // Rôle du module <Manager>
-//
-//
+//  Ce module se charge de lancer l'application. Il contient la fonction
+//  main, point d'entrée du programme.
 //------------------------------------------------------------------------
 
 /////////////////////////////////////////////////////////////////  INCLUDE
@@ -26,10 +26,10 @@
 
 //////////////////////////////////////////////////////////////////  PUBLIC
 //---------------------------------------------------- Fonctions publiques
-// type Nom ( liste de paramètres );
+int main(int argc, char *argv[]);
 // Mode d'emploi :
-//
+//  Lance l'application.
 // Contrat :
-//
+//  Aucun.
 
 #endif // Manager_H

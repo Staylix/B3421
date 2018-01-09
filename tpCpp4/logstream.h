@@ -12,10 +12,27 @@
 #define logstream_H
 
 //--------------------------------------------------- Interfaces utilisées
-
+#include <iostream>
+#include <string>
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
+
+/*Structure servant à la décomposition d'une ligne du fichier journal de 
+façon à pouvoir être réutilisée par la suite.*/
+struct log{
+	string IP;
+	string userLog;
+	string authUser;
+	string date;
+	string queryType;
+	string queryHit;
+	string queryVersion;
+	string status;
+	string size;
+	string referer;
+	string client;
+}log;
 
 //------------------------------------------------------------------------
 // Rôle de la classe <logstream>
@@ -26,45 +43,28 @@
 //  ces fichiers dans d'autres applications
 //------------------------------------------------------------------------
 
-class logstream : public Ancetre
+class logstream : public ifstream
 {
 //----------------------------------------------------------------- PUBLIC
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste des paramètres );
+    log * getLog (bool g,string nomFichier,bool e,bool t, string heure);
     // Mode d'emploi :
-    //
+    // Cette méthode permet de lire le fichier log ligne par ligne, et de 
+    // mettre son contenu dans un objet log, structure contenant un 
+    // ensemble de chaines de caractères qui correspondent aux 
+    // données contenues dans le fichier journal (adresseIP, userLog,...).
     // Contrat :
-    //
+    // Aucun.
+
+  
 
 
 //------------------------------------------------- Surcharge d'opérateurs
-    logstream & operator = ( const logstream & unlogstream );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
 
 //-------------------------------------------- Constructeurs - destructeur
-    logstream ( const logstream & unlogstream );
-    // Mode d'emploi (constructeur de copie) :
-    //
-    // Contrat :
-    //
-
-    logstream ( );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
-
-    virtual ~logstream ( );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
 
 //------------------------------------------------------------------ PRIVE
 
