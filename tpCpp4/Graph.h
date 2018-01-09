@@ -12,6 +12,9 @@
 #define Graph_H
 
 //--------------------------------------------------- Interfaces utilisées
+#include <string>
+#include <unordered_map>
+#include <multimap>
 
 //------------------------------------------------------------- Constantes
 
@@ -19,39 +22,43 @@
 
 //------------------------------------------------------------------------
 // Rôle de la classe <Graph>
-//
+//  La classe Graph a pour rôle la gestion des structures de données
+//  Elle manipule une ordered_map pour gérer le graphe du fichier
+//  et une multimap qui permet d'accéder rapidement aux dix hit les plus
+//  importants
 //
 //------------------------------------------------------------------------
 
-class Graph : public Ancetre
+class Graph
 {
 //----------------------------------------------------------------- PUBLIC
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    // type Méthode ( liste des paramètres );
+void add(string, string);
     // Mode d'emploi :
-    //
+    //  Cette méthode permet d'ajouter un couple clé valeur au graphe
+    //  La clé est la concaténation
     // Contrat :
-    //
+    //  Aucun
 
-
-//------------------------------------------------- Surcharge d'opérateurs
-    Graph & operator = ( const Graph & unGraph );
+void createTop10();
     // Mode d'emploi :
-    //
+    //  Cette méthode permet de creer la multimap top10 après que le graphe
+    //  soit entièrement créé à partir du fichier journal
     // Contrat :
-    //
+    //  Aucun
 
+void createDotFile();
+    // Mode d'emploi :
+    //  Cette méthode permet de creer le fichier .dot utilisé par GraphViz
+    //  à partir du graphe
+    // Contrat :
+    //  Aucun
 
 //-------------------------------------------- Constructeurs - destructeur
-    Graph ( const Graph & unGraph );
-    // Mode d'emploi (constructeur de copie) :
-    //
-    // Contrat :
-    //
 
-    Graph ( );
+    Graph ();
     // Mode d'emploi :
     //
     // Contrat :
@@ -69,7 +76,8 @@ protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
-
+    unordered_map <string, int> graph;
+    multimap <int, string> top10;
 };
 
 //-------------------------------- Autres définitions dépendantes de <Graph>
