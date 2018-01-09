@@ -23,52 +23,14 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
-// type logstream::Méthode ( liste des paramètres )
+log * logstream::getLog ()
 // Algorithme :
 //
-//{
-//} //----- Fin de Méthode
-
+{
+} //----- Fin de Méthode getLog
 
 //------------------------------------------------- Surcharge d'opérateurs
-logstream & logstream::operator = ( const logstream & unlogstream )
-// Algorithme :
-//
-{
-} //----- Fin de operator =
-
-
 //-------------------------------------------- Constructeurs - destructeur
-logstream::logstream ( const logstream & unlogstream )
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de copie de <logstream>" << endl;
-#endif
-} //----- Fin de logstream (constructeur de copie)
-
-
-logstream::logstream ( )
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au constructeur de <logstream>" << endl;
-#endif
-} //----- Fin de logstream
-
-
-logstream::~logstream ( )
-// Algorithme :
-//
-{
-#ifdef MAP
-    cout << "Appel au destructeur de <logstream>" << endl;
-#endif
-} //----- Fin de ~logstream
-
-
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
