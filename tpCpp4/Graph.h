@@ -35,6 +35,7 @@ class Graph
 
 public:
 //----------------------------------------------------- Méthodes publiques
+void afficherMap();
 void add(string, string);
     // Mode d'emploi :
     //  Cette méthode permet d'ajouter un couple clé valeur au graphe
@@ -51,12 +52,13 @@ void createTop10();
     // Contrat :
     //  Aucun
 
-void createDotFile();
+void createDotFile(string);
     // Mode d'emploi :
     //  Cette méthode permet de creer le fichier .dot utilisé par GraphViz
     //  à partir du graphe
     // Contrat :
     //  Aucun
+void afficherTop10();
 
 //-------------------------------------------- Constructeurs - destructeur
 
@@ -79,8 +81,9 @@ protected:
 
 //----------------------------------------------------- Attributs protégés
     unordered_map <string, int> graph;
-    map <string,int> passage;
+    unordered_map <string,int> passage;
     multimap <int, string> top10;
+    unordered_map<string,int>registry;
     
 };
 
