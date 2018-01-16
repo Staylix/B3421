@@ -12,7 +12,6 @@
 #define logstream_H
 
 //--------------------------------------------------- Interfaces utilisées
-#include <iostream>
 #include <fstream>
 #include <string>
 //------------------------------------------------------------- Constantes
@@ -50,7 +49,7 @@ class logstream : public ifstream
 
 public:
 //----------------------------------------------------- Méthodes publiques
-    log * getLog (bool g, string nomFichier, bool e, bool t, string heure);
+    log * getLog (bool e = false, bool t = false, string heure = "");
     // Mode d'emploi :
     // Cette méthode permet de lire le fichier log ligne par ligne, et de
     // mettre son contenu dans un objet log, structure contenant un

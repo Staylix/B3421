@@ -27,8 +27,12 @@
 
 //////////////////////////////////////////////////////////////////  PUBLIC
 //---------------------------------------------------- Fonctions publiques
+
+
 int main(int argc, char *argv[])
 // Algorithme :
 //
 {
+    //test();
+    //ifstream logReader 
 } //----- fin de Nom
