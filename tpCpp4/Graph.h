@@ -1,92 +1,93 @@
 /*************************************************************************
-                           Graph  -  description
-                             -------------------
-     dÃ©but                : 09/01/2018
-     copyright            : (C) 2018 par B3421
-     e-mail               : safia.el-bayed@insa-lyon.fr
-                            gregoire.gentil@insa-lyon.fr
+Graph  -  description
+-------------------
+début                : 09/01/2018
+copyright            : (C) 2018 par B3421
+e-mail               : safia.el-bayed@insa-lyon.fr
+gregoire.gentil@insa-lyon.fr
 *************************************************************************/
 
 //---------- Interface de la classe <Graph> (fichier Graph.h) ----------------
 #if ! defined ( Graph_H )
 #define Graph_H
 
-//--------------------------------------------------- Interfaces utilisÃ©es
+//--------------------------------------------------- Interfaces utilisées
 #include <string>
 #include <unordered_map>
 #include <map>
-
+using namespace std;
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// RÃ´le de la classe <Graph>
-//  La classe Graph a pour rÃ´le la gestion des structures de donnÃ©es
-//  Elle manipule une ordered_map pour gÃ©rer le graphe du fichier
-//  et une multimap qui permet d'accÃ©der rapidement aux dix hit les plus
+// Rôle de la classe <Graph>
+//  La classe Graph a pour rôle la gestion des structures de données
+//  Elle manipule une ordered_map pour gérer le graphe du fichier
+//  et une multimap qui permet d'accéder rapidement aux dix hit les plus
 //  importants
 //
 //------------------------------------------------------------------------
 
 class Graph
 {
-//----------------------------------------------------------------- PUBLIC
+	//----------------------------------------------------------------- PUBLIC
 
 public:
-//----------------------------------------------------- MÃ©thodes publiques
-void afficherMap();
-void add(string, string);
-    // Mode d'emploi :
-    //  Cette mÃ©thode permet d'ajouter un couple clÃ© valeur au graphe
-    //  On l'ajoute au graph ainsi qu'a la map de passage
-    //  Pour graph, la clÃ© est la concatÃ©nation du referer et du hit
-    //  Pour passage, la clÃ© est le hit
-    // Contrat :
-    //  Aucun
+	//----------------------------------------------------- Méthodes publiques
+	void afficherMap();
+	void add(string referer, string hit);
+	// Mode d'emploi :
+	//  Cette méthode permet d'ajouter un couple clé valeur au graphe
+	//  On l'ajoute au graph ainsi qu'a la map de passage
+	//  Pour graph, la clé est la concaténation du referer et du hit
+	//  Pour passage, la clé est le hit
+	// Contrat :
+	//  Aucun
 
-void createTop10();
-    // Mode d'emploi :
-    //  Cette mÃ©thode permet de creer la multimap top10 aprÃ¨s que le graphe
-    //  soit entiÃ¨rement crÃ©Ã© Ã  partir du fichier journal
-    // Contrat :
-    //  Aucun
+	void createTop10();
+	// Mode d'emploi :
+	//  Cette méthode permet de creer la multimap top10 après que le graphe
+	//  soit entièrement créé à partir du fichier journal
+	// Contrat :
+	//  Aucun
 
-void createDotFile(string);
-    // Mode d'emploi :
-    //  Cette mÃ©thode permet de creer le fichier .dot utilisÃ© par GraphViz
-    //  Ã  partir du graphe
-    // Contrat :
-    //  Aucun
-void afficherTop10();
+	void createDotFile(string);
+	// Mode d'emploi :
+	//  Cette méthode permet de creer le fichier .dot utilisé par GraphViz
+	//  à partir du graphe
+	// Contrat :
+	//  Aucun
+	void afficherTop10();
 
-//-------------------------------------------- Constructeurs - destructeur
+	//-------------------------------------------- Constructeurs - destructeur
 
-    Graph ();
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+	Graph();
+	// Mode d'emploi :
+	//
+	// Contrat :
+	//
 
-    virtual ~Graph ( );
-    // Mode d'emploi :
-    //
-    // Contrat :
-    //
+	virtual ~Graph();
+	// Mode d'emploi :
+	//
+	// Contrat :
+	//
 
-//------------------------------------------------------------------ PRIVE
+	//------------------------------------------------------------------ PRIVE
 
 protected:
-//----------------------------------------------------- MÃ©thodes protÃ©gÃ©es
+	//----------------------------------------------------- Méthodes protégées
 
-//----------------------------------------------------- Attributs protÃ©gÃ©s
-    unordered_map <string, int> graph;
-    unordered_map <string,int> passage;
-    multimap <int, string> top10;
-    unordered_map<string,int>registry;
-    
+	//----------------------------------------------------- Attributs protégés
+	unordered_map <string, int> graph;
+	unordered_map <string, int> passage;
+	multimap <int, string> top10;
+	unordered_map<string, int>registry;
+
 };
 
-//-------------------------------- Autres dÃ©finitions dÃ©pendantes de <Graph>
+//-------------------------------- Autres définitions dépendantes de <Graph>
 
 #endif // Graph_H
+#pragma once
