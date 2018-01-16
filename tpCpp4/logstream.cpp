@@ -30,6 +30,7 @@ log * logstream::getLog (bool e, bool t, string heure)
 {
     string s;
     log* newLog;
+    string localhost = "http://intranet-if.insa-lyon.fr";
     //string s = "192.168.0.0 - - [08/Sep/2012:11:16:02 +0200] \"GET /temps/4IF16.html HTTP/1.1\" 200 12106 \"http://intranet-if.insa-lyon.fr/temps/4IF15.html\" \"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:14.0) Gecko/20100101 Firefox/14.0.1\""
     if (std::getline(*this, s))
     {
@@ -41,8 +42,10 @@ log * logstream::getLog (bool e, bool t, string heure)
         cout << newLog->userLog << endl;
         std::getline(sLine, newLog->authUser, ' ');
         cout << newLog->authUser << endl;
-        std::getline(sLine, newLog->date, ' ');
+        sLine.get();
+        std::getline(sLine, newLog->date, ']');
         cout << newLog->date << endl;
+        sLine.get();
         sLine.get();
         std::getline(sLine, newLog->queryType, ' ');
         cout << newLog->queryType << endl;
@@ -57,6 +60,10 @@ log * logstream::getLog (bool e, bool t, string heure)
         cout << newLog->size << endl;
         sLine.get();
         std::getline(sLine, newLog->referer, '\"');
+        if (newLog->referer.find(localhost) != string::npos)
+        {
+            newLog->referer = newLog->referer.substr(localhost.length());
+        }
         cout << newLog->referer << endl;
         sLine.get();
         sLine.get();

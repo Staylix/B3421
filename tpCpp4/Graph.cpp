@@ -1,17 +1,17 @@
 /*************************************************************************
 Graph  -  description
 -------------------
-début                : 09/01/2018
+dï¿½but                : 09/01/2018
 copyright            : (C) 2018 par B3421
 e-mail               : safia.el-bayed@insa-lyon.fr
 gregoire.gentil@insa-lyon.fr
 *************************************************************************/
 
-//---------- Réalisation de la classe <Graph> (fichier Graph.cpp) ------------
+//---------- Rï¿½alisation de la classe <Graph> (fichier Graph.cpp) ------------
 
 //---------------------------------------------------------------- INCLUDE
 
-//-------------------------------------------------------- Include système
+//-------------------------------------------------------- Include systï¿½me
 using namespace std;
 #include <iostream>
 #include <fstream>
@@ -24,12 +24,12 @@ using namespace std;
 
 //----------------------------------------------------------------- PUBLIC
 
-//----------------------------------------------------- Méthodes publiques
-// type Graph::Méthode ( liste des paramètres )
+//----------------------------------------------------- Mï¿½thodes publiques
+// type Graph::Mï¿½thode ( liste des paramï¿½tres )
 // Algorithme :
 //
 //{
-//} //----- Fin de Méthode
+//} //----- Fin de Mï¿½thode
 
 void Graph::afficherMap()
 {
@@ -89,20 +89,24 @@ void Graph::createDotFile(string nomFichier)
 	}
 	for (unordered_map<string, int>::iterator it = graph.begin(); it != graph.end(); ++it)
 	{
-		stringstream  s(it->first);
+		stringstream s(it->first);
 		string hit;
 		string referer;
 		getline(s, referer, ' ');
-		getline(s, hit, ' ');
+		getline(s, hit);
 		int indexRef = registry[referer];
 		int indexHit = registry[hit];
-		string aecrire = "node" + indexRef;
-		aecrire += " -> node" + indexHit;
-		aecrire += " [label=\"" + it->second;
+		string aecrire = "node";
+		aecrire += to_string(indexRef);
+		aecrire += " -> node";
+		aecrire += to_string(indexHit);
+		aecrire += " [label=\"";
+		aecrire += to_string(it->second);
 		aecrire+="\"];\n";
-		dot<<aecrire;
+		dot << aecrire;
 	}
 	dot.write("}",1);
+	dot.close();
 }
 
 void Graph::afficherTop10()
@@ -139,4 +143,4 @@ Graph::~Graph()
 
   //------------------------------------------------------------------ PRIVE
 
-  //----------------------------------------------------- Méthodes protégées
+  //----------------------------------------------------- Mï¿½thodes protï¿½gï¿½es

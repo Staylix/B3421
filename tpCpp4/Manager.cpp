@@ -11,9 +11,12 @@
 
 /////////////////////////////////////////////////////////////////  INCLUDE
 //-------------------------------------------------------- Include système
-
+using namespace std;
+#include <string>
 //------------------------------------------------------ Include personnel
 #include "Manager.h"
+#include "logstream.h"
+#include "Graph.h"
 
 ///////////////////////////////////////////////////////////////////  PRIVE
 //------------------------------------------------------------- Constantes
@@ -33,6 +36,20 @@ int main(int argc, char *argv[])
 // Algorithme :
 //
 {
-    //test();
-    //ifstream logReader 
+    logstream logReader;
+    logReader.open("anonyme.log");
+
+    Graph g;
+
+    int i = 0;
+    while (i<20)
+    {
+        i++;
+        log tempLog = *logReader.getLog();
+        g.add(tempLog.referer, tempLog.queryHit);
+    }
+    g.createTop10();
+    g.createDotFile("Fichier.dot");
+    g.afficherMap();
+
 } //----- fin de Nom

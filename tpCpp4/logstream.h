@@ -12,6 +12,7 @@
 #define logstream_H
 
 //--------------------------------------------------- Interfaces utilisées
+using namespace std;
 #include <fstream>
 #include <string>
 //------------------------------------------------------------- Constantes
