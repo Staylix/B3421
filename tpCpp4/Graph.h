@@ -38,7 +38,9 @@ public:
 void add(string, string);
     // Mode d'emploi :
     //  Cette méthode permet d'ajouter un couple clé valeur au graphe
-    //  La clé est la concaténation
+    //  On l'ajoute au graph ainsi qu'a la map de passage
+    //  Pour graph, la clé est la concaténation du referer et du hit
+    //  Pour passage, la clé est le hit
     // Contrat :
     //  Aucun
 
@@ -77,7 +79,9 @@ protected:
 
 //----------------------------------------------------- Attributs protégés
     unordered_map <string, int> graph;
+    map <string,int> passage;
     multimap <int, string> top10;
+    
 };
 
 //-------------------------------- Autres définitions dépendantes de <Graph>
