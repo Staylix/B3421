@@ -15,7 +15,6 @@
 using namespace std;
 #include <fstream>
 #include <string>
-#include <vector>
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
@@ -60,7 +59,7 @@ public:
     // Contrat :
     // Aucun.
 
-	bool isImage(string hit);
+
 
 
 //------------------------------------------------- Surcharge d'opérateurs
@@ -68,16 +67,12 @@ public:
 
 //-------------------------------------------- Constructeurs - destructeur
 
-	logstream();
-
 //------------------------------------------------------------------ PRIVE
 
 protected:
 //----------------------------------------------------- Méthodes protégées
 
 //----------------------------------------------------- Attributs protégés
-
-	vector<string> imageExt;
 
 };
 

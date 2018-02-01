@@ -60,7 +60,7 @@ int main(int argc, char *argv[])
     test();
 
 // -------------------------- Initialisations
-    string logFile;//string pour récupérer le nom du fichier
+    string logFile;
     logstream logReader;
     Graph instGraph;
 
@@ -71,7 +71,7 @@ int main(int argc, char *argv[])
     }
     else
     {
-        cerr << "Not enough argument" << endl;
+        cerr << "No enough argument" << endl;
     }
 
 
@@ -124,10 +124,7 @@ int main(int argc, char *argv[])
         while (!logReader.eof())
         {
             log tempLog = *logReader.getLog();   // !!!!! Problème de pointeur !
-            if (tempLog.queryType == "GET")
-            {
-				instGraph.add(tempLog.referer, tempLog.queryHit);    // Ajouter les paramètres t et e !!!!!
-			}
+            instGraph.add(tempLog.referer, tempLog.queryHit);    // Ajouter les paramètres t et e !!!!!
         }
     }
     else

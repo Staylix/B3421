@@ -63,7 +63,6 @@ void Graph::add(string ref, string hit)
 	{
 		passage[hit] = passage[hit] + 1;
 	}
-	passage.insert(make_pair(ref, 0));
 }
 
 
