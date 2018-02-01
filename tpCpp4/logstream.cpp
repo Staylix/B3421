@@ -15,6 +15,7 @@
 using namespace std;
 #include <iostream>
 #include <sstream>
+#include <vector>
 
 //------------------------------------------------------ Include personnel
 #include "logstream.h"
@@ -34,7 +35,7 @@ log * logstream::getLog (bool e, bool t, string heure)
     //string s = "192.168.0.0 - - [08/Sep/2012:11:16:02 +0200] \"GET /temps/4IF16.html HTTP/1.1\" 200 12106 \"http://intranet-if.insa-lyon.fr/temps/4IF15.html\" \"Mozilla/5.0 (Windows NT 6.1; WOW64; rv:14.0) Gecko/20100101 Firefox/14.0.1\""
     if (std::getline(*this, s))
     {
-        newLog = new log;
+        newLog = new log;								// cout à supprimer !!!!!!!!!
         stringstream sLine(s);
         std::getline(sLine, newLog->IP, ' ');
         cout << newLog->IP << endl;
@@ -75,8 +76,15 @@ log * logstream::getLog (bool e, bool t, string heure)
     {
         newLog = nullptr;
     }
-
-    return newLog;
+    
+    if (e && isImage(newLog->queryHit))
+	{
+		newLog = this->getLog(e, t, heure);
+	}
+		
+	//else if (t)
+	
+	return newLog;
 
 
 
@@ -84,6 +92,25 @@ log * logstream::getLog (bool e, bool t, string heure)
 
 //------------------------------------------------- Surcharge d'opérateurs
 //-------------------------------------------- Constructeurs - destructeur
+	logstream::logstream()
+	{
+		ifstream();
+		imageExt.push_back("js")
+		imageExt.push_back("css")
+		imageExt.push_back("png")
+		imageExt.push_back("jpg")
+		imageExt.push_back("gif")
+		imageExt.push_back("svg");
+	}
+
+
 //------------------------------------------------------------------ PRIVE
 
 //----------------------------------------------------- Méthodes protégées
+
+bool logstream::isImage(string hit)
+{
+	string ext = hit.substr(hit.find_last_of('.')); //ce qu'il ya apres le dernier point donc lextension
+	return (find(imageExt.begin(), imageExt.end(), ext) != imageExt.end()); //est ce qu'on la trouve ou on est arrive au end 
+}
+
