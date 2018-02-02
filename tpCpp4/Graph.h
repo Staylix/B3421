@@ -1,7 +1,7 @@
 /*************************************************************************
 Graph  -  description
 -------------------
-début                : 09/01/2018
+dï¿½but                : 09/01/2018
 copyright            : (C) 2018 par B3421
 e-mail               : safia.el-bayed@insa-lyon.fr
 gregoire.gentil@insa-lyon.fr
@@ -11,7 +11,7 @@ gregoire.gentil@insa-lyon.fr
 #if ! defined ( Graph_H )
 #define Graph_H
 
-//--------------------------------------------------- Interfaces utilisées
+//--------------------------------------------------- Interfaces utilisï¿½es
 #include <string>
 #include <unordered_map>
 #include <map>
@@ -21,10 +21,10 @@ using namespace std;
 //------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
-// Rôle de la classe <Graph>
-//  La classe Graph a pour rôle la gestion des structures de données
-//  Elle manipule une ordered_map pour gérer le graphe du fichier
-//  et une multimap qui permet d'accéder rapidement aux dix hit les plus
+// Rï¿½le de la classe <Graph>
+//  La classe Graph a pour rï¿½le la gestion des structures de donnï¿½es
+//  Elle manipule une ordered_map pour gï¿½rer le graphe du fichier
+//  et une multimap qui permet d'accï¿½der rapidement aux dix hit les plus
 //  importants
 //
 //------------------------------------------------------------------------
@@ -34,29 +34,29 @@ class Graph
 	//----------------------------------------------------------------- PUBLIC
 
 public:
-	//----------------------------------------------------- Méthodes publiques
+	//----------------------------------------------------- Mï¿½thodes publiques
 	void afficherMap();
 	void addTop10(string ref, string hit);
 	void addGraph(string referer, string hit);
 	// Mode d'emploi :
-	//  Cette méthode permet d'ajouter un couple clé valeur au graphe
+	//  Cette mï¿½thode permet d'ajouter un couple clï¿½ valeur au graphe
 	//  On l'ajoute au graph ainsi qu'a la map de passage
-	//  Pour graph, la clé est la concaténation du referer et du hit
-	//  Pour passage, la clé est le hit
+	//  Pour graph, la clï¿½ est la concatï¿½nation du referer et du hit
+	//  Pour passage, la clï¿½ est le hit
 	// Contrat :
 	//  Aucun
 
 	void createTop10();
 	// Mode d'emploi :
-	//  Cette méthode permet de creer la multimap top10 après que le graphe
-	//  soit entièrement créé à partir du fichier journal
+	//  Cette mï¿½thode permet de creer la multimap top10 aprï¿½s que le graphe
+	//  soit entiï¿½rement crï¿½ï¿½ ï¿½ partir du fichier journal
 	// Contrat :
 	//  Aucun
 
-	void createDotFile(string);
+	bool createDotFile(string);
 	// Mode d'emploi :
-	//  Cette méthode permet de creer le fichier .dot utilisé par GraphViz
-	//  à partir du graphe
+	//  Cette mï¿½thode permet de creer le fichier .dot utilisï¿½ par GraphViz
+	//  ï¿½ partir du graphe
 	// Contrat :
 	//  Aucun
 	void afficherTop10();
@@ -78,9 +78,9 @@ public:
 	//------------------------------------------------------------------ PRIVE
 
 protected:
-	//----------------------------------------------------- Méthodes protégées
+	//----------------------------------------------------- Mï¿½thodes protï¿½gï¿½es
 
-	//----------------------------------------------------- Attributs protégés
+	//----------------------------------------------------- Attributs protï¿½gï¿½s
 	unordered_map <string, int> graph;
 	unordered_map <string, int> passage;
 	multimap <int, string> top10;
@@ -88,7 +88,7 @@ protected:
 
 };
 
-//-------------------------------- Autres définitions dépendantes de <Graph>
+//-------------------------------- Autres dï¿½finitions dï¿½pendantes de <Graph>
 
 #endif // Graph_H
 #pragma once

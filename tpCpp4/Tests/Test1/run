@@ -1,1 +1,1 @@
-cat fichier.txt >sortie.txt
+./analog -g fic/hierS.dot fichier.txt >sortie.txt

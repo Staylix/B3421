@@ -79,38 +79,47 @@ void Graph::createTop10()
 }
 
 //Création du fichier dot
-void Graph::createDotFile(string nomFichier)
+bool Graph::createDotFile(string nomFichier)
 {
 	ofstream dot;
 	dot.open(nomFichier, std::ofstream::out | std::ofstream::trunc);
-	int i = 0;
-	dot << "digraph {\n";
-	for (unordered_map<string, int>::iterator it = passage.begin(); it != passage.end(); ++it)
+	if (dot)
 	{
-		dot << "node" << i << " [label=\"" << it->first << "\"];\n";
-		registry.insert(make_pair(it->first, i));
-		++i;
+		int i = 0;
+		dot << "digraph {\n";
+		for (unordered_map<string, int>::iterator it = passage.begin(); it != passage.end(); ++it)
+		{
+			dot << "node" << i << " [label=\"" << it->first << "\"];\n";
+			registry.insert(make_pair(it->first, i));
+			++i;
+		}
+		for (unordered_map<string, int>::iterator it = graph.begin(); it != graph.end(); ++it)
+		{
+			stringstream s(it->first);
+			string hit;
+			string referer;
+			getline(s, referer, ' ');
+			getline(s, hit);
+			int indexRef = registry[referer];
+			int indexHit = registry[hit];
+			string aecrire = "node";
+			aecrire += to_string(indexRef);
+			aecrire += " -> node";
+			aecrire += to_string(indexHit);
+			aecrire += " [label=\"";
+			aecrire += to_string(it->second);
+			aecrire += "\"];\n";
+			dot << aecrire;
+		}
+		dot.write("}", 1);
+		dot.close();
+		return true;
 	}
-	for (unordered_map<string, int>::iterator it = graph.begin(); it != graph.end(); ++it)
+	else
 	{
-		stringstream s(it->first);
-		string hit;
-		string referer;
-		getline(s, referer, ' ');
-		getline(s, hit);
-		int indexRef = registry[referer];
-		int indexHit = registry[hit];
-		string aecrire = "node";
-		aecrire += to_string(indexRef);
-		aecrire += " -> node";
-		aecrire += to_string(indexHit);
-		aecrire += " [label=\"";
-		aecrire += to_string(it->second);
-		aecrire += "\"];\n";
-		dot << aecrire;
+		return false;
 	}
-	dot.write("}", 1);
-	dot.close();
+
 }
 
 //Affichage du top10
