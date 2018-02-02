@@ -1,27 +1,40 @@
 /*************************************************************************
-                           logstream  -  description
-                             -------------------
-     dÃ©but                : 09/01/2018
-     copyright            : (C) 2018 par B3421
-     e-mail               : safia.el-bayed@insa-lyon.fr
-                            gregoire.gentil@insa-lyon.fr
+logstream  -  description
+-------------------
+début                : 09/01/2018
+copyright            : (C) 2018 par B3421
+e-mail               : safia.el-bayed@insa-lyon.fr
+gregoire.gentil@insa-lyon.fr
 *************************************************************************/
 
 //---------- Interface de la classe <logstream> (fichier logstream.h) ----------------
 #if ! defined ( logstream_H )
 #define logstream_H
 
-//--------------------------------------------------- Interfaces utilisÃ©es
+//--------------------------------------------------- Interfaces utilisées
 using namespace std;
 #include <fstream>
 #include <string>
+#include <vector>
+#include <algorithm>
 //------------------------------------------------------------- Constantes
 
 //------------------------------------------------------------------ Types
 
-/*Structure servant Ã  la dÃ©composition d'une ligne du fichier journal de
-faÃ§on Ã  pouvoir Ãªtre rÃ©utilisÃ©e par la suite.*/
-struct log {
+/*Structure servant à la décomposition d'une ligne du fichier journal de
+façon à pouvoir être réutilisée par la suite.*/
+
+
+//------------------------------------------------------------------------
+// Rôle de la classe <logstream>
+//  La classe logstream hérite de la classe ifstream
+//  Elle permet de gérer le fichier .log passé en paramètre de la commande
+//  de façon propre à la structure d'un fichier journal
+//  Cette spécificité lui permet d'être réutilisable pour manipuler
+//  ces fichiers dans d'autres applications
+//------------------------------------------------------------------------
+
+typedef struct {
 	string IP;
 	string userLog;
 	string authUser;
@@ -33,49 +46,47 @@ struct log {
 	string size;
 	string referer;
 	string client;
-};
-
-//------------------------------------------------------------------------
-// RÃ´le de la classe <logstream>
-//  La classe logstream hÃ©rite de la classe ifstream
-//  Elle permet de gÃ©rer le fichier .log passÃ© en paramÃ¨tre de la commande
-//  de faÃ§on propre Ã  la structure d'un fichier journal
-//  Cette spÃ©cificitÃ© lui permet d'Ãªtre rÃ©utilisable pour manipuler
-//  ces fichiers dans d'autres applications
-//------------------------------------------------------------------------
+} logElement;
 
 class logstream : public ifstream
 {
-//----------------------------------------------------------------- PUBLIC
+
+	//----------------------------------------------------------------- PUBLIC
 
 public:
-//----------------------------------------------------- MÃ©thodes publiques
-    log * getLog (bool e = false, bool t = false, string heure = "");
-    // Mode d'emploi :
-    // Cette mÃ©thode permet de lire le fichier log ligne par ligne, et de
-    // mettre son contenu dans un objet log, structure contenant un
-    // ensemble de chaines de caractÃ¨res qui correspondent aux
-    // donnÃ©es contenues dans le fichier journal (adresseIP, userLog,...).
-    // Contrat :
-    // Aucun.
+	//----------------------------------------------------- Méthodes publiques
+	logElement * getLog(bool e = false, bool t = false, string heure = "");
+	// Mode d'emploi :
+	// Cette méthode permet de lire le fichier log ligne par ligne, et de
+	// mettre son contenu dans un objet log, structure contenant un
+	// ensemble de chaines de caractères qui correspondent aux
+	// données contenues dans le fichier journal (adresseIP, userLog,...).
+	// Contrat :
+	// Aucun.
+
+	bool isImage(string hit);
+	bool isOnTime(string date, string heure);
+
+	//------------------------------------------------- Surcharge d'opérateurs
 
 
+	//-------------------------------------------- Constructeurs - destructeur
 
+	logstream();
 
-//------------------------------------------------- Surcharge d'opÃ©rateurs
-
-
-//-------------------------------------------- Constructeurs - destructeur
-
-//------------------------------------------------------------------ PRIVE
+	//------------------------------------------------------------------ PRIVE
 
 protected:
-//----------------------------------------------------- MÃ©thodes protÃ©gÃ©es
+	//----------------------------------------------------- Méthodes protégées
 
-//----------------------------------------------------- Attributs protÃ©gÃ©s
+	//----------------------------------------------------- Attributs protégés
+
+	vector<string> imageExt;
 
 };
 
-//-------------------------------- Autres dÃ©finitions dÃ©pendantes de <logstream>
+
+
+//-------------------------------- Autres définitions dépendantes de <logstream>
 
 #endif // logstream_H

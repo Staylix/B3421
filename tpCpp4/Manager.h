@@ -1,10 +1,10 @@
 /*************************************************************************
-                           Manager  -  description
-                             -------------------
-     dÃ©but                : 09/01/2018
-     copyright            : (C) 2018 par B3421
-     e-mail               : safia.el-bayed@insa-lyon.fr
-                            gregoire.gentil@insa-lyon.fr
+Manager  -  description
+-------------------
+début                : 09/01/2018
+copyright            : (C) 2018 par B3421
+e-mail               : safia.el-bayed@insa-lyon.fr
+gregoire.gentil@insa-lyon.fr
 *************************************************************************/
 
 //---------- Interface du module <Manager> (fichier Manager.h) -------------------
@@ -12,13 +12,13 @@
 #define Manager_H
 
 //------------------------------------------------------------------------
-// RÃ´le du module <Manager>
+// Rôle du module <Manager>
 //  Ce module se charge de lancer l'application. Il contient la fonction
-//  main, point d'entrÃ©e du programme.
+//  main, point d'entrée du programme.
 //------------------------------------------------------------------------
 
 /////////////////////////////////////////////////////////////////  INCLUDE
-//--------------------------------------------------- Interfaces utilisÃ©es
+//--------------------------------------------------- Interfaces utilisées
 using namespace std;
 
 //------------------------------------------------------------- Constantes

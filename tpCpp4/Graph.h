@@ -36,7 +36,8 @@ class Graph
 public:
 	//----------------------------------------------------- Méthodes publiques
 	void afficherMap();
-	void add(string referer, string hit);
+	void addTop10(string ref, string hit);
+	void addGraph(string referer, string hit);
 	// Mode d'emploi :
 	//  Cette méthode permet d'ajouter un couple clé valeur au graphe
 	//  On l'ajoute au graph ainsi qu'a la map de passage

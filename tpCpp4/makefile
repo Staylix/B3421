@@ -4,7 +4,7 @@ DIROBJ = ./
 DIRBIN = ./
 DIRHEADERS = ./
 
-TARGET = a.out
+TARGET = analog
 
 #--------------- Linux commands
 MKDIR = @mkdir -p

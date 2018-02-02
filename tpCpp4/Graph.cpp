@@ -1,4 +1,4 @@
-/*************************************************************************
+﻿/*************************************************************************
 Graph  -  description
 -------------------
 d�but                : 09/01/2018
@@ -38,12 +38,12 @@ void Graph::afficherMap()
 	{
 		cout << "( " << it->first << " , " << it->second << " ) " << endl;
 	}
-	cout << "Voici la unordered_map passage : "<<endl;
+	cout << "Voici la unordered_map passage : " << endl;
 	for (unordered_map<string, int>::iterator i = passage.begin(); i != passage.end(); ++i)
 	{
 		cout << "( " << i->first << " , " << i->second << " ) " << endl;
 	}
-	cout << "Voici la multimap top10 : "<<endl;
+	cout << "Voici la multimap top10 : " << endl;
 	for (multimap<int, string>::iterator ite = top10.begin(); ite != top10.end(); ++ite)
 	{
 		cout << "( " << ite->second << " , " << ite->first << " ) " << endl;
@@ -51,21 +51,25 @@ void Graph::afficherMap()
 
 }
 
-void Graph::add(string ref, string hit)
+//Structure de données pour le graphe
+void Graph::addGraph(string ref, string hit)
 {
 	pair<unordered_map<string, int>::iterator, bool>  retour = graph.insert(make_pair(ref + " " + hit, 1));
 	if (!retour.second)
 	{
 		graph[ref + " " + hit] = graph[ref + " " + hit] + 1;
 	}
-	retour = passage.insert(make_pair(hit, 1));
+}
+//Structure de données de passage pour le top10
+void Graph::addTop10(string ref, string hit) {
+	pair<unordered_map<string, int>::iterator, bool>  retour=passage.insert(make_pair(hit, 1));
 	if (!retour.second)
 	{
 		passage[hit] = passage[hit] + 1;
 	}
+	passage.insert(make_pair(ref, 0));
 }
-
-
+//Structure finale du top10
 void Graph::createTop10()
 {
 	for (unordered_map<string, int>::iterator it = passage.begin(); it != passage.end(); ++it)
@@ -74,7 +78,7 @@ void Graph::createTop10()
 	}
 }
 
-
+//Création du fichier dot
 void Graph::createDotFile(string nomFichier)
 {
 	ofstream dot;
@@ -83,7 +87,7 @@ void Graph::createDotFile(string nomFichier)
 	dot << "digraph {\n";
 	for (unordered_map<string, int>::iterator it = passage.begin(); it != passage.end(); ++it)
 	{
-		dot<<"node" << i << " [label=\"" << it->first << "\"];\n";
+		dot << "node" << i << " [label=\"" << it->first << "\"];\n";
 		registry.insert(make_pair(it->first, i));
 		++i;
 	}
@@ -102,17 +106,18 @@ void Graph::createDotFile(string nomFichier)
 		aecrire += to_string(indexHit);
 		aecrire += " [label=\"";
 		aecrire += to_string(it->second);
-		aecrire+="\"];\n";
+		aecrire += "\"];\n";
 		dot << aecrire;
 	}
-	dot.write("}",1);
+	dot.write("}", 1);
 	dot.close();
 }
 
+//Affichage du top10
 void Graph::afficherTop10()
 {
 	int compteur = 0;
-	for (multimap<int, string>::reverse_iterator it = top10.rbegin(); it != top10.rend() || compteur == 10; --it, ++compteur)
+	for (multimap<int, string>::reverse_iterator it = top10.rbegin(); it != top10.rend() && compteur< 10; ++it, ++compteur)
 	{
 		cout << it->second << " (" << it->first << " hits)" << endl;
 	}
