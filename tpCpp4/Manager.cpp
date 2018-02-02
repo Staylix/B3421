@@ -66,12 +66,13 @@ int main(int argc, char *argv[])
 	bool g = false;
 	bool e = false;
 	bool t = false;
+	int heureToInt;
 	string heure;//heure si choix de l'option
 	string dotFile;//nom du fichier dotfile si choix de l'option
 
 	if (argc < 2 || argc >7) // Si le nombre d'arguments est faux-->commande focement fausse
 	{
-		cerr << "Not enough argument" << endl;
+		cerr << "Incorrect number of arguments." << endl;
 		return 1;
 	}
 	else // On traite la commande
@@ -94,7 +95,7 @@ int main(int argc, char *argv[])
 	for (int i = 1; i < argc - 1; ++i)
 	{
 		string temp = argv[i];
-		if (temp == "-g")
+		if (temp == "-g" && !g)
 		{
 			
 			g = true;
@@ -113,31 +114,32 @@ int main(int argc, char *argv[])
 				return 1;
 			}
 		}
-		else if (temp == "-e")
+		else if (temp == "-e" && !e)
 		{
 			e = true;
-			cout << "Warning : images, css and javascript files have been ignored." << endl;
+			
 		}
-		else if (temp == "-t")
+		else if (temp == "-t" && !t)
 		{
 			t = true;
 			if (argc > i + 2)   // il y'a une heure suivie par au moins un argument
 			{
 				heure = argv[++i];
 				if (heure.length()==1 && int( heure.at(0))>=48 && int(heure.at(0))<=57) {
-					int heureToInt = stoi(heure);
-					cout << " Warning : only hits between " << heureToInt << "h and " << heureToInt + 1 << "h have been taken into account." << endl;
+					 heureToInt= stoi(heure);
+					
 				}
 				else if (heure.length() == 2 && int(heure.at(0)) >= 48 && int(heure.at(0)) <= 57 && int(heure.at(1)) >= 48 && int(heure.at(1)) <= 57) {
-					int heureToInt = stoi(heure);
+					heureToInt = stoi(heure);
 					if (heureToInt>23 || heureToInt <0) {
 						cerr << "An hour must be between 0 and 23." << endl;
 						return 1;
 					}
-					cout << " Warning : only hits between " << heureToInt << "h and " << heureToInt + 1 << "h have been taken into account." << endl;
+					
 				}
 				else {
 					cout << "Invalid hour format." << endl;
+					return 1;
 				}
 			}
 			else
@@ -146,6 +148,7 @@ int main(int argc, char *argv[])
 				return 1;
 			}
 		}
+		
 		else {
 			cerr << "Bad option" << endl;
 			return 1;
@@ -157,6 +160,12 @@ int main(int argc, char *argv[])
 
 	if (g) {
 		cout << "Dot-file " << dotFile << " generated." << endl;
+	}
+	if(t) {
+		cout << " Warning : only hits between " << heureToInt << "h and " << heureToInt + 1 << "h have been taken into account." << endl;
+	}
+	if (e) {
+		cout << "Warning : images, css and javascript files have been ignored." << endl;
 	}
 		while (!logReader.eof())
 		{
