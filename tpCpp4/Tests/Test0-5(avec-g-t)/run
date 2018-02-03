@@ -1,0 +1,1 @@
+../../analog -t 10 -g court.dot court.log

@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
 	if (argc < 2 || argc >7) // Si le nombre d'arguments est faux-->commande focement fausse
 	{
 		cerr << "Incorrect number of arguments." << endl;
-		return 1;
+		return 3;
 	}
 	else // On traite la commande
 	{
@@ -85,8 +85,8 @@ int main(int argc, char *argv[])
 		}
 		else if (logFile.length() >= 4 && logFile.substr(logFile.length() - 4).compare(".log")  && logFile.substr(logFile.length() - 4).compare(".txt"))
 		{
-			cerr << "The log file specified must be a .log or a .txt file" << endl;
-			return 1;
+			cerr << "The log file specified must be a .log or a .txt file." << endl;
+			return 5;
 		}
 		logReader.open(logFile);
 	}
@@ -111,18 +111,18 @@ int main(int argc, char *argv[])
 					if (!(dotFile.find_first_of('/') == string::npos && dotFile.find_first_of('\\') == string::npos && dotFile.find_first_of(':') == string::npos && dotFile.find_first_of('?') == string::npos && dotFile.find_first_of('>') == string::npos && dotFile.find_first_of('<') == string::npos && dotFile.find_first_of('|') == string::npos && dotFile.find_first_of('"') == string::npos))
 					{
 						cerr << "Invalid character in the dot file name." << endl;
-						return 1;
+						return 2;
 					}
 					else if (dotFile.find_last_of(".dot")!= (dotFile.length()-1))
 					{
 						cerr << "The dotfile specified must be a .dot" << endl;
-						return 1;
+						return 6;
 					}
 				}
 				else
 				{
-					cerr << "Dot File unspecified" << endl;
-					return 1;
+					cerr << "Dot File unspecified." << endl;
+					return 10;
 				}
 			}
 			else if (temp == "-e" && !e)
@@ -146,27 +146,27 @@ int main(int argc, char *argv[])
 						if (heureToInt>23 || heureToInt <0)
 						{
 							cerr << "An hour must be between 0 and 23." << endl;
-							return 1;
+							return 7;
 						}
 
 					}
 					else
 					{
 						cout << "Invalid hour format." << endl;
-						return 1;
+						return 8;
 					}
 				}
 				else
 				{
 					cerr << "The hour was not specified after the -t option." << endl;
-					return 1;
+					return 11;
 				}
 			}
 
 			else
 			{
-				cerr << "Bad option" << endl;
-				return 1;
+				cerr << "Incorrect option." << endl;
+				return 4;
 			}
 		}
 
@@ -180,6 +180,10 @@ int main(int argc, char *argv[])
 		if (e)
 		{
 			cout << "Warning : images, css and javascript files have been ignored." << endl;
+		}
+		if (logReader.eof()) {
+			cerr << "The log file is empty." << endl;
+			return 13;
 		}
 
 		while (!logReader.eof())
@@ -199,7 +203,7 @@ int main(int argc, char *argv[])
 	else
 	{
 		cerr << "An error occured while trying to read your file, please make sure your file exists and is accessible." << endl;
-		return 1;
+		return 9;
 	}
 
 
@@ -215,8 +219,8 @@ int main(int argc, char *argv[])
 		}
 		else
 		{
-			cerr << "Error during dot file creation" << endl;
-			return 1;
+			cerr << "Error during dot file creation." << endl;
+			return 12;
 		}
 	}
 

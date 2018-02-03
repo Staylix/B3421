@@ -1,0 +1,1 @@
+The hour was not specified after the -t option.
