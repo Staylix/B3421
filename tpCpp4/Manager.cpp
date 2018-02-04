@@ -115,7 +115,7 @@ int main(int argc, char *argv[])
 					}
 					else if (dotFile.find_last_of(".dot")!= (dotFile.length()-1))
 					{
-						cerr << "The dotfile specified must be a .dot" << endl;
+						cerr << "The dotfile specified must be a .dot." << endl;
 						return 6;
 					}
 				}
