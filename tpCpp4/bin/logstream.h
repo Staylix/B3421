@@ -23,17 +23,6 @@ using namespace std;
 
 /*Structure servant à la décomposition d'une ligne du fichier journal de
 façon à pouvoir être réutilisée par la suite.*/
-
-
-//------------------------------------------------------------------------
-// Rôle de la classe <logstream>
-//  La classe logstream hérite de la classe ifstream
-//  Elle permet de gérer le fichier .log passé en paramètre de la commande
-//  de façon propre à la structure d'un fichier journal
-//  Cette spécificité lui permet d'être réutilisable pour manipuler
-//  ces fichiers dans d'autres applications
-//------------------------------------------------------------------------
-
 typedef struct {
 	string IP;
 	string userLog;
@@ -48,6 +37,15 @@ typedef struct {
 	string client;
 } logElement;
 
+//------------------------------------------------------------------------
+// Rôle de la classe <logstream>
+//  La classe logstream hérite de la classe ifstream
+//  Elle permet de gérer le fichier .log passé en paramètre de la commande
+//  de façon propre à la structure d'un fichier journal.
+//  Cette spécificité lui permet d'être réutilisable pour manipuler
+//  ces fichiers dans d'autres applications.
+//------------------------------------------------------------------------
+
 class logstream : public ifstream
 {
 
@@ -61,11 +59,29 @@ public:
 	// mettre son contenu dans un objet log, structure contenant un
 	// ensemble de chaines de caractères qui correspondent aux
 	// données contenues dans le fichier journal (adresseIP, userLog,...).
+	// Elle peut filtrer les résultats selon les options choisie par l'utilisateur.
+	// Si la ligne lue ne correspond pas aux filtres, la méthode retourne un
+	// nullptr.
 	// Contrat :
 	// Aucun.
 
 	bool isImage(string hit);
+	// Mode d'emploi :
+	// Cette méthode permet de dire si l'extension du nom de document
+	// fourni en paramètre correspond à une des extensions contenues dans
+	// le tableau de chaines de caracètres imageExt (attribut de la classe
+	// logstream).
+	// Retourne vrai si c'est bien le cas, faux sinon.
+	// Contrat :
+	// Aucun.
+	
 	bool isOnTime(string date, string heure);
+	// Mode d'emploi :
+	// Cette méthode permet de dire si l'heure de la date donnée en premier
+	// paramètre est bien égale à l'heure donnée en deuxième paramètre.
+	// Retourne vrai si c'est bien le cas, faux sinon.
+	// Contrat :
+	// Aucun.
 
 	//------------------------------------------------- Surcharge d'opérateurs
 
@@ -73,15 +89,22 @@ public:
 	//-------------------------------------------- Constructeurs - destructeur
 
 	logstream();
+	// Mode d'emploi :
+	// Le constructeur fait appel au constructeur de la classe ifstream.
+	// Puis, il initialise le tableau de chaines de caractères imageExt 
+	// avec les extensions à éliminer lorsque l'option -e est sélectionnée.
+	// Contrat :
+	// Aucun.
 
 	//------------------------------------------------------------------ PRIVE
 
 protected:
 	//----------------------------------------------------- Méthodes protégées
-
 	//----------------------------------------------------- Attributs protégés
 
 	vector<string> imageExt;
+	// Le tableau de chaines de caractères imageExt contenant les extensions 
+	// à éliminer lorsque l'option -e est sélectionnée.
 
 };
 

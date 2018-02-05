@@ -32,22 +32,18 @@ using namespace std;
 
 //////////////////////////////////////////////////////////////////  PUBLIC
 //---------------------------------------------------- Fonctions publiques
-
-
-
 int main(int argc, char *argv[])
 
 {
-	//cout << "nombre d'arguments " << argc << endl;
 	// -------------------------- Initialisations
 	string logFile;//string pour r�cup�rer le nom du fichier
 	logstream logReader;//fichier en entr�e
 	Graph instGraph;//objet graph
 	// A priori on ne demande aucune option
-	bool g = false;
-	bool e = false;
-	bool t = false;
-	int heureToInt;
+	bool g = false;//option de création du graphe
+	bool e = false;//option de l'élimination des images
+	bool t = false;//option de filtrage en fonction de l'heure
+	int heureToInt;//conversion de l'heure en entier si choix de l'option
 	string heure;//heure si choix de l'option
 	string dotFile;//nom du fichier dotfile si choix de l'option
 
@@ -56,7 +52,7 @@ int main(int argc, char *argv[])
 		cerr << "Incorrect number of arguments." << endl;
 		return 3;
 	}
-	else // On traite la commande
+	else // Si le nombre d'arguments est bon , on traite la commande
 	{
 		logFile = argv[argc - 1];
 		if (logFile.length() >= 4 && logFile.substr(logFile.length() - 4).compare(".log")  && logFile.substr(logFile.length() - 4).compare(".txt"))
@@ -64,22 +60,17 @@ int main(int argc, char *argv[])
 			cerr << "The log file specified must be a .log or a .txt file." << endl;
 			return 5;
 		}
-		logReader.open(logFile);
+		logReader.open(logFile);//Le fichier est au bon format, donc on l'ouvre
 	}
 
 	if (logReader) // Nous sommes arriv�s � ouvrir le fichier
 	{
-
 	// -------------------------- Traitement de la commande
-
-
-
 		for (int i = 1; i < argc - 1; ++i)
 		{
 			string temp = argv[i];
 			if (temp == "-g" && !g)
 			{
-
 				g = true;
 				if (argc > i + 2) // si il y'a un nom de fichier dot suivi par au moins un argument
 				{
@@ -112,11 +103,12 @@ int main(int argc, char *argv[])
 				if (argc > i + 2)   // il y'a une heure suivie par au moins un argument
 				{
 					heure = argv[++i];
-					if (heure.length()==1 && int( heure.at(0))>=48 && int(heure.at(0))<=57)
+					if (heure.length()==1 && int( heure.at(0))>=48 && int(heure.at(0))<=57) // heure composée d'un seul chiffre
 					{
 						 heureToInt= stoi(heure);
 					}
 					else if (heure.length() == 2 && int(heure.at(0)) >= 48 && int(heure.at(0)) <= 57 && int(heure.at(1)) >= 48 && int(heure.at(1)) <= 57)
+					//Heure composée de deux nombres
 					{
 						heureToInt = stoi(heure);
 						if (heureToInt>23 || heureToInt <0)
@@ -124,9 +116,8 @@ int main(int argc, char *argv[])
 							cerr << "An hour must be between 0 and 23." << endl;
 							return 7;
 						}
-
 					}
-					else
+					else//Heure non entière
 					{
 						cerr << "Invalid hour format." << endl;
 						return 8;
@@ -138,17 +129,13 @@ int main(int argc, char *argv[])
 					return 11;
 				}
 			}
-
 			else
 			{
 				cerr << "Incorrect option." << endl;
 				return 4;
 			}
 		}
-
-
-		// -------------------------- Remplissage du graphe
-
+		// -------------------------- Remplissage des structures de données
 		if(t)
 		{
 			cout << " Warning : only hits between " << heureToInt << "h and " << heureToInt + 1 << "h have been taken into account." << endl;
@@ -157,19 +144,15 @@ int main(int argc, char *argv[])
 		{
 			cout << "Warning : images, css and javascript files have been ignored." << endl;
 		}
-		
-		
-		
-
-		while (!logReader.eof())
+		while (!logReader.eof()) // Tant que la fin du fichier n'est pas atteinte
 		{
-
-			logElement * tempLog = logReader.getLog(e,t,heure);   // !!!!! Probl�me de pointeur !
-			if (tempLog != nullptr && tempLog->queryType == "GET" /*&& tempLog->status.at(0) == '2'*/)
+			logElement * tempLog = logReader.getLog(e,t,heure);   // ligne décomposée du fichier log
+			if (tempLog != nullptr && tempLog->queryType == "GET" /*&& tempLog->status.at(0) == '2'*/) // Possibilité de filtrer selon les status
 			{
+				//On remplie la structure du top 10.
 				instGraph.addTop10(tempLog->referer.substr(0, tempLog->referer.find_first_of('?')), tempLog->queryHit.substr(0, tempLog->queryHit.find_first_of('?')));
-				if (g)
-				{ // On ne remplie la structure du graphe que si on a choisi l'option -g
+				if (g)// On ne remplie la structure du graphe que si on a choisi l'option -g.
+				{ 
 					instGraph.addGraph(tempLog->referer.substr(0, tempLog->referer.find_first_of('?')), tempLog->queryHit.substr(0, tempLog->queryHit.find_first_of('?')));
 				}
 			}
@@ -180,24 +163,20 @@ int main(int argc, char *argv[])
 		cerr << "An error occured while trying to read your file, please make sure your file exists and is accessible." << endl;
 		return 9;
 	}
-
-
 	// -------------------------- Executions
 	instGraph.createTop10();
 	instGraph.afficherTop10();
-
 	if (g)
 	{
-		if (instGraph.createDotFile(dotFile))
+		if (instGraph.createDotFile(dotFile))//Création réussie
 		{
 			cout << "Dot-file " << dotFile << " generated." << endl;
 		}
-		else
+		else//Erreur à la création
 		{
 			cerr << "Error during dot file creation." << endl;
 			return 12;
 		}
 	}
-
 	return 0;
-} //----- fin de Nom
+} //----- fin de main

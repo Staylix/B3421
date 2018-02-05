@@ -14,7 +14,8 @@ gregoire.gentil@insa-lyon.fr
 //------------------------------------------------------------------------
 // Rôle du module <Manager>
 //  Ce module se charge de lancer l'application. Il contient la fonction
-//  main, point d'entrée du programme.
+//  main, point d'entrée du programme. Il gère le traitement des commandes
+//	lancées par l'utilisateur et les cas limites du fonctionnement.
 //------------------------------------------------------------------------
 
 /////////////////////////////////////////////////////////////////  INCLUDE
