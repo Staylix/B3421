@@ -1,6 +1,5 @@
 /*************************************************************************
-logstream  -  description
--------------------
+---------------------- logstream  -  description -------------------------
 début                : 09/01/2018
 copyright            : (C) 2018 par B3421
 e-mail               : safia.el-bayed@insa-lyon.fr
@@ -13,16 +12,12 @@ using namespace std;
 #include <iostream>
 #include <sstream>
 #include <vector>
-
 //------------------------------------------------------ Include personnel
 #include "logstream.h"
 
 //----------------------------------------------------------------- PUBLIC
-
 //----------------------------------------------------- Méthodes publiques
 logElement * logstream::getLog(bool e, bool t, string heure)
-// Algorithme :
-//
 {
 	string s;
 	logElement * newLog;
@@ -58,7 +53,6 @@ logElement * logstream::getLog(bool e, bool t, string heure)
 		{
 			newLog = nullptr;
 		}
-
 		else if (t && !isOnTime(newLog->date, heure))
 		{
 			newLog = nullptr;
@@ -69,16 +63,10 @@ logElement * logstream::getLog(bool e, bool t, string heure)
 		newLog = nullptr;
 	}
 	return newLog;
-
-
-
 } //----- Fin de Méthode getLog
   //------------------------------------ Constructeurs - destructeur
 logstream::logstream()
 {
-#ifdef MAP
-	cout << "Appel au constructeur de <logstream>" << endl;
-#endif
 	ifstream();
 	imageExt.push_back("js");
 	imageExt.push_back("css");
@@ -88,10 +76,9 @@ logstream::logstream()
 	imageExt.push_back("svg");
 	imageExt.push_back("ico");
 }
+
 //----------------------------------------------------------- PRIVE
-
 //---------------------------------------------- Méthodes protégées
-
 //Algorithme:
 //Compare l'extension du hit avec les extensions contenues dans imageExt.
 //Retourne vraie si une correspondance a été trouvée.

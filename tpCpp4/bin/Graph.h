@@ -1,12 +1,10 @@
 /*************************************************************************
-Graph  -  description
--------------------
+-------------------------- Graph  -  description -------------------------
 d�but                : 09/01/2018
 copyright            : (C) 2018 par B3421
 e-mail               : safia.el-bayed@insa-lyon.fr
 gregoire.gentil@insa-lyon.fr
 *************************************************************************/
-
 //-------- Interface de la classe <Graph> (fichier Graph.h) ---------------
 #if ! defined ( Graph_H )
 #define Graph_H
@@ -23,13 +21,11 @@ using namespace std;
 //  Elle manipule une ordered_map pour g�rer le graphe du fichier
 //  et une multimap qui permet d'acc�der rapidement aux dix hit les plus
 //  importants
-//
 //------------------------------------------------------------------------
 
 class Graph
 {
 	//------------------------------------------------------------ PUBLIC
-
 public:
 	//----------------------------------------------- M�thodes publiques
 
@@ -59,21 +55,15 @@ public:
 	void afficherTop10();
 
 	//-------------------------------------- Constructeurs - destructeur
-
 	Graph();
 	// Mode d'emploi :
-	// Action.
-	// Contrat :
-	// Aucun.
+	// Aucune ction.
 
 	virtual ~Graph();
 	// Mode d'emploi :
 	// Aucune action.
-	// Contrat :
-	// Aucun.
 
 	//----------------------------------------------------------- PRIVE
-
 protected:
 
 	//---------------------------------------------- Attributs prot�g�s
@@ -90,7 +80,6 @@ protected:
 	 * correspondant dans le fichier .dot en sortie.
 	 * La clé est le nom du document.
 	 * La valeur est le nombre de visites du document.*/
-
 	multimap <int, string> top10;
 	/* Table de hachage ordonnée et avec doublons, représentant le classement
 	 * par ordre croissant des documents en fonction du nombre de visites
@@ -106,8 +95,6 @@ protected:
 	 * La valeur est son numéro de noeud.*/
 
 };
-
-//-------------------------- Autres d�finitions d�pendantes de <Graph>
 
 #endif // Graph_H
 #pragma once
