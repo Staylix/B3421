@@ -131,6 +131,7 @@ void Graph::afficherTop10()
 //-------------------------------------------- Constructeurs - destructeur
 
 Graph::Graph()
+{
 #ifdef MAP
 	cout << "Appel au constructeur de <Graph>" << endl;
 #endif

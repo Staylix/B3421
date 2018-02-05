@@ -146,7 +146,7 @@ int main(int argc, char *argv[])
 		while (!logReader.eof()) // Tant que la fin du fichier n'est pas atteinte
 		{
 			logElement * tempLog = logReader.getLog(e,t,heure);   // ligne décomposée du fichier log
-			if (tempLog != nullptr && tempLog->queryType == "GET" /*&& tempLog->status.at(0) == '2'*/) // Possibilité de filtrer selon les status
+			if (tempLog != nullptr && tempLog->queryType == "GET" /*&& tempLog->status.at(0) == '2'*/) // Possibilité de filtrer selon les statuts des requêtes réussies
 			{
 				//On remplie la structure du top 10.
 				instGraph.addTop10(tempLog->referer.substr(0, tempLog->referer.find_first_of('?')), tempLog->queryHit.substr(0, tempLog->queryHit.find_first_of('?')));
