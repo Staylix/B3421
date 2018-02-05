@@ -83,9 +83,6 @@ public:
 	// Contrat :
 	// Aucun.
 
-	//------------------------------------------------- Surcharge d'opérateurs
-
-
 	//-------------------------------------------- Constructeurs - destructeur
 
 	logstream();
@@ -107,9 +104,4 @@ protected:
 	// à éliminer lorsque l'option -e est sélectionnée.
 
 };
-
-
-
-//-------------------------------- Autres définitions dépendantes de <logstream>
-
 #endif // logstream_H

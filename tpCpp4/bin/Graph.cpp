@@ -25,15 +25,10 @@ using namespace std;
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- M�thodes publiques
-// type Graph::M�thode ( liste des param�tres )
-// Algorithme :
-//
-//{
-//} //----- Fin de M�thode
 
-
-
-//Structure de données pour le graphe
+//Algorithme :
+//Insère la paire "referer_hit"-0 dans graph si la clé n'existait pas avant.
+//Ecrase la valeur précedente en l'incrémentant de 1 si la clé existait avant.
 void Graph::addGraph(string ref, string hit)
 {
 	pair<unordered_map<string, int>::iterator, bool>  retour = graph.insert(make_pair(ref + " " + hit, 1));
@@ -42,26 +37,37 @@ void Graph::addGraph(string ref, string hit)
 		graph[ref + " " + hit] = graph[ref + " " + hit] + 1;
 	}
 }
-//Structure de données de passage pour le top10
+
+//Algorithme :
+//Insère la paire "hit"-1 dans graph si la clé n'existait pas avant.
+//Ecrase la valeur précedente en l'incrémentant de 1 si la clé existait avant.
+//Insère la paire "referer"-0 dans graph si la clé n'existait pas avant.
 void Graph::addTop10(string ref, string hit) {
 	pair<unordered_map<string, int>::iterator, bool>  retour=passage.insert(make_pair(hit, 1));
 	if (!retour.second)
 	{
-		passage[hit] = passage[hit] + 1;
+		passage[hit] = passage[hit] + 1; //On écrase la valeur si le hit existait déjà.
 	}
-	passage.insert(make_pair(ref, 0));
+	passage.insert(make_pair(ref, 0));//Insertion du referer s'il n'existait pas déjà.
 }
-//Structure finale du top10
+
+//Algorithme:
+//Permet de passer du graph au top10 en regroupant chaque hit en une clé,
+//et en réalisant la somme de ses visites.
 void Graph::createTop10()
 {
 	for (unordered_map<string, int>::iterator it = passage.begin(); it != passage.end(); ++it)
 	{
 		top10.insert(make_pair(it->second, it->first));
+		//Inversement de la clé et de la valeur pour remplir le classement.
 	}
-	
 }
 
-//Création du fichier dot
+//Algorithme:
+//Dans un premier temps, enumère tout les hits et leur attribue des numéros de noeuds
+//en utilisant la map passage et en insérant le tout dans registry.
+//Par la suite, parcourt graph et met en place les arcs.
+//Tout cela est fait en respecant la syntaxe de GraphViz.
 bool Graph::createDotFile(string nomFichier)
 {
 	ofstream dot;
@@ -105,7 +111,11 @@ bool Graph::createDotFile(string nomFichier)
 
 }
 
-//Affichage du top10
+//Algorithme :
+// Parcours la multipmap top10 en commencant par le dernier élément
+// et affiche les 10 documents les plus visités.
+// Si la map est vide, renvoie un message sur la sortie standard.
+// Si plusieurs documents sont à égalité, n'affiche que les 10 premiers.
 void Graph::afficherTop10()
 {
 	int compteur = 0;
@@ -121,9 +131,6 @@ void Graph::afficherTop10()
 //-------------------------------------------- Constructeurs - destructeur
 
 Graph::Graph()
-// Algorithme :
-//
-{
 #ifdef MAP
 	cout << "Appel au constructeur de <Graph>" << endl;
 #endif
@@ -131,15 +138,8 @@ Graph::Graph()
 
 
 Graph::~Graph()
-// Algorithme :
-//
 {
 #ifdef MAP
 	cout << "Appel au destructeur de <Graph>" << endl;
 #endif
 } //----- Fin de ~Graph
-
-
-  //------------------------------------------------------------------ PRIVE
-
-  //----------------------------------------------------- M�thodes prot�g�es

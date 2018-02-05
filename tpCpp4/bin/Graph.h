@@ -36,7 +36,7 @@ class Graph
 public:
 	//----------------------------------------------------- M�thodes publiques
 	
-	void addTop10(string ref, string hit);
+	void addTop10(string referer, string hit);
 	void addGraph(string referer, string hit);
 	// Mode d'emploi :
 	//  Cette m�thode permet d'ajouter un couple cl� valeur au graphe
@@ -53,7 +53,7 @@ public:
 	// Contrat :
 	//  Aucun
 
-	bool createDotFile(string);
+	bool createDotFile(string nomFichier);
 	// Mode d'emploi :
 	//  Cette m�thode permet de creer le fichier .dot utilis� par GraphViz
 	//  � partir du graphe
@@ -65,15 +65,15 @@ public:
 
 	Graph();
 	// Mode d'emploi :
-	//
+	// Action.
 	// Contrat :
-	//
+	// Aucun.
 
 	virtual ~Graph();
 	// Mode d'emploi :
-	//
+	// Aucune action.
 	// Contrat :
-	//
+	// Aucun.
 
 	//------------------------------------------------------------------ PRIVE
 
@@ -82,9 +82,32 @@ protected:
 
 	//----------------------------------------------------- Attributs prot�g�s
 	unordered_map <string, int> graph;
+	/* Table de hachage non ordonnée et sans doublons représentant le graphique
+	 * du parcours de l'utilisateur.
+	 * La clé est une concaténation du referer et du hit séparés par un espace.
+	 * La valeur est le nombre de fois que la requête du referer vers le hit 
+	 * a été faite. */
 	unordered_map <string, int> passage;
+	/* Table de hachage non ordonnée et sans doublons permettant le passage
+	 * de la structure du graphe à la structure du top 10.
+	 * Permet aussi le listing de tous les documents afin de créer les noeuds
+	 * correspondant dans le fichier .dot en sortie.
+	 * La clé est le nom du document.
+	 * La valeur est le nombre de visites du document.*/
+	 
 	multimap <int, string> top10;
+	/* Table de hachage ordonnée et avec doublons, représentant le classement 
+	 * par ordre croissant des documents en fonction du nombre de visites 
+	 * qu'ils ont eu. 
+	 * La clé est le nombre de visites du document.
+	 * La valeur est le nom du document.*/
 	unordered_map<string, int>registry;
+	/* Table de hachage non ordonnée et sans doublons contenant la correspondance 
+	 * entre les noms des documents (les referer et les hits ) et leurs numéros 
+	 * de noeuds dans le graphe afin de pouvoir créer les arcs après après 
+	 * listé tous les noeuds.
+	 * La clé est le nom du document.
+	 * La valeur est son numéro de noeud.*/
 
 };
 

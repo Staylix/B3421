@@ -1,1 +1,1 @@
-Exécution avec l'option -e
+﻿Vérification de la sortie standard et du code retour et de la sortie d'erreur lors d'une exécution avec une option -t avec une heure sous format invalide.

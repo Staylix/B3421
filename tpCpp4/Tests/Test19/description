@@ -1,1 +1,1 @@
-Exécution avec l'option -e
+﻿Vérification du code retour et de la sortie standard et de la sortie d'erreur lors d'une exécution qui n'affiche aucune ligne (dans ce cas analyse d'un fichier vide).

@@ -46,8 +46,7 @@ int main(int argc, char *argv[])
 	int heureToInt;//conversion de l'heure en entier si choix de l'option
 	string heure;//heure si choix de l'option
 	string dotFile;//nom du fichier dotfile si choix de l'option
-
-	if (argc < 2 || argc >7) // Si le nombre d'arguments est faux-->commande focement fausse
+	if (argc < 2 || argc >7) // Si le nombre d'arguments est faux-->commande forcement fausse
 	{
 		cerr << "Incorrect number of arguments." << endl;
 		return 3;
