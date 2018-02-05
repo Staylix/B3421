@@ -6,7 +6,7 @@ copyright            : (C) 2018 par B3421
 e-mail               : safia.el-bayed@insa-lyon.fr
 gregoire.gentil@insa-lyon.fr
 *************************************************************************/
-//---------- Réalisation de la classe <logstream> (fichier logstream.cpp) ------------
+//----- Réalisation de la classe <logstream> (fichier logstream.cpp)------
 //---------------------------------------------------------------- INCLUDE
 //-------------------------------------------------------- Include système
 using namespace std;
@@ -17,7 +17,6 @@ using namespace std;
 //------------------------------------------------------ Include personnel
 #include "logstream.h"
 
-//------------------------------------------------------------- Constantes
 //----------------------------------------------------------------- PUBLIC
 
 //----------------------------------------------------- Méthodes publiques
@@ -74,7 +73,7 @@ logElement * logstream::getLog(bool e, bool t, string heure)
 
 
 } //----- Fin de Méthode getLog
-  //-------------------------------------------- Constructeurs - destructeur
+  //------------------------------------ Constructeurs - destructeur
 logstream::logstream()
 {
 #ifdef MAP
@@ -89,9 +88,9 @@ logstream::logstream()
 	imageExt.push_back("svg");
 	imageExt.push_back("ico");
 }
-//------------------------------------------------------------------ PRIVE
+//----------------------------------------------------------- PRIVE
 
-//----------------------------------------------------- Méthodes protégées
+//---------------------------------------------- Méthodes protégées
 
 //Algorithme:
 //Compare l'extension du hit avec les extensions contenues dans imageExt.

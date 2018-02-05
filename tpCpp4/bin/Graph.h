@@ -7,7 +7,7 @@ e-mail               : safia.el-bayed@insa-lyon.fr
 gregoire.gentil@insa-lyon.fr
 *************************************************************************/
 
-//---------- Interface de la classe <Graph> (fichier Graph.h) ----------------
+//-------- Interface de la classe <Graph> (fichier Graph.h) ---------------
 #if ! defined ( Graph_H )
 #define Graph_H
 
@@ -16,9 +16,6 @@ gregoire.gentil@insa-lyon.fr
 #include <unordered_map>
 #include <map>
 using namespace std;
-//------------------------------------------------------------- Constantes
-
-//------------------------------------------------------------------ Types
 
 //------------------------------------------------------------------------
 // R�le de la classe <Graph>
@@ -31,11 +28,11 @@ using namespace std;
 
 class Graph
 {
-	//----------------------------------------------------------------- PUBLIC
+	//------------------------------------------------------------ PUBLIC
 
 public:
-	//----------------------------------------------------- M�thodes publiques
-	
+	//----------------------------------------------- M�thodes publiques
+
 	void addTop10(string referer, string hit);
 	void addGraph(string referer, string hit);
 	// Mode d'emploi :
@@ -61,7 +58,7 @@ public:
 	//  Aucun
 	void afficherTop10();
 
-	//-------------------------------------------- Constructeurs - destructeur
+	//-------------------------------------- Constructeurs - destructeur
 
 	Graph();
 	// Mode d'emploi :
@@ -75,17 +72,16 @@ public:
 	// Contrat :
 	// Aucun.
 
-	//------------------------------------------------------------------ PRIVE
+	//----------------------------------------------------------- PRIVE
 
 protected:
-	//----------------------------------------------------- M�thodes prot�g�es
 
-	//----------------------------------------------------- Attributs prot�g�s
+	//---------------------------------------------- Attributs prot�g�s
 	unordered_map <string, int> graph;
 	/* Table de hachage non ordonnée et sans doublons représentant le graphique
 	 * du parcours de l'utilisateur.
 	 * La clé est une concaténation du referer et du hit séparés par un espace.
-	 * La valeur est le nombre de fois que la requête du referer vers le hit 
+	 * La valeur est le nombre de fois que la requête du referer vers le hit
 	 * a été faite. */
 	unordered_map <string, int> passage;
 	/* Table de hachage non ordonnée et sans doublons permettant le passage
@@ -94,24 +90,24 @@ protected:
 	 * correspondant dans le fichier .dot en sortie.
 	 * La clé est le nom du document.
 	 * La valeur est le nombre de visites du document.*/
-	 
+
 	multimap <int, string> top10;
-	/* Table de hachage ordonnée et avec doublons, représentant le classement 
-	 * par ordre croissant des documents en fonction du nombre de visites 
-	 * qu'ils ont eu. 
+	/* Table de hachage ordonnée et avec doublons, représentant le classement
+	 * par ordre croissant des documents en fonction du nombre de visites
+	 * qu'ils ont eu.
 	 * La clé est le nombre de visites du document.
 	 * La valeur est le nom du document.*/
 	unordered_map<string, int>registry;
-	/* Table de hachage non ordonnée et sans doublons contenant la correspondance 
-	 * entre les noms des documents (les referer et les hits ) et leurs numéros 
-	 * de noeuds dans le graphe afin de pouvoir créer les arcs après après 
+	/* Table de hachage non ordonnée et sans doublons contenant la correspondance
+	 * entre les noms des documents (les referer et les hits ) et leurs numéros
+	 * de noeuds dans le graphe afin de pouvoir créer les arcs après après
 	 * listé tous les noeuds.
 	 * La clé est le nom du document.
 	 * La valeur est son numéro de noeud.*/
 
 };
 
-//-------------------------------- Autres d�finitions d�pendantes de <Graph>
+//-------------------------- Autres d�finitions d�pendantes de <Graph>
 
 #endif // Graph_H
 #pragma once

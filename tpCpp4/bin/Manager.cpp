@@ -7,7 +7,7 @@ e-mail               : safia.el-bayed@insa-lyon.fr
 gregoire.gentil@insa-lyon.fr
 *************************************************************************/
 
-//---------- R�alisation du module <Manager> (fichier Manager.cpp) ---------------
+//---------- R�alisation du module <Manager> (fichier Manager.cpp) -------
 
 /////////////////////////////////////////////////////////////////  INCLUDE
 //-------------------------------------------------------- Include syst�me

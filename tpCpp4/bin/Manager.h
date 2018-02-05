@@ -7,7 +7,7 @@ e-mail               : safia.el-bayed@insa-lyon.fr
 gregoire.gentil@insa-lyon.fr
 *************************************************************************/
 
-//---------- Interface du module <Manager> (fichier Manager.h) -------------------
+//---------- Interface du module <Manager> (fichier Manager.h) -----------
 #if ! defined ( Manager_H )
 #define Manager_H
 
@@ -21,10 +21,6 @@ gregoire.gentil@insa-lyon.fr
 /////////////////////////////////////////////////////////////////  INCLUDE
 //--------------------------------------------------- Interfaces utilisées
 using namespace std;
-
-//------------------------------------------------------------- Constantes
-
-//------------------------------------------------------------------ Types
 
 //////////////////////////////////////////////////////////////////  PUBLIC
 //---------------------------------------------------- Fonctions publiques

@@ -7,7 +7,7 @@ e-mail               : safia.el-bayed@insa-lyon.fr
 gregoire.gentil@insa-lyon.fr
 *************************************************************************/
 
-//---------- R�alisation de la classe <Graph> (fichier Graph.cpp) ------------
+//--------- R�alisation de la classe <Graph> (fichier Graph.cpp) ---------
 
 //---------------------------------------------------------------- INCLUDE
 
@@ -128,7 +128,7 @@ void Graph::afficherTop10()
 	}
 }
 
-//-------------------------------------------- Constructeurs - destructeur
+//--------------------------------------- Constructeurs - destructeur
 
 Graph::Graph()
 {

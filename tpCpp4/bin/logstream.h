@@ -7,7 +7,7 @@ e-mail               : safia.el-bayed@insa-lyon.fr
 gregoire.gentil@insa-lyon.fr
 *************************************************************************/
 
-//---------- Interface de la classe <logstream> (fichier logstream.h) ----------------
+//------- Interface de la classe <logstream> (fichier logstream.h) -------
 #if ! defined ( logstream_H )
 #define logstream_H
 
@@ -17,9 +17,6 @@ using namespace std;
 #include <string>
 #include <vector>
 #include <algorithm>
-//------------------------------------------------------------- Constantes
-
-//------------------------------------------------------------------ Types
 
 /*Structure servant à la décomposition d'une ligne du fichier journal de
 façon à pouvoir être réutilisée par la suite.*/
@@ -49,7 +46,7 @@ typedef struct {
 class logstream : public ifstream
 {
 
-	//----------------------------------------------------------------- PUBLIC
+	//------------------------------------------------------------ PUBLIC
 
 public:
 	//----------------------------------------------------- Méthodes publiques
@@ -83,7 +80,7 @@ public:
 	// Contrat :
 	// Aucun.
 
-	//-------------------------------------------- Constructeurs - destructeur
+	//------------------------------------- Constructeurs - destructeur
 
 	logstream();
 	// Mode d'emploi :
@@ -93,11 +90,10 @@ public:
 	// Contrat :
 	// Aucun.
 
-	//------------------------------------------------------------------ PRIVE
+	//---------------------------------------------------------- PRIVE
 
 protected:
-	//----------------------------------------------------- Méthodes protégées
-	//----------------------------------------------------- Attributs protégés
+	//--------------------------------------------- Attributs protégés
 
 	vector<string> imageExt;
 	// Le tableau de chaines de caractères imageExt contenant les extensions 
