@@ -1,0 +1,1 @@
+../../bin/analog -g court.dot -t 10 -e ../../log/court.log
