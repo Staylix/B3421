@@ -3,6 +3,8 @@ DIRSRC = ./
 DIROBJ = ./
 DIRBIN = ./
 DIRHEADERS = ./
+REP_TEST = ../Tests/
+EXEC_MKTEST = ./mktest.sh
 
 TARGET = analog
 
@@ -52,3 +54,9 @@ cleanall:
 	$(ECHO) "Suppression de $(DIRBIN)$(TARGET) et de $(DIROBJ)*.o"
 	$(RM) $(DIRBIN)$(TARGET) $(OBJ)
 	$(ECHO) "Done"
+	
+test:	
+	$(MAKE)
+	@$(ECHO) "Lancement des tests:"
+	@$(ECHO) ""
+	@($(CD) $(REP_TEST) && bash $(EXEC_MKTEST) )
