@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package model;
 
+import java.io.Serializable;
 import javax.persistence.Embeddable;
 
 /**
@@ -12,11 +13,11 @@ import javax.persistence.Embeddable;
  * @author ggentil
  */
 @Embeddable
-public class ClientCoordonnees {
-    
-    String adresse;
-    String numero;
-    String adresseElectronique;
+public class ClientCoordonnees implements Serializable {
+     
+    private String adresse;
+    private String numero;
+    private String adresseElectronique;
 
     public ClientCoordonnees() {
     }

@@ -3,11 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package IHM;
+package ihm;
 
-import Service.Service;
+import service.Service;
 import dao.JpaUtil;
+import java.text.ParseException;
 import java.util.Date;
+import java.text.SimpleDateFormat;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import model.Client;
 
 /**
  *
@@ -20,8 +25,18 @@ public class Main {
      */
     public static void main(String[] args) {
         JpaUtil.init();
-        Date d = new Date(2016, 12, 7);
-        Service.inscrireClient("Mr", "Caca", "Lolo", d, "Part Dieux", "06 71 80 25 47", "lolo.caca@gmail.com");
-        JpaUtil.destroy();    }
+        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+        Date d = null;
+        try {
+            d=sdf.parse("1997-12-07");
+        } catch (ParseException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        Client client = new Client("Mr", "gri", "Gregoire", d, "Part Dieux", "0667170327", "gregoire@gmail.com");
+        Service.inscrireClient(client);
+        client = new Client("Mr", "nli", "blou", d, "Part Dieux", "0667170327", "grou@gmail.com");
+        Service.inscrireClient(client);
+        JpaUtil.destroy();    
+    }
     
 }

@@ -3,18 +3,40 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package model;
 
+import java.io.Serializable;
+import java.util.List;
+import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 
 /**
  *
  * @author ggentil
  */
 @Entity
-public class Medium {
-    @Id @GeneratedValue
+@Inheritance(strategy = InheritanceType.JOINED)
+public class Medium implements Serializable {
+    @Id 
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idMedium;
+    
+    @OneToMany(mappedBy="medium")
+    private List<Voyance> histoMedium;
+    
+    @ManyToMany 
+    private Set<Employe> incarnePar;
+
+    public List<Voyance> getHistoMedium() {
+        return histoMedium;
+    }
+    
+    
 }

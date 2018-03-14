@@ -3,10 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package DAO;
+package dao;
 
-import Model.Client;
-import dao.JpaUtil;
+import model.Client;
 import javax.persistence.EntityManager;
 
 /**
@@ -14,8 +13,14 @@ import javax.persistence.EntityManager;
  * @author ggentil
  */
 public class ClientDAO {
-    public static void Persister (Client C) {
+    public static void persister (Client c) {
         EntityManager em = JpaUtil.obtenirEntityManager();
-        em.persist(C);
+        em.persist(c);
     }
+    
+    public static void update (Client c) {
+        EntityManager em = JpaUtil.obtenirEntityManager();
+        em.merge(c);
+    }
+    
 }

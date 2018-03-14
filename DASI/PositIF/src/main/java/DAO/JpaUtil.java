@@ -170,9 +170,8 @@ public class JpaUtil {
      *
      * @return instance de Entity Manager
      */
-    public static EntityManager obtenirEntityManager() {
+    protected static EntityManager obtenirEntityManager() {
         log("Obtention du contexte de persistance");
         return threadLocalEntityManager.get();
     }
-    //TODO: Je l'ai mise en public pour y acceder dans DAO, mais il faut la remettre protected et changer quelque chose
 }

@@ -3,35 +3,58 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package model;
 
+import java.io.IOException;
+import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import util.AstroTest;
 
 /**
  *
  * @author ggentil
  */
 @Entity
-public class Client {
-    @Id @GeneratedValue
-    Long idClient;
+public class Client implements Serializable {
+    @Id 
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long idClient;
     @Embedded
-    ClientIdentite identite;
+    private ClientIdentite identite;
     @Embedded
-    ClientCoordonnees coordonnees;
+    private ClientCoordonnees coordonnees;
     @Embedded
-    ClientProfilAstrologique profileAstrologique = null;
+    private ClientProfilAstrologique profileAstrologique;
 
+    @OneToMany(mappedBy="client")
+    private List<Voyance> histoClient;
+    
     public Client() {
     }    
     
     public Client(String civilite, String nom, String prenom, Date dateNaissance, String adresse, String numero, String adresseElectronique) {
         identite = new ClientIdentite(civilite, nom, prenom, dateNaissance);
         coordonnees = new ClientCoordonnees(adresse, numero, adresseElectronique);
+        AstroTest astro = new AstroTest("ASTRO-01-M0lGLURBU0ktQVNUUk8tQjAx");
+        try {
+            List<String> s =  astro.getProfil(prenom, dateNaissance);
+            profileAstrologique = new ClientProfilAstrologique( s.get(0),s.get(1),s.get(2),s.get(3));
+        }
+        catch (IOException e){
+            System.err.println("Impossible to create the astrologic profile");
+        }
+        
+    }
+
+    public List<Voyance> getHistoClient() {
+        return histoClient;
     }
     
     

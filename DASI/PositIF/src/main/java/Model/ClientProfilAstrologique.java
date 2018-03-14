@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package model;
 
+import java.io.Serializable;
 import javax.persistence.Embeddable;
 
 /**
@@ -12,11 +13,11 @@ import javax.persistence.Embeddable;
  * @author ggentil
  */
 @Embeddable
-public class ClientProfilAstrologique {
-    String signeZodiaque;
-    String signeChinois;
-    String couleur;
-    String animalTotem;
+public class ClientProfilAstrologique implements Serializable {
+    private String signeZodiaque;
+    private String signeChinois;
+    private String couleur;
+    private String animalTotem;
 
     public ClientProfilAstrologique() {
     }

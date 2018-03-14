@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package model;
 
+import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Embeddable;
 import javax.persistence.Temporal;
@@ -15,12 +16,12 @@ import javax.persistence.TemporalType;
  * @author ggentil
  */
 @Embeddable
-public class ClientIdentite {
-    String civilite;
-    String nom;
-    String prenom;
+public class ClientIdentite implements Serializable {
+    private String civilite;
+    private String nom;
+    private String prenom;
     @Temporal(TemporalType.DATE)
-    Date dateNaissance;
+    private Date dateNaissance;
 
     public ClientIdentite() {
     }
