@@ -28,4 +28,9 @@ public class ClientCoordonnees implements Serializable {
         this.adresseElectronique = adresseElectronique;
     }
 
+    public String getAdresseElectronique() {
+        return adresseElectronique;
+    }
+
+
 }

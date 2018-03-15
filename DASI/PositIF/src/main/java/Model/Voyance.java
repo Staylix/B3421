@@ -24,12 +24,14 @@ public class Voyance implements Serializable {
     @Id 
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idVoyance;
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date heureDebut;
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date heureFin;
     String commentaire;
-    
+    int amour;
+    int sante;
+    int travail;
     @ManyToOne
     private Employe employe;
     @ManyToOne
@@ -37,11 +39,10 @@ public class Voyance implements Serializable {
     @ManyToOne
     private Client client;
 
-    public Voyance(Employe employe, Medium medium, Client client, Date debut) {
+    public Voyance(Employe employe, Medium medium, Client client) {
         this.employe = employe;
         this.medium = medium;
         this.client = client;
-        this.heureDebut=debut;
     }
 
     public Voyance() {
@@ -58,6 +59,32 @@ public class Voyance implements Serializable {
     public Client getClient() {
         return client;
     }
+
+    public void setHeureDebut(Date heureDebut) {
+        this.heureDebut = heureDebut;
+    }
+
+    public void setHeureFin(Date heureFin) {
+        this.heureFin = heureFin;
+    }
+
+    public void setCommentaire(String commentaire) {
+        this.commentaire = commentaire;
+    }
+
+    public void setAmour(int amour) {
+        this.amour = amour;
+    }
+
+    public void setSante(int sante) {
+        this.sante = sante;
+    }
+
+    public void setTravail(int travail) {
+        this.travail = travail;
+    }
+
+     
     
     
     

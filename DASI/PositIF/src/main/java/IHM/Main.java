@@ -13,6 +13,10 @@ import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Client;
+import model.Employe;
+import model.Medium;
+import model.MediumAstrologue;
+import model.Voyance;
 
 /**
  *
@@ -25,18 +29,8 @@ public class Main {
      */
     public static void main(String[] args) {
         JpaUtil.init();
-        SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
-        Date d = null;
-        try {
-            d=sdf.parse("1997-12-07");
-        } catch (ParseException ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        Client client = new Client("Mr", "gri", "Gregoire", d, "Part Dieux", "0667170327", "gregoire@gmail.com");
-        Service.inscrireClient(client);
-        client = new Client("Mr", "nli", "blou", d, "Part Dieux", "0667170327", "grou@gmail.com");
-        Service.inscrireClient(client);
-        JpaUtil.destroy();    
+        Service.initialisation();
+        JpaUtil.destroy();
     }
     
 }

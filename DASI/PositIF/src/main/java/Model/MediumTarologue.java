@@ -5,11 +5,27 @@
  */
 package model;
 
+import javax.persistence.Entity;
+
 
 /**
  *
  * @author ggentil
  */
+
+@Entity
 public class MediumTarologue extends Medium{
     private String cartes;
+
+    public MediumTarologue(String nom, String bio,String cartes) {
+        super(nom,bio);
+        this.cartes = cartes;
+    }
+
+    public MediumTarologue() {
+    }
+    
+    
 }
+
+

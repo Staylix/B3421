@@ -5,12 +5,27 @@
  */
 package model;
 
+import javax.persistence.Entity;
+
 
 /**
  *
  * @author ggentil
  */
+
+@Entity
 public class MediumAstrologue extends Medium{
     private String ecole;
     private String promotion;
+
+    public MediumAstrologue() {
+    }
+
+    public MediumAstrologue(String nom, String bio, String ecole, String promotion) {
+        super(nom,bio);
+        this.ecole = ecole;
+        this.promotion = promotion;
+    }
+    
+    
 }

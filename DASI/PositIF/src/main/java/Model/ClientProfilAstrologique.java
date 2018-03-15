@@ -21,14 +21,22 @@ public class ClientProfilAstrologique implements Serializable {
 
     public ClientProfilAstrologique() {
     }
-
-    
-    
+  
     public ClientProfilAstrologique(String signeZodiaque, String signeChinois, String couleur, String animalTotem) {
         this.signeZodiaque = signeZodiaque;
         this.signeChinois = signeChinois;
         this.couleur = couleur;
         this.animalTotem = animalTotem;
     }
+
+    public String getCouleur() {
+        return couleur;
+    }
+
+    public String getAnimalTotem() {
+        return animalTotem;
+    }
+    
+    
     
 }

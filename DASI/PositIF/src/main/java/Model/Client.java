@@ -5,8 +5,8 @@
  */
 package model;
 
-import java.io.IOException;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Embedded;
@@ -15,7 +15,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import util.AstroTest;
+
 
 /**
  *
@@ -41,21 +41,35 @@ public class Client implements Serializable {
     
     public Client(String civilite, String nom, String prenom, Date dateNaissance, String adresse, String numero, String adresseElectronique) {
         identite = new ClientIdentite(civilite, nom, prenom, dateNaissance);
-        coordonnees = new ClientCoordonnees(adresse, numero, adresseElectronique);
-        AstroTest astro = new AstroTest("ASTRO-01-M0lGLURBU0ktQVNUUk8tQjAx");
-        try {
-            List<String> s =  astro.getProfil(prenom, dateNaissance);
-            profileAstrologique = new ClientProfilAstrologique( s.get(0),s.get(1),s.get(2),s.get(3));
-        }
-        catch (IOException e){
-            System.err.println("Impossible to create the astrologic profile");
-        }
-        
+        coordonnees = new ClientCoordonnees(adresse, numero, adresseElectronique); 
+        histoClient=new ArrayList<Voyance>();
+    }
+
+    public ClientIdentite getIdentite() {
+        return identite;
+    }
+    
+    public void setProfileAstrologique(ClientProfilAstrologique profileAstrologique) {
+        this.profileAstrologique = profileAstrologique;
+    }
+
+    public ClientProfilAstrologique getProfileAstrologique() {
+        return profileAstrologique;
     }
 
     public List<Voyance> getHistoClient() {
         return histoClient;
     }
+
+    public ClientCoordonnees getCoordonnees() {
+        return coordonnees;
+    }
+
+    public Long getIdClient() {
+        return idClient;
+    }
+    
+    
     
     
 }

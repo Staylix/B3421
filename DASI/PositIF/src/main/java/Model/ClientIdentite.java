@@ -34,5 +34,19 @@ public class ClientIdentite implements Serializable {
         this.prenom = Prenom;
         this.dateNaissance = dateNaissance;
     }
+
+    public Date getDateNaissance() {
+        return dateNaissance;
+    }
+
+    public String getPrenom() {
+        return prenom;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+    
+    
     
 }
