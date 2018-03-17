@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="${default-encoding}"?>
+
+<!-- New document created with EditiX at ${date} -->
+
+<grammar xmlns="http://relaxng.org/ns/structure/1.0">
+  <start>
+    <ref name="root"/>
+  </start>
+
+  <define name="root">
+    <element>
+      <name ns="">ROOT</name>
+    </element>
+  </define>
+
+</grammar>
+
+

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+<templates>
+
+ <template label="Standard XML document" type="XML" location="template/template.xml" system="true"/>
+ <template label="DTD" type="DTD" location="template/template.dtd" system="true"/>
+ <template label="W3C XML Schema" type="XSD" location="template/template.schema" system="true"/>
+ <template label="XML RelaxNG Schema" type="RNG" location="template/template.rng" system="true"/>
+ <template label="XSL Transformations 1.0 for HTML output" type="XSLT" location="template/template.xslhtml" system="true"/>
+ <template label="XSL Transformations 1.0 for XSL-FO output" type="XSLT" location="template/template.xslfo" system="true"/>
+ <template label="XSL Transformations 1.0 for XML output" type="XSLT" location="template/template.xslxml" system="true"/>
+ <template label="XSL Transformations 2.0 for XML output" type="XSLT2" location="template/template.xsl2xml" system="true"/>
+ <template label="XSL-FO" type="FO" location="template/template.fo" system="true"/>
+ <template label="XQuery" type="XQR" location="template/template.xqr" system="true"/>
+ <template label="DocBook 4.0 (Book)" type="DOCBOOK" location="template/template.docbook" system="true"/>
+ <template label="TEI P4 Lite" type="TEIL" location="template/template.teil" system="true"/>
+ <template label="TEI P5" type="TEI" location="template/template.tei5" system="true"/>
+ <template label="DITA" type="XML" location="template/template.dita" system="true"/>	
+ <template label="Scalable Vector Graphics (SVG) 1.0" type="SVG" location="template/template.svg" system="true"/>
+ <template label="XHTML 1.0 document" type="XHTML" location="template/template.html" system="true"/>
+ <template label="Math ML 1.0 document" type="MML" location="template/template.ml" system="true"/>
+ <template label="EditiX XML Form Editor" type="XXF" location="template/template.xxf" system="true"/>
+ <template label="EditiX XML Form Designer" type="EXF" location="template/template.exf" system="true"/> 
+ <template label="OASIS XML Catalog" type="XML" location="template/template.cat" system="true"/>
+ <template label="ANT" type="ANT" location="template/template.ant" system="true"/>
+ <template label="WSDL 1.1" type="WSDL" location="template/template.wsdl" system="true"/>
+ <template label="Very large XML document" type="EXML" location="template/template.xml" system="true"/>
+ <template label="CSS" type="CSS" location="template/template.css" system="true"/> 
+ <template label="Text" type="TEXT" location="template/template.txt" system="true"/>
+
+</templates>

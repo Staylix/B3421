@@ -1,0 +1,1609 @@
+
+<!-- Please don't alter id attribute value -->
+
+<!-- (c) 2004-2008 JAPISoft / http://www.japisoft.com -->
+
+<editix version="7.0" icon="images/environment3.png" sz="@@3449301@@">
+
+    <menuBar>
+
+        <!-- File menu -->
+
+		<menu id="file">
+            <ui label="File" mnemonic="F"/>
+
+			<item id="new">
+                <ui label="New..." help="Create a new document from the available templates" icon="images/document_new.png" shortcut="N"/> 
+				<action class="com.japisoft.editix.action.file.NewAction"/>
+			</item>
+
+			<item id="open">
+                <ui label="Open..." help="Open a document from the file system" icon="images/document_add.png" shortcut="O"/>
+                <action class="com.japisoft.editix.action.file.OpenAction"/>
+            </item>
+
+            <menu id="openr" builder="com.japisoft.editix.ui.RecentFileMenuBuilder">
+                <ui label="Open recent..." help="Shortcuts for previous loaded document"/>
+            </menu>
+
+            <item id="insert">
+                <ui group="*" label="Insert a file..." help="Insert a document at the caret location"/>
+				<action class="com.japisoft.xmlpad.action.file.InsertAction" editor="true"/>
+            </item>
+
+            <item id="close">
+                <ui group="*" label="Close" shortcut="alt F4" macShortcut="ctrl Q" help="Close the current document. A dialog box will be prompted if the document must be saved before closing"/>
+				<action class="com.japisoft.editix.action.file.CloseAction"/>
+            </item>
+
+			<item id="closeAll2">
+            	<ui group="*" label="Close all except the current" help="Close all the opened document except the current one. A dialog box will be shown for all non saved documents."/>
+				<action class="com.japisoft.editix.action.file.CloseAllAction2"/>			</item>
+
+			<item id="deleteClose">
+				<ui group="*" label="Close and Delete" help="Close the current document and delete it. User can't read it again. A dialog will ask to confirm deleting."/>
+				<action class="com.japisoft.editix.action.file.DeleteAction"/>
+			</item>
+
+            <item id="closeAll">
+            	<ui group="*" label="Close all" help="Close all the opened document. A dialog box will be shown for all non saved documents."/>
+				<action class="com.japisoft.editix.action.file.CloseAllAction"/>
+            </item>
+
+			<separator/>
+			
+			<menu id="import">
+
+				<ui label="Import" mnemonic="I"/>
+
+	            <item id="HTML">
+	                <ui label="HTML document..." help="Import an HTML document"/>
+					<action class="com.japisoft.editix.action.file.imp.HTMLImport"/>
+	            </item>
+
+	            <item id="CSV">
+	                <ui label="CSV document..." help="Import a CSV document"/>
+					<action class="com.japisoft.editix.action.file.imp.CSVImport"/>
+	            </item>
+			
+			</menu>
+			
+			<menu id="export">
+				<ui label="Export" mnemonic="E"/>
+
+	            <item id="JAVA">
+	                <ui label="Java classes..." help="Generate classes from XML content"/>
+					<action class="com.japisoft.editix.action.file.export.ExportJavaAction"/>
+	            </item>
+						
+			</menu>
+
+			<item id="database">
+				<ui label="XML Databases..." help="Show a left component for database connection" param="com.japisoft.editix.db.ui.DbPanel" icon="images/data.png"  shortcut="ctrl shift 8"/>
+				<action class="com.japisoft.editix.action.panels.PanelAction" />
+			</item>
+
+			<separator/>
+
+            <item id="save">
+                <ui group="*" label="Save" help="Save the current document for the file system, ftp, webdav or zip. The user doesn't have to worry about the way the file has been loaded." shortcut="S" icon="images/disk_blue.png"/>
+				<action class="com.japisoft.editix.action.file.SaveAction"/>
+            </item>
+
+            <item id="saveAs">
+                <ui group="*" label="Save as..." help="Save the current document to the file system." icon="images/disk_blue_ok.png"/>
+				<action class="com.japisoft.editix.action.file.SaveAsAction"/>
+            </item>
+
+            <item id="saveAsTemplate">
+                <ui group="*" label="Save as template..." help="Store the current document as a template for the 'New...'  item usage. User can delete it from the 'Template' menu." icon="images/disk_yellow.png"/>
+                <action class="com.japisoft.editix.action.file.SaveAsTemplate"/>
+            </item>
+
+            <item id="saveAll">
+            	<ui group="*" label="Save all" help="Save all the opened documents" icon="images/disks.png"/>
+            	<action class="com.japisoft.editix.action.file.SaveAllAction"/>
+            </item>
+
+			<separator/>
+
+			<item id="openHTTP">
+				<ui label="Open by HTTP..." help="Create a GET or POST HTTP request"/>
+				<action class="com.japisoft.editix.action.file.OpenHTTPAction"/>
+			</item>
+
+			<item id="filebrowser">
+				<ui label="Browse files" help="Show a left component for browsing your file system. Use the filebrowser preference for changing the default path" icon="images/diskdrive.png" param="com.japisoft.editix.ui.panels.universalbrowser.FileBrowserPanel" shortcut="ctrl shift 1"/>
+				<action class="com.japisoft.editix.action.file.BrowseFileAction" />
+			</item>
+												
+			<item id="openFtp">
+				<ui label="Browse files by FTP..." help="Browse an FTP server for editing a file. User will have to specify the host, user name and password. If a proxy is needed, look at the preferences." param="com.japisoft.editix.ui.panels.universalbrowser.FTPBrowserPanel" icon="images/harddisk_network.png"/>
+				<action class="com.japisoft.editix.action.file.BrowseFTPAction"/>
+			</item>
+			
+			<item id="openZip">
+				<ui label="Browse files by ZIP archive..." help="Browse a zip or jar file for editing a file. Use the 'Save' item for saving." param="com.japisoft.editix.ui.panels.universalbrowser.ZIPBrowserPanel" icon="images/diskdrive.png"/>
+				<action class="com.japisoft.editix.action.file.BrowseZIPAction"/>
+			</item>
+
+			<separator/>
+
+			<menu id="project">
+
+				<ui label="Project" mnemonic="P"/>
+			
+				<item id="projectManager">
+					<ui label="Project manager" help="Show a left component for managing a project" param="com.japisoft.editix.ui.panels.project.ProjectPanel" icon="images/package.png" shortcut="ctrl shift 2"/>
+					<action class="com.japisoft.editix.action.panels.PanelAction" />
+				</item>
+
+				<item id="prjNew">
+					<ui label="New project..." help="Create a new project"/>
+					<action class="com.japisoft.editix.action.file.NewProjectAction"/>
+				</item>
+
+				<item id="prjOpen">
+					<ui label="Open project..." help="Open a collection of documents using a project file (*.pre)" icon="images/package_add.png" shortcut="ctrl shift O"/>
+					<action class="com.japisoft.editix.action.file.OpenProjectAction"/>
+				</item>
+	
+				<menu id="prjOpenRecent" builder="com.japisoft.editix.ui.RecentProjectFileMenuBuilder">
+					<ui label="Open recent project" help="Shortcut for the last opened projects."/>
+				</menu>
+	
+				<item id="prjSave">
+					<ui enabled="false" label="Save project" help="Save all the opened documents inside the current project (*.pre)" icon="images/package_ok.png" shortcut="ctrl shift S"/>
+					<action class="com.japisoft.editix.action.file.SaveProjectAction"/>
+				</item>
+	
+				<item id="prjSaveAs">
+					   <ui enabled="false" label="Save project as..." help="Save all the opened documents inside a project (*.pre) browsing the file system" />
+					   <action class="com.japisoft.editix.action.file.SaveAsProjectAction"/>
+				</item>
+					
+				<item id="prj.zip">
+					<ui enabled="false" label="Export project as a ZIP document..." help="Export the project to a zip, it will build relative path for project files."/>
+					<action class="com.japisoft.editix.action.file.export.ExportProject"/>
+				</item>
+												
+				<menu id="prjActions">
+					<ui label="Actions"/>
+
+					<item id="prj.open">
+						<ui label="Open the selected file" icon="images/document_add.png" help="You can also double-click for opening"/>
+						<action class="com.japisoft.editix.ui.panels.project.actions.OpenAction"  enabled="false"/>
+					</item>
+										
+					<item id="prj.addf">
+						<ui label="Add the current document" icon="images/folder_into.png" help="add the current file"/>
+						<action class="com.japisoft.editix.ui.panels.project.actions.AddAction"  enabled="false"/>
+					</item>
+
+					<item id="prj.addfs">
+						<ui label="Add all the documents" icon="images/folder_into.png" help="add all the opened files"/>
+						<action class="com.japisoft.editix.ui.panels.project.actions.AddAllAction"  enabled="false"/>
+					</item>
+										
+					<item id="prj.addd">
+						<ui label="Add a folder" icon="images/folder_add.png" help="add a group"/>
+						<action class="com.japisoft.editix.ui.panels.project.actions.AddFolderAction" enabled="false"/>
+					</item>
+
+					<item id="prj.ren">
+						<ui label="Rename a folder" icon="images/folder_edit.png" help="Rename a group"/>
+						<action class="com.japisoft.editix.ui.panels.project.actions.RenameAction" enabled="false"/>
+					</item>
+			
+					<item id="prj.del">
+						<ui label="Delete a file reference or a folder" icon="images/delete2.png" help="Delete the file reference or the group. It will not delete physically the file"/>
+						<action class="com.japisoft.editix.ui.panels.project.actions.DeleteAction" enabled="false"/>
+					</item>
+
+					<item id="prj.check">
+						<ui label="Check project files" icon="images/folder_view.png" help="Check if all the files are available"/>
+						<action class="com.japisoft.editix.ui.panels.project.actions.CheckAction" enabled="false"/>
+					</item>
+
+					<item id="prj.lock">
+						<ui label="Lock the project state for the next editix usage" icon="images/lock.png" help="Lock the project panel state"/>
+						<action class="com.japisoft.editix.ui.panels.project.actions.LockAction" enabled="false"/>
+					</item>
+							
+				</menu>
+
+				<separator/>
+
+				<item id="prjClose">
+					<ui enabled="false" label="Close project" help="Close all the opened document from the current project. A dialog will be shown for saving modified documents."/>
+					<action class="com.japisoft.editix.action.file.CloseProjectAction"/>
+				</item>
+
+			</menu>
+
+            <separator/>
+
+			<item id="fileinfo">
+				<ui label="File info" help="Show a left component with current file data" param="com.japisoft.editix.ui.panels.info.InfoPanel" icon="images/information.png" shortcut="ctrl shift 3"/>
+				<action class="com.japisoft.editix.action.panels.PanelAction" />
+			</item>
+
+			<menu id="encoding" builder="com.japisoft.editix.ui.EncodingMenuBuilder">
+				<ui label="Encoding" help="Choose the default file encoding" />
+			</menu>
+
+            <separator/>
+
+            <item id="print">
+                <ui label="Print..." group="*" shortcut="P" help="Print the current document" icon="images/printer.png"/>
+				<action class="com.japisoft.editix.action.file.PrintAction"/>
+            </item>
+
+            <separator/>
+
+            <item id="quit">
+                <ui label="Quit" help="Quit editix"/>
+				<action class="com.japisoft.editix.action.file.QuitAction"/>
+            </item>
+
+        </menu>
+    
+        <!-- Edit menu -->
+
+        <menu id="edit">
+            <ui label="Edit" mnemonic="E"/>
+
+            <item id="undo">
+                <ui group="*" label="Undo" help="Undo action" shortcut="Z" icon="images/undo.png"/>
+                <action class="com.japisoft.xmlpad.action.edit.UndoAction" editor="true"/>
+            </item>
+
+            <item id="redo">
+                <ui group="*" label="Redo" help="Redo action" shortcut="Y" icon="images/redo.png"/>
+				<action class="com.japisoft.xmlpad.action.edit.RedoAction" editor="true"/>
+            </item>
+
+            <separator/>
+
+            <item id="cut">
+                <ui group="*" label="Cut" help="Cut the selection" shortcut="X" icon="images/cut.png"/>
+				<action class="com.japisoft.xmlpad.action.edit.CutAction" editor="true"/>
+            </item>
+					
+            <item id="copy">
+                <ui group="*" label="Copy" help="Copy the selection" shortcut="C" icon="images/copy.png"/>
+				<action class="com.japisoft.xmlpad.action.edit.CopyAction" editor="true"/>
+            </item>
+						
+            <item id="paste">
+                <ui group="*" label="Paste" help="Paste at the current location" shortcut="V" icon="images/paste.png"/>
+                <action class="com.japisoft.xmlpad.action.edit.PasteAction" editor="true"/>
+            </item>
+
+            <separator/>
+
+			<menu id="nodeEdit">
+				<ui label="From the current node"/>
+
+				<item id="cut2">
+					<ui group="*" label="Cut" help="Cut the current node. Must be selected before" shortcut="ctrl shift X" icon="images/cut.png"/>
+					<action class="com.japisoft.xmlpad.action.edit.CutNodeAction" editor="true"/>
+				</item>
+
+				<item id="copy2">
+					<ui group="*" label="Copy" help="Copy the current node. Must be selected before" shortcut="ctrl shift C" icon="images/copy.png"/>
+					<action class="com.japisoft.xmlpad.action.edit.CopyNodeAction" editor="true"/>
+				</item>
+
+				<item id="duplicatePrevious">
+					<ui group="*" label="Duplicate the previous sibling" help="Copy and Paste the previous sibling node" shortcut="ctrl shift P" icon="images/branch.png"/>
+					<action class="com.japisoft.xmlpad.action.edit.DuplicatePreviousSiblingNodeAction" editor="true" enabled="false"/>
+				</item>
+
+				<item id="duplicateFollowing">
+					<ui group="*" label="Duplicate the following sibling" help="Copy and Paste the following sibling node" shortcut="ctrl shift L" icon="images/branch.png"/>
+					<action class="com.japisoft.xmlpad.action.edit.DuplicateFollowingSiblingNodeAction" editor="true" enabled="false"/>
+				</item>
+								
+				<separator/>
+						
+				<item id="addBookmark">
+					<ui group="*" shortcut="B" label="Add a bookmark" help="It will add a bookmark from the current XPath location" icon="images/bookmark_add.png"/>
+					<action class="com.japisoft.editix.action.search.BookmarkAction"/>
+				</item>
+																
+				<item id="select2">
+					<ui group="XML;XSLT;XHTML;XSD;RNG;FO;DOCBOOK;XXF" label="Select" help="Select the current node (element or text)" shortcut="ctrl shift A" icon="images/element_selection.png"/>
+					<action class="com.japisoft.xmlpad.action.edit.SelectTagAction" editor="true"/>
+				</item>
+						
+			</menu>
+
+            <separator/>
+
+            <item id="copyXpath">
+            	<ui group="XML;XHTML;DOCBOOK;XXF" label="Copy XPath location" help="Copy the current XPath location"/>
+            	<action class="com.japisoft.xmlpad.action.edit.CopyXPathLocation" editor="true"/>
+            </item>
+
+            <item id="copyLocation">
+            	<ui group="*" label="Copy File location" help="Copy the current File location"/>
+            	<action class="com.japisoft.xmlpad.action.edit.CopyFileLocation" editor="true"/>
+            </item>
+            
+            <separator/>
+
+            <item id="selectAll">
+                <ui group="*" label="Select all" help="Select the whole document" shortcut="A"/>
+                <action class="com.japisoft.xmlpad.action.edit.SelectAllAction" editor="true"/>
+            </item>
+
+			<separator/>
+
+			<item id="surroundTag">
+				<ui group="XML;XSLT;XSLTHTML;XHTML;XSD;RNG;FO;DOCBOOK;XXF" shortcut="ctrl shift T" label="Surround by a Tag..." help="Surround the selection by a new tag" icon="images/elements1.png"/>
+				<action class="com.japisoft.xmlpad.action.edit.SurroundTagAction" editor="true"/>
+			</item>
+
+			<item id="surroundComment">
+				<ui group="DTD;XML;EXML;XSLT;XSLTHTML;XHTML;XSD;RNG;FO;DOCBOOK;XXF" shortcut="M" label="Comment/Uncomment" help="Comment or Uncomment the selection of the current node. Otherwise it will insert a blank comment" icon="images/note_pinned.png"/>
+				<action class="com.japisoft.editix.action.xml.CommentAction"/>
+			</item>
+
+			<item id="surroundCDATA">
+				<ui group="XML;EXML;XSLT;XSLTHTML;XHTML;XSD;RNG;FO;DOCBOOK;XXF" label="Surround by a CDATA Section" help="Surround the selection by an XML CDATA Section"/>
+				<action class="com.japisoft.xmlpad.action.edit.SurroundCDATAAction" editor="true"/>
+			</item>
+
+        </menu>
+
+        <!-- Search menu -->
+
+        <menu id="search">
+            <ui label="Search" mnemonic="S"/>
+
+            <item id="find">
+                <ui group="*" label="Find/Replace..." shortcut="F" help="Search/Replace a subtext in the whole document." icon="images/find.png"/>
+                <action class="com.japisoft.editix.action.search.FindAction"/>
+            </item>
+
+            <item id="searchAgain">
+                <ui enabled="false" label="Search Again" macShortcut="ctrl G" shortcut="F3" help="Search again with the last find parameters" icon="images/find.png"/>
+				<action class="com.japisoft.editix.action.search.SearchAgainAction"/>
+            </item>
+
+			<item id="filesearch">
+				<ui label="File Search..." help="Search in several files an expression" param="com.japisoft.editix.action.search.file.FileSearchPanel" shortcut="ctrl shift F" icon="images/folder_view.png"/>
+				<action class="com.japisoft.editix.action.panels.PanelAction" />
+			</item>
+
+            <separator/>
+
+			<menu id="bookmark">
+				<ui label="Bookmarks" icon="images/bookmark.png" group="*"/>
+				
+				<menu id="listOfBookmarks" dynamic="true">
+					<ui label="Go to" help="User plugIn"/>
+				</menu>
+
+				<itemRef ref="addBookmark"/>
+				
+				<item id="removeAllBookmarks">
+					<ui group="*" label="Remove all bookmarks" help="Remove all the bookmarks for the current XML document" icon="images/bookmark_delete.png"/>
+					<action class="com.japisoft.editix.action.search.RemoveBookmarksAction"/>
+				</item>
+
+			</menu>
+						
+            <separator/>
+
+			<item id="searchTree">
+				<ui group="XML;XSLT;XSLTHTML;XHTML;XSD;RNG;FO;DOCBOOK;XXF" label="Search in a tree clone..." help="Show a dialog box with a tree clone for navigating in the whole document."/>
+				<action class="com.japisoft.xmlpad.action.search.SearchAction" editor="true"/>
+			</item>
+
+			<separator/>
+			
+			<item id="criteria">
+				<ui group="XML;XSLT;XSLTHTML;XHTML;XSD;RNG;FO;DOCBOOK;XXF" label="Node search" help="Search an node by name, attribute..." param="com.japisoft.editix.ui.panels.search.SearchPanel" icon="images/information.png" shortcut="ctrl shift 7"/>
+				<action class="com.japisoft.editix.action.panels.PanelAction" />
+			</item>
+
+			<item id="allElement">
+				<ui group="XML;XSLT;XSLTHTML;XHTML;XSD;RNG;FO;DOCBOOK;XXF" label="Display the current element occurences" help="Display all the elements with the current element name" icon="images/information.png" shortcut="F2"/>
+				<action class="com.japisoft.editix.action.search.DisplayOccurencesAction" />				
+			</item>
+			
+            <separator/>
+
+            <item id="nextTag">
+                <ui group="XML;XSLT;XSLTHTML;XHTML;XSD;RNG;FO;DOCBOOK;XXF" label="Show the next node" help="You will have to click to update the caret" shortcut="ctrl shift U"/>
+				<action class="com.japisoft.editix.action.search.NextTagAction" editor="true"/>
+            </item>
+
+            <item id="previousTag">
+                <ui group="XML;XSLT;XSLTHTML;XHTML;XSD;RNG;FO;DOCBOOK;XXF" label="Show the previous node" help="You will have to click to update the caret" shortcut="ctrl shift I"/>
+				<action class="com.japisoft.editix.action.search.PreviousTagAction" editor="true"/>
+            </item>
+
+			<separator/>
+
+            <item id="startTag">
+                <ui group="XML;XSLT;XSLTHTML;XHTML;XSD;RNG;FO;DOCBOOK;XXF" label="Show the begin of the element node" shortcut="ctrl shift L" help="You will have to click to update the caret"/>
+				<action class="com.japisoft.editix.action.search.StartTagAction" editor="true"/>
+            </item>
+
+            <item id="endTag">
+                <ui group="XML;XSLT;XSLTHTML;XHTML;XSD;RNG;FO;DOCBOOK;XXF" label="Show the end of the element node" shortcut="ctrl shift P" help="You will have to click to update the caret"/>
+				<action class="com.japisoft.editix.action.search.EndTagAction" editor="true"/>
+            </item>
+
+            <separator/>
+
+            <item id="goto">
+                <ui group="*" label="Go to line..." shortcut="ctrl L" help="Go the a line number"/>
+				<action class="com.japisoft.editix.action.search.GotoLineAction"/>
+            </item>
+
+        </menu>
+
+        <!-- XML menu -->
+
+        <menu id="xml">
+            <ui label="XML" mnemonic="X"/>
+
+            <item id="parse">
+                <ui group="XML;EXML;XSLT;XSLTHTML;XHTML;XSD;RNG;FO;DOCBOOK;SVG;XXF" label="Check this document" icon="images/text_ok.png" shortcut="K" help="Check or validate this XML document"/>
+                <action class="com.japisoft.xmlpad.action.xml.ParseAction" editor="true"/>
+            </item>
+
+            <item id="parseAll">
+                <ui group="XML;EXML;XSLT;XSLTHTML;XHTML;XSD;RNG;FO;DOCBOOK;SVG;XXF" label="Check all the documents" shortcut="ctrl shift K" help="Check all the opened XML documents"/>
+                <action class="com.japisoft.editix.action.xml.CheckAllAction"/>
+            </item>
+
+			<menu id="formatMenu">
+				<ui label="Format" mnemonic="F"/>
+
+				<item id="format">
+					<ui group="XML;EXML;XSLT;XSLTHTML;XHTML;XSD;RNG;FO;DOCBOOK;SVG;XXF" label="Pretty format (default)" icon="images/text_code.png" shortcut="R" help="Pretty format for this document. Undo is not possible"/>
+					<action class="com.japisoft.editix.action.xml.format.FormatAction"/>
+				</item>
+
+				<item id="format_2">
+					<ui group="XML;EXML;XSLT;XSLTHTML;XHTML;XSD;RNG;FO;DOCBOOK;SVG;XXF" label="Pretty format (explicit open/close elements)" icon="images/text_code.png" help="Pretty format with explicit closing element part. Undo is not possible"/>
+					<action class="com.japisoft.editix.action.xml.format.OpenElementFormatAction"/>
+				</item>
+
+				<item id="format_4">
+					<ui group="XML;EXML;XSLT;XSLTHTML;XHTML;XSD;RNG;FO;DOCBOOK;SVG;XXF" label="Pretty format (text trimming)" icon="images/text_code.png" help="Pretty format with explicit closing element part. Undo is not possible"/>
+					<action class="com.japisoft.editix.action.xml.format.TrimedFormatAction"/>
+				</item>
+
+				<item id="format_3">
+					<ui group="XML;EXML;XSLT;XSLTHTML;XHTML;XSD;RNG;FO;DOCBOOK;SVG;XXF" label="Unformat (shorter document)" icon="images/text_code.png" help="Create the shortest format for this document, useful for machine processing. Undo is not possible"/>
+					<action class="com.japisoft.editix.action.xml.format.UnFormatAction"/>
+				</item>
+
+				<menu id="indentSize" builder="com.japisoft.editix.ui.IndentSizeBuilder">
+					<ui label="Indentation size" help="It will define the number of tabulations for each XML indent level" />
+				</menu>
+
+				<menu id="tabSize" builder="com.japisoft.editix.ui.TabSizeBuilder">
+					<ui label="Tabulation width" help="It will define the number of whitespace for one tabulation usage" />
+				</menu>
+
+			</menu>
+						
+            <item id="comment">
+                <ui group="XML;EXML;XSLT;XSLTHTML;XHTML;XSD;RNG;FO;DOCBOOK;SVG;XXF" label="Comment..." icon="images/note_pinned.png" help="Comment the selection or insert a new one at the current location"/>
+				<action class="com.japisoft.xmlpad.action.xml.CommentAction" editor="true"/>
+            </item>
+
+			<item id="namespace">
+				<ui group="XML;EXML;XSLT;XSLTHTML;XHTML;XSD;RNG;FO;DOCBOOK;SVG;XXF" label="Namespace manager..." help="Add or remove a namespace definition"/>
+				<action class="com.japisoft.editix.action.xml.NamespaceAction"/>
+			</item>
+
+			<separator/>
+
+			<item id="temporarySchema">
+				<ui group="XML;XXF" label="Build a temporary schema for the content assistant" help="Generate an inner schema for having a content assitant without available schema."/>
+				<action class="com.japisoft.editix.action.xml.OnFlyCompletion"/>
+			</item>
+
+			<item id="disabledEnabledCompletion">
+				<ui 
+					group="*" 
+					label="Content Assistant (Syntax popup)" 
+					help="Enable or Disable the Content Assistant" 
+					icon="images/magic-wand.png" 
+					icon2="images/magic-wand2.png"/>
+				<action type="checkbox" selected="true" class="com.japisoft.editix.action.xml.DisabledEnabledCompletionAction"/>
+			</item>
+
+			<separator/>
+
+            <item id="xpath">
+                <ui group="XML;EXML;XSLT;XSLTHTML;XHTML;XSD;RNG;FO;DOCBOOK;XXF" label="XPath view" help="Show a left component for evaluating XPath expressions" param="com.japisoft.editix.ui.panels.xpath.XPathPanel" icon="images/element_view.png" shortcut="ctrl shift 4"/>
+				<action class="com.japisoft.editix.action.panels.PanelAction" />
+            </item>
+
+			<item id="xquery">
+                <ui group="XML;EXML;XSLT;XSLTHTML;XHTML;XSD;RNG;FO;DOCBOOK;XXF" label="XQuery builder" help="Build and Run an XQuery expression" param="com.japisoft.editix.ui.panels.xquery.XQueryPanel" icon="images/node.png" shortcut="ctrl shift 5"/>
+				<action class="com.japisoft.editix.action.panels.PanelAction" />
+            </item>
+
+			<separator/>
+
+			<item id="xmlDiff">
+				<ui label="XML Diff..." help="Called 'XML Differencing' it compares both XML documents and showes each change."/>
+				<action class="com.japisoft.editix.action.xml.XMLDiffAction"/>
+			</item>
+
+			<separator/>
+
+			<item id="charRef">
+				<ui group="*" label="Character reference view" help="Insert an XML character entity" param="com.japisoft.editix.ui.panels.charref.CharRefPanel" icon="images/font.png" shortcut="ctrl shift 6"/>
+				<action class="com.japisoft.editix.action.panels.PanelAction" />
+			</item>
+
+			<item id="snippet">
+				<ui group="*" label="XML Snippets view" help="Set of reusable code blocks" param="com.japisoft.editix.ui.panels.snippet.SnippetPanel" icon="images/folder_cubes.png" shortcut="ctrl shift 7"/>
+				<action class="com.japisoft.editix.action.panels.PanelAction" />
+			</item>
+
+			<separator/>
+
+			<item id="lockedTag">
+				<ui 
+					group="XML;EXML;XSLT;XSLTHTML;XHTML;XSD;RNG;FO;DOCBOOK;XXF" 
+					label="Lock/Unlock tag update" 
+					help="Protect/Unprotect tags updating" 
+					icon="images/lock_open.png"
+					icon2="images/lock.png"					
+					/>
+				<action 
+					type="checkbox" 
+					selected="true" 
+					class="com.japisoft.editix.action.xml.LockedTagAction"/>
+			</item>
+			
+			<separator/>
+
+			<item id="xmlcatalog">
+				<ui label="XML Catalog..." help="Use your OASIS catalog files"/>
+				<action class="com.japisoft.editix.action.xml.XMLCatalogAction"/>
+			</item>
+			
+        </menu>
+
+        <!-- DTD / Schema -->
+    
+        <menu id="schema">
+            <ui label="DTD/Schema" mnemonic="D"/>
+    
+            <item id="assignDTD">
+                <ui group="XML;EXML;XXF" label="Assign DTD to document..." help="Insert a DTD reference into this document" />
+				<action class="com.japisoft.editix.action.dtdschema.AssignDTD"/>
+            </item>
+
+            <item id="assignSchema">
+                <ui group="XML;EXML;XXF" label="Assign W3C XML Schema to document..." help="Insert a Schema reference into this document"/>
+				<action class="com.japisoft.editix.action.dtdschema.AssignSchema"/>
+            </item>
+
+			<item id="assignRelaxNG">
+				<ui group="XML;EXML;XXF" label="Assign XML Relax NG Schema to document..." help="Use an external XML relax NG Schema for validating/completing this document"/>
+				<action class="com.japisoft.editix.action.xml.UseRelaxNGAction"/>
+			</item>
+
+			<separator/>
+
+			<item id="parseDTD">
+				<ui group="DTD" label="Check this DTD" help="Check the current DTD syntax" icon="images/text_ok.png" shortcut="K"/>
+				<action class="com.japisoft.editix.action.dtdschema.ParseDTDAction"/>
+			</item>
+
+			<separator/>
+
+			<item id="generateTemplate">
+				<ui group="DTD;XSD" label="Generate an XML Template from this element" help="It will generate a document using the current element location as a root"/>
+				<action class="com.japisoft.editix.action.dtdschema.GenerateTemplateAction"/>
+			</item>
+			
+			<separator/>
+			
+			<item id="generateDTD">
+				<ui group="XML;EXML;XXF" label="Generate a DTD from this document" help="Generate a DTD using the current document structure"/>
+				<action class="com.japisoft.editix.action.dtdschema.DTDGenerateAction"/>
+			</item>
+
+			<item id="generateSchema">
+				<ui group="XML;EXML;XXF" label="Generate a W3C XML Schema from this document" help="Generate a W3C XML Schema using the current document structure"/>
+				<action class="com.japisoft.editix.action.dtdschema.SchemaGenerateAction"/>
+			</item>
+
+			<item id="generateRelaxNG">
+				<ui group="XML;EXML;XXF" label="Generate an XML RelaxNG Schema from this document" help="Generate an XML RelaxNG Schema using the current document structure"/>
+				<action class="com.japisoft.editix.action.dtdschema.RelaxNGGenerateAction"/>
+			</item>
+
+			<separator/>
+
+			<item id="generateDTDDoc">
+				<ui group="DTD" label="Generate a documentation from this DTD" help="Generate an HTML documentation from a DTD" icon="images/document_out.png"/>
+				<action class="com.japisoft.editix.action.dtdschema.GenerateDTDDoc"/>
+			</item>
+
+			<item id="generateSchemaDoc">
+				<ui group="XSD" label="Generate a documentation from this Schema" help="Generate an HTML documentation from a Schema" icon="images/document_out.png"/>
+				<action class="com.japisoft.editix.action.dtdschema.GenerateSchemaDoc"/>
+			</item>
+					
+            <separator/>
+
+			<item id="convertDTD1">
+				<ui group="DTD" label="Convert DTD to W3C XML Schema" help="convert this DTD to a W3C XML Schema" param="xsd"/>
+				<action class="com.japisoft.editix.action.dtdschema.ConvertAction"/>
+			</item>
+
+			<item id="convertDTD2">
+				<ui group="DTD" label="Convert DTD to XML RelaxNG" help="convert this DTD to a RelaxNG (XML syntax)" param="rng"/>
+				<action class="com.japisoft.editix.action.dtdschema.ConvertAction"/>
+			</item>
+
+			<separator/>
+
+			<item id="convertRNG1">
+				<ui group="RNG" label="Convert XML RelaxNG to W3C XML Schema" help="convert this RelaxNG (XML syntax) to a W3C XML Schema" param="xsd"/>
+				<action class="com.japisoft.editix.action.dtdschema.ConvertAction"/>
+			</item>
+
+			<item id="convertRNG2">
+				<ui group="RNG" label="Convert XML RelaxNG to DTD" help="convert this RelaxNG (XML syntax) to a DTD" param="dtd"/>
+				<action class="com.japisoft.editix.action.dtdschema.ConvertAction"/>
+			</item>
+
+        </menu>
+    
+        <!-- XSL -->
+
+        <menu id="XSL">
+            <ui label="XSLT/XQuery" mnemonic="L"/>
+
+            <item id="assignXSLT">
+                <ui group="XML;EXML;DOCBOOK;XXF" label="Assign XSLT to this document..." help="Assign an XSLT document to this one"/>
+				<action class="com.japisoft.editix.action.xsl.AssignXSLTAction"/>
+            </item>
+
+            <item id="assignCSS">
+                <ui group="XML;EXML;DOCBOOK;XXF" label="Assign CSS to this document..." help="Assign a CSS document to this one"/>
+				<action class="com.japisoft.editix.action.xsl.AssignCSSAction"/>
+            </item>
+
+            <separator/>
+
+            <item id="transformWithXQuery">
+                <ui group="XML;EXML;DOCBOOK;XXF" label="Transform using an XQuery request..." help="Transform this document with XQuery" icon="images/transform.png"/>
+				<action class="com.japisoft.editix.action.xquery.XQueryAction"/>
+            </item>
+
+            <item id="transformFromXQuery">
+                <ui group="XQR" label="Transform a document with this XQuery request..." icon="images/transform.png" help="Transform a document using this query"/>
+				<action class="com.japisoft.editix.action.xquery.XQuery2Action"/>
+            </item>
+
+			<separator/>
+
+            <item id="transformWithXSLT">
+                <ui group="XML;EXML;DOCBOOK;XXF" label="Transform using XSLT..." help="Transform this document with XSLT" icon="images/transform.png"/>
+				<action class="com.japisoft.editix.action.xsl.XSLTAction"/>
+            </item>
+
+            <item id="transformFromXSLT">
+                <ui group="XSLT;XSLTHTML" label="Transform a document with this XSLT..." icon="images/transform.png" help="Transform a document using this XSLT document"/>
+				<action class="com.japisoft.editix.action.xsl.XSLT2Action"/>
+            </item>
+
+			<separator/>
+			
+			<item id="xsltdebug1">
+				<ui group="XSLT;XSLTHTML" label="Start XSLT debug" icon="images/breakpoint_run.png" help="Debug the current XSLT document"/>
+				<action class="com.japisoft.editix.action.xsl.XSLTDebugAction"/>
+			</item>
+
+			<item id="xsltdebug3">
+				<ui label="Run until the next breakpoint" icon="images/breakpoint_into.png" help="Continue to run until the next breakpoint" shortcut="ctrl shift B"/>
+				<action class="com.japisoft.editix.action.xsl.XSLTContinueDebugAction" enabled="false"/>
+			</item>
+
+			<item id="xsltdebug4">
+				<ui label="Run step by step" icon="images/breakpoint_down.png" help="Run until the next element" shortcut="ctrl shift E" enabled="false"/>
+				<action class="com.japisoft.editix.action.xsl.XSLTStepDebugAction"/>
+			</item>
+
+			<item id="xsltdebug5">
+				<ui label="Terminate XSLT debug" icon="images/stop.png" help="Terminate the transformation" enabled="false"/>
+				<action class="com.japisoft.editix.action.xsl.XSLTTerminateDebugAction"/>
+			</item>
+			
+			<item id="xsltdebug2">
+				<ui group="XSLT;XSLTHTML" label="List of breakpoints" help="List of known breakpoints"/>
+				<action class="com.japisoft.editix.xslt.debug.BookmarkAction"/>
+			</item>
+
+			<separator/>
+
+            <item id="xsltProfile">
+                <ui group="XSLT;XSLTHTML" label="Profile this XSLT..." icon="images/stopwatch_run.png" help="Profile the XSLT document. It will monitor each XSLT element. Note that the result may be incorrect for too small data source"/>
+				<action class="com.japisoft.editix.action.xsl.XSLProfilerAction"/>
+            </item>
+
+			<separator/>
+
+			<item id="lastTransform">
+				<ui group="XML;EXML;DOCBOOK;XSLT;XSLTHTML;XQR;XXF" shortcut="J" label="Repeat last transformation" help="Apply the last XSLT or XQuery transformation"/>
+				<action class="com.japisoft.editix.action.xsl.XSLTXQueryLastAction"/>
+			</item>
+
+        </menu>
+
+		<!-- FO -->
+
+		<menu id="fo">
+			<ui label="FO" mnemonic="O"/>
+
+			<item id="fot">
+				<ui label="FO Transformation..." group="FO" help="Convert current FO to PDF..." icon="images/transform.png"/>
+				<action class="com.japisoft.editix.action.fop.FOPAction"/>
+			</item>
+
+			<separator/>
+
+			<item id="fot2">
+				<ui label="Repeat last transformation" shortcut="alt J" group="FO" help="Repeat last transformation"/>
+				<action class="com.japisoft.editix.action.fop.FOPLastAction"/>
+			</item>
+
+		</menu>
+
+		<!-- DocBook -->
+
+		<menu id="docbook">
+			<ui label="DocBook" mnemonic="B"/>
+
+			<item id="docbookt">
+				<ui label="DocBook Transformation..." group="DOCBOOK" help="Convert current DocBook to PDF..." icon="images/transform.png"/>
+				<action class="com.japisoft.editix.action.docbook.DocBookAction"/>
+			</item>
+
+			<separator/>
+
+			<item id="docbookt2">
+				<ui label="Repeat last transformation" shortcut="ctrl shift J" group="DOCBOOK" help="Repeat last transformation"/>
+				<action class="com.japisoft.editix.action.docbook.DocBookLastAction"/>
+			</item>
+
+		</menu>
+
+		<!-- Template -->
+
+		<menu id="template">
+			<ui label="Template" mnemonic="T"/>
+
+			<itemRef ref="saveAsTemplate"/>
+
+			<item id="editTemplates">
+				<ui label="Edit templates..." help="Edit/Remove available templates"/>
+				<action class="com.japisoft.editix.action.template.EditTemplates"/>
+			</item>			
+
+			<separator/>
+			
+			<item id="generateTemplate">
+				<ui group="XML;EXML" label="Generate a minimal template..." help="Generate a template from this document"/>
+				<action class="com.japisoft.editix.action.dtdschema.TemplateGenerateAction"/>
+			</item>
+
+			<separator/>
+
+			<item id="addTemplateParam">
+				<ui group="*" label="Insert a template param" help="Insert a parameter for usage when editing with this template"/>
+				<action class="com.japisoft.editix.action.template.InsertParamAction"/>
+			</item>
+		</menu>
+
+        <!-- View -->
+
+        <menu id="view">
+
+           <ui label="View" mnemonic="V"/>
+           
+           <item id="split">
+               <ui group="*" label="Split/Unsplit Vertically" help="Split this editor vertically" icon="images/window_split_ver.png"/>
+			   <action class="com.japisoft.xmlpad.action.other.SplitAction" editor="true"/>
+           </item>
+
+           <item id="split2">
+               <ui group="*" label="Split/Unsplit Horizontally" help="Split this editor horizontally" icon="images/window_split_hor.png"/>
+               <action class="com.japisoft.xmlpad.action.other.SplitActionHorizontal" editor="true"/>
+           </item>
+
+           <item id="tree">
+               <ui group="XML;XSLT;XHTML;XSD;RNG;FO" label="Hide/Show tree" help="Hide or Show the current tree" icon="images/branch.png"/>
+               <action class="com.japisoft.xmlpad.action.other.TreeVisibilityAction" editor="true"/>
+           </item>
+
+		   <separator/>
+           
+		   <item id="select">
+				<ui group="*" label="Select..." help="Select an editor"/>
+				<action class="com.japisoft.editix.action.view.SelectAction"/>
+		   </item>
+
+		   <item id="previousFile" enabled="false">
+				 <ui icon="images/arrow_left_green.png" label="Previous selected file" help="Previous files" shortcut="{"/>
+				 <action class="com.japisoft.editix.action.file.PreviousSelectionAction"/>			
+		   </item>
+	
+		   <item id="nextFile" enabled="false">
+				 <ui icon="images/arrow_right_green.png" label="Next selected file" help="Next files" shortcut="}"/>
+				 <action class="com.japisoft.editix.action.file.NextSelectionAction"/>			
+		   </item>
+
+		   <separator/>
+			
+			<menu id="panels">
+	            <ui label="Windows" help="Available lef windows"/>
+	            <itemRef ref="filebrowser"/>
+				<itemRef ref="projectManager"/>
+	            <itemRef ref="fileinfo"/>				
+	            <itemRef ref="xpath"/>
+				<itemRef ref="xquery"/>
+				<itemRef ref="criteria"/>
+				<itemRef ref="charRef"/>
+				<itemRef ref="snippet"/>
+				<itemRef ref="database"/>
+	        </menu>
+	
+			<separator/>
+						
+			<item id="extract">
+				<ui label="Extract the current editor" help="Display the current editor into another window"/>
+				<action class="com.japisoft.editix.action.view.ExtractEditorAction"/>
+			</item>
+	
+	        <menu id="extracted">
+	            <ui label="Extracted editors" help="Shortcuts for current extracted editors"/>
+	        </menu>
+	
+			<separator/>
+	
+			<item id="viewHTML2">
+				<ui group="XHTML;XML;XXF" label="System viewer..." shortcut="ctrl shift N" help="Show it in a system HTML browser"/>
+				<action class="com.japisoft.editix.action.view.HTMLView"/>
+			</item>
+	
+			<item id="viewSVG">
+				<ui group="SVG" label="SVG preview..." help="Show a SVG document preview"/>
+				<action class="com.japisoft.editix.action.view.SVGView"/>
+			</item>
+			
+			<item id="viewSpaces">
+				<ui group="*" label="Whitespace display" help="Show the whitespace characters (space, tabulation)" icon="images/text_marked.png"/>
+				<action class="com.japisoft.editix.action.view.DisplaySpaces"/>			
+			</item>
+
+        </menu>
+
+        <!-- Options -->
+
+		<menu id="options">
+            <ui label="Options" mnemonic="P"/>
+
+			<item id="preferences">
+				<ui label="Preferences..." help="Update user preferences. Restart The application after changing" icon="images/environment_preferences.png"/>
+				<action class="com.japisoft.editix.action.options.PreferencesAction"/>
+			</item>
+
+			<separator/>
+
+			<item id="externalTools">
+				<ui label="External Tools..." help="Call an external tool" icon="images/gear_connection.png"/>
+				<action class="com.japisoft.editix.action.options.ExternalToolAction"/>
+			</item>
+
+			<item id="checkVersion">
+				<ui label="Check the last version..." help="It will ask the editix site to know if a new version is available"/>
+				<action class="com.japisoft.editix.action.options.CheckVersionAction"/>
+			</item>
+
+			<separator/>
+
+			<menu id="install">
+				<ui label="Install" help="Install a driver into EditiX"/>
+				
+				<item id="newParser">
+					<ui label="A custom parser..." help="Install a java JAXP compatible parser"/>
+					<action class="com.japisoft.editix.action.options.ChooseParserAction"/>
+				</item>
+	
+				<item id="newTransformer">
+					<ui label="A custom transformer..." help="Install a java JAXP compatible transformer"/>
+					<action class="com.japisoft.editix.action.options.ChooseTransformerAction"/>
+				</item>
+	
+				<item id="dbconfig">
+					<ui label="A custom xmldb driver..." help="Install/Change an xmldb compatible driver for XML databases" icon="images/data.png"/>
+					<action class="com.japisoft.editix.action.options.ConfigXmlDbAction"/>
+				</item>
+
+				<separator/>
+
+	            <menu id="plugin" dynamic="true">
+	            	<ui label="Plugin..." help="User plugIn"/>
+	            </menu>
+
+			</menu>
+
+			<separator/>
+
+			<item id="cleanDTDCache">
+				<ui label="Clean the offline DTD cache..." help="Clean the last saved DTD for offline usage"/>
+				<action class="com.japisoft.editix.action.options.CleanDTDCache"/>
+			</item>
+
+			<item id="cleanRecentFiles">
+				<ui label="Clean the last opened files history..." help="Clean the last opened file from the open recent menu"/>
+				<action class="com.japisoft.editix.action.options.CleanRecentFiles"/>
+			</item>
+
+			<item id="cleanRecentProjects">
+				<ui label="Clean the last opened projects history..." help="Clean the last opened project from the open recent menu"/>
+				<action class="com.japisoft.editix.action.options.CleanRecentProjects"/>
+			</item>
+									
+        </menu>
+		
+        <!-- Help -->
+    	
+        <menu id="help">
+            <ui label="Help" mnemonic="H"/>
+
+			<item id="Manual">
+				<ui label="User Manual..." help="Load the manual from the EditiX site" shortcut="F1"/>
+				<action class="com.japisoft.framework.dialog.help.ManualAction"/>
+			</item>
+
+			<item id="Userinterface">
+				<ui label="User interface..." help="Show User interface content"/>
+				<action class="com.japisoft.editix.action.help.UIHelpAction"/>
+			</item>
+
+			<item id="tipOfTheDay">
+				<ui label="Tip of the day..." help="Show an EditiX tip"/>
+				<action class="com.japisoft.editix.action.help.TipOfTheDayAction"/>
+			</item>
+
+			<menu id="refDoc">
+				<ui label="Reference documentation"/>				
+
+				<menu id="refElement">
+					<ui label="Reference Elements"/>
+
+		            <item id="schema-dtd">
+		                <ui label="W3C Schema..." help="Reference for W3C Schema elements" param="dtd/XMLSchema.dtd" param2="XMLSchema" shortcut="alt 1"/>
+		                <action class="com.japisoft.editix.action.help.DTDManualGenerator"/>
+		            </item>
+		            
+		            <item id="fo-dtd">
+		                <ui label="XSL-FO..." help="Reference for XSL-FO elements" param="dtd/fo.dtd" param2="fo" shortcut="alt 2"/>
+		                <action class="com.japisoft.editix.action.help.DTDManualGenerator"/>
+		            </item>
+		            
+		            <item id="xslt-dtd">
+		                <ui label="XSLT 1.0..." help="Reference for XSLT elements" param="dtd/xslt.dtd" param2="xslt" shortcut="alt 3"/>
+		                <action class="com.japisoft.editix.action.help.DTDManualGenerator"/>
+		            </item>
+
+				</menu>
+	            
+	            <menu id="refW3C">
+					<ui label="Official documentation"/>
+
+					<item id="xml-1">
+						<ui label="XML 1.0..." help="Official reference for XML 1.0" param="http://www.w3.org/TR/2004/REC-xml-20040204/" shortcut="1"/>
+						<action class="com.japisoft.framework.dialog.basic.ExternalBrowserAction"/>
+					</item>	            
+		
+	            	<separator/>					
+
+					<item id="schema-w3C-1">
+						<ui label="W3C Schema Structures..." help="Official reference for W3C Schema" param="http://www.w3.org/TR/xmlschema-1/" shortcut="2"/>
+						<action class="com.japisoft.framework.dialog.basic.ExternalBrowserAction"/>
+					</item>
+
+					<item id="schema-w3C-2">
+						<ui label="W3C Schema Datatypes..." help="Official reference for W3C Schema" param="http://www.w3.org/TR/xmlschema-2/" shortcut="3"/>
+						<action class="com.japisoft.framework.dialog.basic.ExternalBrowserAction"/>
+					</item>
+
+					<item id="relaxng">
+						<ui label="RelaxNG..." help="Official reference for RelaxNG" param="http://www.relaxng.org/spec-20011203.html" shortcut="4"/>
+						<action class="com.japisoft.framework.dialog.basic.ExternalBrowserAction"/>					
+					</item>
+
+	            	<separator/>
+
+					<item id="xpath-1">
+						<ui label="XPath 1.0..." help="Official reference for XPath 1.0" param="http://www.w3.org/TR/xpath" shortcut="5"/>
+						<action class="com.japisoft.framework.dialog.basic.ExternalBrowserAction"/>
+					</item>	            
+
+					<item id="xpath-2">
+						<ui label="XPath 2.0..." help="Official reference for XPath 1.0" param="http://www.w3.org/TR/xpath20" shortcut="6"/>
+						<action class="com.japisoft.framework.dialog.basic.ExternalBrowserAction"/>
+					</item>	            
+
+					<item id="xslt-1">
+						<ui label="XSLT 1.0..." help="Official reference for XSLT 1.0" param="http://www.w3.org/TR/xslt" shortcut="7"/>
+						<action class="com.japisoft.framework.dialog.basic.ExternalBrowserAction"/>
+					</item>	            
+
+					<item id="xslt-2">
+						<ui label="XSLT 2.0..." help="Official reference for XSLT 2.0" param="http://www.w3.org/TR/xslt20/" shortcut="8"/>
+						<action class="com.japisoft.framework.dialog.basic.ExternalBrowserAction"/>
+					</item>	            
+
+					<item id="xslt-3">
+						<ui label="XSL FO..." help="Official reference for XSL FO" param="http://www.w3.org/TR/xsl/" shortcut="9"/>
+						<action class="com.japisoft.framework.dialog.basic.ExternalBrowserAction"/>
+					</item>	            
+
+	            </menu>
+	            
+			</menu>
+
+            <separator/>
+
+            <item id="features">
+                <ui label="Support/Information..." help="http://www.editix.com"/>
+                <action class="com.japisoft.editix.action.help.FeatureAction"/>
+            </item>
+						
+			<item id="reportBug">
+				<ui label="Report a bug..." help="Form for reporting a bug"/>
+				<action class="com.japisoft.editix.action.help.BugReportingAction"/>
+			</item>
+
+			<item id="featureRequest">
+				<ui label="Feature request..." help="Form for reporting a request"/>
+				<action class="com.japisoft.editix.action.help.FeatureRequestAction"/>
+			</item>
+            
+            <item id="listReport">
+            	<ui label="Reporting list..." help="Display last user reporting"/>
+            	<action class="com.japisoft.editix.action.help.UserReportAction"/>
+            </item>
+
+            <item id="console">
+            	<ui label="Console..." help="Last output or error messages"/>
+            	<action class="com.japisoft.editix.action.help.ConsoleAction"/>
+            </item>
+
+            <separator/>
+        
+        	<item id="buy">
+        		<ui label="Buy online..." help="Show the purchasing page"/>
+        		<action class="com.japisoft.editix.action.help.BuyOnLine"/>
+        	</item>
+            
+            <item id="register">
+                <ui label="Register..." help="Register for this product"/>
+                <action class="INNER_1"/>
+            </item>
+
+			<separator/>
+
+			<item id="release-news">
+				<ui label="Release NEWS..." help="http://www.editix.com" icon="images/news_new.png"/>
+				<action class="com.japisoft.editix.action.help.AboutNewsAction"/>
+			</item>
+						            
+            <item id="about">
+                <ui label="About..." help="about..."/>
+				<action class="INNER_2"/>
+            </item>
+            
+        </menu>
+    
+    </menuBar>
+
+    <!-- ToolBar section -->
+    
+    <toolBar id="DEFAUT" group="*" floatable="false">
+    
+        <itemRef ref="new"/>
+        <itemRef ref="open"/>
+        <itemRef ref="save"/>
+        <itemRef ref="saveAs"/>
+        
+        <separator/>
+        
+        <itemRef ref="undo"/>
+        <itemRef ref="redo"/>
+        <itemRef ref="cut"/>
+        <itemRef ref="copy"/>
+        <itemRef ref="paste"/>
+        
+        <separator/>
+        
+		<itemRef ref="select2"/>
+		<itemRef ref="surroundComment"/>		
+		<itemRef ref="surroundTag"/>
+		<itemRef ref="duplicatePrevious"/>
+		
+		<separator/>
+
+        <itemRef ref="find"/>
+        
+        <separator/>
+        
+        <itemRef ref="parse"/>
+        <itemRef ref="format"/>
+        
+		<separator/>
+		
+		<itemRef ref="disabledEnabledCompletion"/>
+		<itemRef ref="lockedTag"/>
+		<itemRef ref="viewSpaces"/>
+
+		<separator/>
+
+		<itemRef ref="previousFile"/>
+		<itemRef ref="nextFile"/>
+
+        <separator/>
+
+        <itemRef ref="split"/>
+		<itemRef ref="split2"/>
+
+   </toolBar>
+
+    <toolBar id="CSS" group="CSS" floatable="false">
+    
+        <itemRef ref="new"/>
+        <itemRef ref="open"/>
+        <itemRef ref="save"/>
+        <itemRef ref="saveAs"/>
+        
+        <separator/>
+        
+        <itemRef ref="undo"/>
+        <itemRef ref="redo"/>
+        <itemRef ref="cut"/>
+        <itemRef ref="copy"/>
+        <itemRef ref="paste"/>
+        		
+		<separator/>
+
+        <itemRef ref="find"/>
+        
+        <separator/>
+        
+		<item id="parseCSS">
+			<ui group="CSS" label="Check this CSS" help="Check the current CSS syntax" icon="images/text_ok.png" shortcut="K"/>
+			<action class="com.japisoft.editix.action.css.CheckAction"/>
+		</item>
+        
+		<separator/>
+
+		<itemRef ref="previousFile"/>
+		<itemRef ref="nextFile"/>
+
+        <separator/>
+
+        <itemRef ref="split"/>
+		<itemRef ref="split2"/>
+
+   </toolBar>
+
+    <toolBar id="XSLT" group="XSLT;XSLT2;XSLTHTML" floatable="false">
+
+        <itemRef ref="new"/>
+        <itemRef ref="open"/>
+        <itemRef ref="save"/>
+        <itemRef ref="saveAs"/>
+        
+        <separator/>
+        
+        <itemRef ref="undo"/>
+        <itemRef ref="redo"/>
+        <itemRef ref="cut"/>
+        <itemRef ref="copy"/>
+        <itemRef ref="paste"/>
+        
+        <separator/>
+
+		<itemRef ref="select2"/>
+		<itemRef ref="surroundComment"/>		
+		<itemRef ref="surroundTag"/>
+		<itemRef ref="duplicatePrevious"/>
+		
+		<separator/>
+		        
+        <itemRef ref="find"/>
+
+        <separator/>
+        
+        <itemRef ref="parse"/>
+        <itemRef ref="format"/>
+        
+		<separator/>
+        
+		<itemRef ref="disabledEnabledCompletion"/>
+
+        <separator/>
+		
+		<itemRef ref="previousFile"/>
+		<itemRef ref="nextFile"/>
+		
+		<separator/>
+        
+        <itemRef ref="split"/>
+		<itemRef ref="split2"/>
+				
+		<separator/>
+		
+		<itemRef ref="xsltdebug1"/>
+		<itemRef ref="xsltdebug3"/>
+		<itemRef ref="xsltdebug4"/>
+		<itemRef ref="xsltdebug5"/>
+
+		<separator/>
+		
+		<itemRef ref="xsltProfile"/>
+
+		<separator/>
+		
+		<itemRef ref="transformFromXSLT"/>
+        
+   </toolBar>
+
+    <toolBar id="XQuery" group="XQR" floatable="false">
+
+        <itemRef ref="new"/>
+        <itemRef ref="open"/>
+        <itemRef ref="save"/>
+        <itemRef ref="saveAs"/>
+        
+        <separator/>
+        
+        <itemRef ref="undo"/>
+        <itemRef ref="redo"/>
+        <itemRef ref="cut"/>
+        <itemRef ref="copy"/>
+        <itemRef ref="paste"/>
+		
+		<separator/>
+		        
+        <itemRef ref="find"/>
+
+		<separator/>
+        
+		<item id="parseXQuery">
+			<ui group="XQR" label="Check this XQuery document" help="Check the current XQuery syntax" icon="images/text_ok.png" shortcut="K"/>
+			<action class="com.japisoft.editix.action.xquery.CheckAction"/>
+		</item>
+
+		<separator/>
+        
+		<itemRef ref="disabledEnabledCompletion"/>
+
+        <separator/>
+		
+		<itemRef ref="previousFile"/>
+		<itemRef ref="nextFile"/>
+		
+		<separator/>
+        
+        <itemRef ref="split"/>
+		<itemRef ref="split2"/>
+
+		<separator/>
+		
+		<itemRef ref="transformFromXQuery"/>
+        
+	</toolBar>
+
+    <toolBar id="FO" group="FO" floatable="false">
+
+        <itemRef ref="new"/>
+        <itemRef ref="open"/>
+        <itemRef ref="save"/>
+        <itemRef ref="saveAs"/>
+        
+        <separator/>
+        
+        <itemRef ref="undo"/>
+        <itemRef ref="redo"/>
+        <itemRef ref="cut"/>
+        <itemRef ref="copy"/>
+        <itemRef ref="paste"/>
+        
+        <separator/>
+
+		<itemRef ref="select2"/>
+		<itemRef ref="surroundComment"/>		
+		<itemRef ref="surroundTag"/>
+		<itemRef ref="duplicatePrevious"/>
+		
+		<separator/>
+		        
+        <itemRef ref="find"/>
+
+        <separator/>
+        
+        <itemRef ref="parse"/>
+        <itemRef ref="format"/>
+
+		<separator/>
+        
+		<itemRef ref="disabledEnabledCompletion"/>
+
+        <separator/>		
+
+		<itemRef ref="previousFile"/>
+		<itemRef ref="nextFile"/>		
+		
+        <separator/>
+        
+        <itemRef ref="split"/>
+		<itemRef ref="split2"/>
+
+		<separator/>
+		
+		<itemRef ref="fot"/>
+        
+   </toolBar>
+		
+	
+    <toolBar id="DTD" group="DTD" floatable="false">
+
+        <itemRef ref="new"/>
+        <itemRef ref="open"/>
+        <itemRef ref="save"/>
+        <itemRef ref="saveAs"/>
+
+		<separator/>
+
+        <itemRef ref="undo"/>
+        <itemRef ref="redo"/>
+        <itemRef ref="cut"/>
+        <itemRef ref="copy"/>
+        <itemRef ref="paste"/>
+        
+        <separator/>
+        
+        <itemRef ref="find"/>
+
+        <separator/>
+
+        <itemRef ref="parseDTD"/>
+
+		<separator/>
+		
+		<itemRef ref="disabledEnabledCompletion"/>
+
+        <separator/>
+
+		<itemRef ref="previousFile"/>
+		<itemRef ref="nextFile"/>		
+		
+        <separator/>
+
+        <itemRef ref="split"/>
+		<itemRef ref="split2"/>		
+									   
+   </toolBar>
+
+   <popup id="TABBEDPANE">
+
+		<itemRef ref="extract"/>
+	   
+		<item id="prj.addf2">
+			<ui label="Add the current document to the project" icon="images/folder_into.png" help="add the current file"/>
+			<action class="com.japisoft.editix.ui.panels.project.actions.Add2Action"  enabled="false"/>
+		</item>
+
+		<separator/>
+	   
+   		<itemRef ref="close"/>
+   		
+   		<itemRef ref="closeAll2"/>
+   		
+        <item id="deleteClose">
+            <ui group="*" label="Delete and close this document" help="Delete this file before closing this document" action="com.japisoft.editix.action.file.DeleteAction"/>
+        </item>
+	   
+   		<separator/>
+   		<itemRef ref="save"/>
+   		<itemRef ref="saveAs"/>
+	    <separator/>
+	    <itemRef ref="copyLocation"/>
+
+        <item id="renameFile">
+            <ui group="*" label="Rename this document" help="Rename this file" action="com.japisoft.editix.action.file.RenameAction"/>
+        </item>
+
+   		<separator/>
+		<itemRef ref="parse"/>
+
+   </popup>
+
+   <popup id="EDITOR">
+    
+        <itemRef ref="undo"/>
+        <itemRef ref="redo"/>
+        <itemRef ref="cut"/>
+        <itemRef ref="copy"/>
+        <itemRef ref="paste"/>
+
+        <separator/>
+
+		<menu id="nodeEdit">
+			<ui label="From the current node"/>
+			
+			<itemRef ref="cut2"/>
+			<itemRef ref="copy2"/>
+			<itemRef ref="duplicatePrevious"/>
+			<itemRef ref="duplicateFollowing"/>
+			<separator/>
+			<itemRef ref="addBookmark"/>
+			<itemRef ref="select2"/>
+			
+		</menu>
+	   	   
+        <separator/>
+
+        <item id="openFileAt">
+            <ui label="Open file at this location" help="Open file using the name from the current location"/>
+			<action class="com.japisoft.editix.action.file.OpenFileAtAction"/>
+        </item>
+
+        <separator/>
+
+        <itemRef ref="find"/>
+
+		<menu id="findOccurences" dynamic="true">
+			<ui 
+				label="Display all occurences of" 
+				help="Is will use the search panel for displaying all occurences"/>
+		</menu>
+	   
+		<separator/>
+	   		
+		<itemRef ref="copyXpath"/>
+		<itemRef ref="copyLocation"/>		
+
+        <separator/>
+
+        <itemRef ref="parse"/>
+        <itemRef ref="format"/>
+
+		<menu id="refactorPopup">
+			<ui label="Refactor"
+				help="Refactor any XML parts like the current element name, an attribute..."/>
+
+			<menu id="refactorRename" dynamic="true">
+				<ui label="Rename"
+					help="Rename the current element, an attribute..."/>
+			</menu>
+
+			<menu id="refactorDelete" dynamic="true">
+				<ui label="Delete"
+					help="Delete the current element, an attribute..."/>
+			</menu>
+
+			<menu id="refactorConvert" dynamic="true">
+				<ui label="Convert"
+					help="Convert an element, an attribute..."/>
+			</menu>
+
+			<menu id="refactorSurround" dynamic="true">
+				<ui label="Surround"
+					help="Convert an element by another element..."/>
+			</menu>
+
+			<menu id="refactorInsert" dynamic="true">
+				<ui label="Insert"
+					help="Insert an element or an attribute..."/>
+			</menu>
+			
+			<separator/>
+			
+			<item id="repeatRefactoring">
+				<ui label="Repeat the last refactoring" help="Repeat the last refactoring, it works with another document too"/>
+				<action class="com.japisoft.editix.action.xml.refactor.RepeatLastRefactoring"/>
+			</item>
+			
+		</menu>
+
+    	<separator/>
+
+		<itemRef ref="surroundTag"/>
+        <itemRef ref="surroundComment"/>
+		<itemRef ref="surroundCDATA"/>
+
+    </popup>
+
+	<model id="TREE">
+
+		<item id="commentTree">
+			<ui help="Comment the current node" icon="images/note_pinned.png"/>
+			<action class="com.japisoft.xmlpad.tree.action.CommentNode" editor="true"/>
+		</item>
+
+		<item id="copyTree">
+			<ui help="Copy the current node" icon="images/copy.png"/>
+			<action class="com.japisoft.xmlpad.tree.action.CopyNode" editor="true"/>
+		</item>	
+
+		<item id="cutTree">
+			<ui help="Cut the current node" icon="images/cut.png"/>
+			<action class="com.japisoft.xmlpad.tree.action.CutNode" editor="true"/>
+		</item>
+
+		<item id="selectTree">
+			<ui help="Select the current node" icon="images/element_selection.png"/>
+			<action class="com.japisoft.xmlpad.tree.action.SelectNode" editor="true"/>
+		</item>
+
+		<item id="filterTree">
+			<ui help="Update the tree view for filtering namespace, prefix..." icon="images/text_tree.png"/>
+			<action class="com.japisoft.editix.action.tree.FilterAction"/>
+		</item>
+
+	</model>
+
+	<model id="SNIPPET">
+		
+		<item id="snp.insert">
+			<ui label="Insert the selected snippet" icon="images/element_new_after.png" help="Insert the snippet at the current location. You can also insert it by a double-click or drag'n drop"/>
+			<action class="com.japisoft.editix.ui.panels.snippet.actions.InsertAction"  enabled="false"/>
+		</item>
+								
+		<item id="snp.add">
+			<ui label="Add the current element as a new snippet" icon="images/folder_into.png" help="Add the current element node into the current selection (snippet or folder). It will add or complete a snippet"/>
+			<action class="com.japisoft.editix.ui.panels.snippet.actions.AddAction"  enabled="false"/>
+		</item>
+										
+		<item id="snp.addd">
+			<ui label="Add a folder" icon="images/folder_add.png" help="Add a new folder"/>
+			<action class="com.japisoft.editix.ui.panels.snippet.actions.AddFolderAction" enabled="false"/>
+		</item>
+
+		<item id="snp.ren">
+			<ui label="Rename a snippet or a folder" icon="images/folder_edit.png" help="Rename a group or a snippet"/>
+			<action class="com.japisoft.editix.ui.panels.snippet.actions.RenameAction" enabled="false"/>
+		</item>
+
+		<item id="snp.del">
+			<ui label="Delete a snippet or a folder" icon="images/delete2.png" help="Delete the snippet or the group."/>
+			<action class="com.japisoft.editix.ui.panels.snippet.actions.DeleteAction" enabled="false"/>
+		</item>
+
+		<item id="snp.any">
+			<ui label="Mark/Unmark this snippet as repeatable" icon="images/element_refresh.png" help="Mark/Unmark this snippet as repeatable ( thus a dialog box will ask the number of item )."/>
+			<action class="com.japisoft.editix.ui.panels.snippet.actions.AnyAction" enabled="false"/>
+		</item>
+
+		<item id="snp.hlp">
+			<ui label="Set a comment" help="Insert a short comment visible inside the tree"/>
+			<action class="com.japisoft.editix.ui.panels.snippet.actions.HelpAction" enabled="false"/>
+		</item>
+
+	</model>
+
+</editix>

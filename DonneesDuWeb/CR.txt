@@ -1,0 +1,61 @@
+COMPTE RENDU TP DONNEES DU WEB :
+
+Première partie : XML, DTD, XPath, XSLT
+
+Etape 1 : Exploration de l'instance [XPath]
+
+1.Donnez les expressions XPath pour sélectionner les éléments suivants:
+	1.toutes les capitales
+		//capital
+		capital	Oranjestad
+	2.les noms communs des pays
+		//name/common
+		common	Aruba
+	3.les éléments ayant exactement un attribut
+		//*[count(@*)=1]
+		native_name	
+	4.les noms officiels des pays en français, pour ceux qui en ont
+		//official[parent::native_name/@lang="fra"]
+		official	Territoire des Terres australes et antarctiques françaises
+	5.les deuxièmes noms natives officiels des pays
+		//native_name[position()=2]/official
+		official	Aruba
+	6.la somme des superficies (area) des pays d'Europe
+		sum(//country[infosRegion/region="Europe"]/area)
+		2.302289746E7
+	7.les pays qui n'ont pas de nom natif
+		//country/name[count(native_name)=0]/common
+		common	Antarctica
+	8.les pays dont le nom commun n'est pas contenu dans leur nom officiel
+		//country/name[not(contains(official, common))]/common
+		common	Argentina
+	9.les noms officiels des pays ayant plus de 8 voisins (borders)
+		//country[count(borders)>8]/name/official
+		official	Federative Republic of Brazil
+	10.La position de la France dans le document XML
+		count(//country[name/common="France"]/preceding-sibling::*)+1
+		76.0
+	11.les noms officiels des pays fédéraux
+		//country/name[contains(official, "Federal")]/official
+		official	Federal Republic of Germany
+	12.les langues des noms natifs des pays sans doublons
+		//country/name/native_name[not(@lang = preceding::native_name/@lang)]/@lang
+		lang	nld
+		(155 results)
+		
+Etape 2  : Mise à jour de l'instance [XML, DTD]
+
+1. Après avoir utilisé Check this document, on obtient l'erreur suivante : 
+The content of element type "country" must match "(name,tld+,codes,currency*,callingCode*,capital,altSpellings+,infosRegion*,languages+,coordinates*,demonym,landlocked,borders*,area)".
+
+L'élément tld doit être rensigné une ou plusieurs fois pour chaque noeud country. 
+Or, il y'a un country ne contenant aucun tld.
+On change alors la définition du noeud country pour que tld puisse être renseigné 0 ou plusieurs fois : tld*.
+
+2. Le seul élément à changer est infosRegion. Nous l'avons detecté en essayant de changer tous les autres éléments et en
+vérifiant le document à chaque fois.  La définition corrigée est : infosRegion+.
+
+
+
+Etape 3 : Mise en forme du corpus des pays du monde [XSLT]
+

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="${default-encoding}"?>
+
+<!-- New document created with EditiX at ${date} -->
+
+<project name="myProject" default="myTask" basedir=".">
+ <target name="myTask">
+ </target>
+</project>
+

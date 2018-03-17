@@ -1,0 +1,1087 @@
+Version 2010
+
+* New Form Designer
+
+- Create a form with drag'n drop from a XML schema using the Form Designer
+
+* New Form Editor
+
+- Edit your XML document using this form
+
+* Text Editor
+
+- Location bar for navigating into the node hierarchy (go to, select, copy, cut actions popup)
+- Current line location
+- Whitespaces visibility 
+
+* Bugs fixed
+
+- popups for Mac OS X fixed (Project panel and XSD visual editor)
+- Some dialog layouts for Mac OS X fixed
+- Due to wrong performance, the XHTML inner preview has been removed (system preview must be used)
+
+Version 2009 / Service Pack 1
+
+* Project
+
+- Relative paths (preference application/project/relativePath for disabling it)
+- Drag'n Drop starts slowly avoiding moving by error a project branch
+- Delete key for removing a project element
+- Filter by document type (menu Popup)
+
+* XML Tree
+
+- Drag'n drop of nodes takes into account auto-closed elements
+- Ctrl key while dragging for duplicating the nodes
+- Drag'n drop from the tree to the editor for copying a node
+- Popup on a node for displaying another attribute
+
+* Editor
+
+- Cursor location is restored after formatting
+- Expression highlighting (parenthesis...)
+
+* Interface
+
+- "Close all except the current one" action
+
+* XSD Editor
+
+- The attribute view is by default optional (delimiters in the border)
+- The group ref view is minimized 
+- New export image action ( png or jpg ) in the designer
+- Delete key in the visual mode is managed
+
+* XSLT Editor
+
+- The document type (XSLT 1.0 or 2.0) is now displayed in the XSLT window
+
+* DocBook
+
+- HTML help output is managed
+- DocBook properties are available
+
+* Bugs fixed
+
+- XML catalog management fixed
+- Couldn't parse an XML document with both a DTD and a schema
+- Color of the '=' character could not be changed
+- Formatting with text trimming could remove line breaks
+- Couldn't add element in the visual mode for extension fixed
+- Error message when importing a project for opened items
+
+Version : 2009
+
+* Native XML database
+- Default support for eXist, xindice, oracle berkley db xml 
+- Interface for plugging a new xmldb driver
+- Button for running the current query document
+
+* File search ( Search menu )
+- Search with a text/regexp and xpath expression
+- Search location in a directory or a project
+- Filter for document type
+- Result view with files and occurences
+
+* Common editor
+- Line number with highlighting for the current node
+
+* Schema editor
+- Copy/Cut/Paste action in the visual mode
+
+* Interface
+- The recent files (document and projects) are stored in the user home (so will be unchanged with new editix versions)
+- Invalid recent files are in red inside the file menu
+- Better preferences organization
+- Alt-left/Alt-right for navigating into the selected editors
+
+* Search panels
+- Enter key for running the element search
+- Ctrl-Enter keys for running the XQuery search
+
+* XML
+- Indent size submenu for the format action
+- "Check all" action (working for XML, CSS, XQuery opened documents)
+- Shortcut ctrl-T becomes ctrl-shift-A
+
+* XSLT
+- Assistant for available modes
+
+* Bugs fixed :
+- Wrong default path for the filebrowser wasn't notified
+- Fix the "No stylesheet" message for DocBook transformation
+- Fix the editix.tmp change message after a DocBook transformation
+- Fix the Search/Replace
+- Fix the Comment/Uncomment action
+- Fix Diff with DTD
+
+Version : 2008 / Service Pack 5
+Build : 290908
+
+* Editor
+- The first error is selected automatically when parsing
+- "Ctrl down/up" shortcuts keyboard for selecting the next or the previous node in the text editor
+- "Ctrl shift down/Ctrl shift up" shortcuts keyboard for selecting the next or the previous error in the text editor
+- Search/Replace performance fixed
+
+* Project
+- Keyboard shortcut : ctrl-shift-s for saving the current project
+
+* XSLT/XQuery
+- Couldn't insert characters before the root node
+- The XPath1 functions assistant for XSLT1 didn't display specific XSLT functions
+- XSLT2 validator
+- "Repeat the last action" works both for XSLT and XQuery
+- XPath1/XPath2 functions assistant for XSLT1/XSLT2 (ctrl-space) 
+
+* XML Diff
+- New diff algorithm
+- Export a report action
+- Refresh action
+- Filter actions
+- Some error message weren't displayed
+- A waiting message when processing is displayed
+
+* SVG
+- Preview regression fixed
+
+* XSD/DTD Editor
+- Drag'n drop for moving an element (table & diagram modes)
+- Full schema validator
+- Action for generating an XML template from the current element definition
+
+* XPath Window
+- Keyboard shortcuts : ctrl-enter or ctrl-shift-enter for running
+- The first result is selected automatically
+
+* CSS Editor 
+- Wrong properties are notified
+
+Version : 2008 / Service Pack 4
+Build : 190608
+
+News :
+
+* Common :
+
+- New XQuery Editor
+- XML instance generated from a W3C schema or a DTD
+- New CSS Editor
+- Assistant for W3C Schema type boolean,dateTime,time,date,gYearMonth,gYear,gMonthDay,gDay,gMonth
+- Syntax highlighting for XPath and XQuery
+- W3C Schema Annotation managed for the content assistant
+- A document with error is notified inside its tab
+
+* Bugs fixed :
+
+- When choosing FOP for XSLT, the result document was displayed as any texts
+- Formatting error with CDATA section fixed
+- When clicking on an error message, the editor didn't scroll to the bound line
+- When highlighting a line from the tree, some parts were wrongly refreshed
+- BOM for UTF-8 was wrongly managed
+- Formatting error fixed with a document without a prolog
+- Previous/Next actions didn't work sometimes
+- Several content assistant problems fixed
+- Starting Editix with a file path didn't work
+- The schema generator throwed an error
+
+Version : 2008 / Service Pack 3
+Build : 300408
+
+News :
+
+* Common :
+
+- XML Snippets : Help you reusing XML blocks
+- "Previous/Next file" buttons inside the main toolbar
+- XML Diff proposes the current XML documents
+- Multiple selections for the XPath history for deleting
+- Formatting scenario with text trimming
+
+* Bugs fixed :
+
+- Error line could not appear with JDK6
+- Attributes weren't lexically ordered by the content assistant
+- Multi-lines comments wrongly generated for the Schema documentation generator
+- The XSLT result wasn't already loaded
+- Navigator didn't open for Windows/Mac os X platforms
+- XSLT parameters couldn't be removed
+- Assigning an XSD schema could loose the default namespace
+- Export/Import for the XPath history added empty lines
+- Attribute nodes from XPath result were partially displayed
+- XSD document generation didn't escape < > characters
+- XSD document generation with missing some HTML parts fixed
+- Fixed some assistant problems with HTML and XSL-FO
+- Fixed formatting and XSLT problems
+
+Version : 2008 / Service Pack 2
+Build : 040408
+
+News :
+
+* Common :
+
+- Better result format for the search panel, the "*" value is managed for "any elements"
+- New menu inside the editor popup for displaying occurences of element and attribute
+- New menu action for displaying the current element occurences (shortcut F2)
+- Performance for the pretty format improved
+- Three formatting scenarios : Pretty, Pretty with explicit open/close, Unformat
+- The refactor menu item has been removed and is only available in the editor popup menu
+- New "attributes to element", "attribute to element", "surround", "insert element/attribute" refactoring
+- New "delete all the comments", "delete text inside an element" refactoring
+- Repeat the last refactoring action (inside the editor popup menu)
+- Manuel is shown with the F1 key
+- Ressource Browser (file/zip/ftp) content sorted
+- Button for changing the default directory for the file browser
+- Add a CSS filter when opening a text file
+- W3C Schema Enumeration facet is managed for the element content
+- The tab width can be changed inside the format menu
+
+* XSL-FO Editor :
+
+- Refactoring : Rename page master name, region name
+
+* XSLT Editor :
+
+- HTML assistant for an HTML output
+- XSL-FO assistant for an XSL-FO output
+
+* Bugs fixed :
+
+- Wrong path name for the file browser under Mac OS X/Linux (missing a first '/')
+- Wrong path for external entity value was not notified
+- Schema encoding wrongly managed for the content assistant
+- The search panel could freeze when selecting a node of a closed document
+- Pretty format could loose empty text part
+- New project action fixed
+- Tree nodes couldn't be selected by the keyboard
+- XPath node selection was too little (for Mac OS X)
+
+Version : 2008 / Service Pack 1
+Build : 030308
+
+News :
+
+* Common :
+
+- Edit Office 2007 (.docx...) and Open office document (.odt...)
+- New ZIP / FTP browser
+- Edit by Drag'n drop ZIP files from your file system
+- ZIP/FTP files can be added to a project and inside the previous file sub menu
+- Bookmark by XPath location or Cursor location (ctrl B)
+- Actions for duplicating the previous/following sibling node
+- Open project file (*.pre) by Drag'n drop from the file system
+- Default browser for Linux platforms is firefox
+
+* XSLT Editor :
+
+- Profiler for XSLT 1.0 and 2.0
+- XSLT with an FO result document can be transformed to PDF, RTF...
+
+* Bugs fixed :
+
+- The "open recent menu" entries didn't memorized the editing parameters (like XML data source...)
+- XML Schema W3C validation required internet access
+- Uncomment action could work wrongly
+- The XSLT debugger had various problems
+- Errors line could be wrong when validating an XSLT or XSD documents
+- When closing the introduction panel a wrong editor could be closed
+- UTF-16 wrongly managed for the AUTOMATIC encoding mode
+- Calling several times the templates manager worked wrongly
+- Random wrong states for project actions
+
+Version : 2008
+Build : 050108
+
+News :
+====
+
+- Visual Schema W3C Editor
+
+* Common :
+
+- Better content assistant height management
+- The content assistant state is stored inside the project
+- The content assistant state is available inside the main toolbar
+- New document dialog improvement (double - click on a choice)
+- Search/Replace dialog initialized with the text selection
+- When a character cannot be displayed inside the character entity panel it is colored in gray
+- A tooltip displays the current file path in the tab container
+- A tooltip displays the attributes and the text inside the XML tree view
+- Schema/RelaxNG generator formats the result
+- Schema generator takes into account the root namespace
+- When assigning a schema to an element with a namespace the schemaLocation attribute is used
+- When assigning a schema or a DTD root elements are available
+- The tag update state is available inside the main toolbar
+- New templates for TEI P4 Lite, TEI P5, DITA, WSDL, XSLT with XSL-FO output
+- Better visibility for the error's tooltip
+- Error popup : Copy to the clipboard or export the error list to a file 
+- EditiX can reload outside modified files
+- Element search panel is available for any opened documents
+- Surround action lists available elements
+- Surround action works on the current selection or on the current element
+- Export your XML structure to java classes with a SAX handler
+- Refactoring action for adding a new attribute
+- EditiX version shown inside the bug reporting system
+- A modified document is displayed with a "*" inside the title
+- Comment/Uncomment, Selection, Surround actions available in the toolbar and working with the current node
+- Copy/Cut the current node actions from the Edit menu
+
+* XPath
+
+- Export/Import/Clean popup actions inside the history
+- Tooltip with result name and value
+
+* Project manager
+
+- New popup action for exporting the project content as a zip document
+- New project action
+- New "add all" action for all the current documents
+- Drag'n drop of a directory works
+
+* RNG Editor :
+
+- RNG documents are validated
+
+* XSLT Editor :
+
+- XSLT 1.0 documents are validated
+- The action for disabling the assistant has been removed from the XSLT menu as it is available in the XML menu
+- Button for refreshing the XML data source
+- When building XSLT document with drag and drop, relative xpath location are computed
+
+* XHTML Editor :
+
+- Component preview
+
+* Bugs fixed :
+
+- XSLT Transformation due to errors inside the XML source didn't displayed correctly
+- XML Catalog was not taken into account for transforming
+- The XPath result value didn't display text for XPath 1.0
+- Relative XPath 1.0 expression to the root node couldn't work
+- Refactoring action could "freeze" the application
+- EditiX could "freeze" for a wrong XML data source at starting
+- DTD Parsing bugs fixed
+- The status bar could disappear when loading a project with an XSLT editor
+- A relative path was available when assigning a DTD or a schema on a new document
+- Surround with CDATA section was incorrect
+- Default namespace sometimes wrongly shown inside the tree
+- The first export for a project could fail
+- Namespace manager fixed
+
+Version : 5.2.2
+Build : 100407
+
+News :
+====
+
+* Common :
+
+Action for cleaning the DTD cache
+
+* W3C Schema Editor :
+
+Schema is now validated
+
+Version : 5.2.1
+Build : 020407
+
+Bugs fixed :
+
+- Error fixed with DTD caching
+- Wrong variable name was not located for XSLT transformation
+
+Version : 5.2
+Build : 220307
+
+News :
+====
+
+* Common :
+
+- Refactoring for elements, attributes,prefixes,namespaces,entities,pi,comments
+- Drag'n drop from the file system for editing files
+- Drag'n drop from the project view to other view for getting file path
+- HTML 3.2 and HTML 4.0 preview replaced by HTML preview using your system browser
+- New AUTOMATIC encoding mode for letting editix chooses the most appropriate file encoding
+- Project content is used for filling selection from comboBox components
+- Option for cleaning the most recent opened project files
+- Import by HTTP dialog (with GET or POST request)
+- Entity character dialog has been moved to the left panel
+- More delimiters choice for CSV importing
+
+* Project Manager :
+
+- Project actions available inside the File menu and inside a popup menu
+- Drag'n drop with multiple files from the file systems
+- Multiple files can be deleted
+- Tooltip with file path when moving the mouse on a node
+- A file not found is shown in red
+- An action can refresh file status (found/not found)
+- Popup action for opening the selected file
+- New export action for using your project files in another computer easily
+it will create relative path.
+
+* XSLT Editor :
+
+- Drag'n drop from the file system for choosing a file
+- Drag'n drop from data source root node is available
+- An "apply-templates" is added automatically when dropping a source node for a template
+- The tree tab is the default one
+- When the xslt editor is maximized the data source file is not loaded for performance
+- Refactoring for template name, template mode, parameters, variables
+- XSLT output path comboBox filled with known XHTML documents
+- When editing the result document, the editor switches to the best editor type (html,xsl-fo...)
+
+* FO Editor :
+
+- Shortcut alt j for repeating the transformation
+
+* W3C Schema Editor :
+
+- Refactoring for elements, attributes and types.
+
+Bugs fixed :
+==========
+
+- Project panel was sometimes not shown
+- Drag'n drop outside the project worked only once
+- Sometimes, wrong XSLT file path in the XSLT dialog
+- Problem for directories with the ZIP browser
+- DocBook stylesheets were not found on Linux/Unix version
+- XSLT breakpoints dialog couldn't be shown
+- When opening a large document with a schema, attributes could'nt be inserted
+- Encoding could be wrong when saving a template
+- Current XML file was not a default one for XSLT transformation
+
+Version : 5.1
+Build : 141206
+
+News :
+====
+
+* Common :
+
+- New window framework
+- New XPath evaluator both for 1.0/2.0
+- Window for current file info
+- User can change the file encoding or file type while editing
+- Copy file location and rename action inside the document tabbed pane popup
+- User can clean the last opened files history
+- XQuery panel improved (open a new editor with the result, colors)
+
+* New Project Manager :
+
+- Add file or group of files inside the project panel
+- Drag'n drop for elements and groups
+- Drag'n drop from the file system
+- Automatic restore for the last opened project
+
+* XSLT Editor :
+
+- Stylesheet parameters found are added in the transformation dialog
+- File extension added for the result file name using the output method data
+- When selecting a current XML document for data source, firstly the document was not selected
+- When dragging and dropping a node from the data source to the main editor, user can choose value-of possibilities
+- The file result is stored by default in the same directory of the file source
+
+Bugs fixed :
+==========
+
+- Multiple error message when transforming without data source
+- File extension could be wrongly missing for the 'saveAs' action
+- File extension is automatically added when choosing a format for XSL-FO output (pdf,rtf...)
+- XPath result with attribute node can be shown inside the document
+- Attribute syntax color with multiple lines
+- Indentation and prefix could be wrong for drag'n drop operations inside the XSLT editor
+- Document result dialog for XSLT ignored htm and xml file extensions.
+
+Version : 5.0
+Build : 050906
+
+News :
+====
+
+* XML Editor :
+
+- Errors displayed in the text column
+- Errors on-the-fly shown in the tree nodes
+- Errors from external sources (dtd, schema) can be opened and located automatically
+- Tooltips in the tree node by node with the XPath location or the bound error
+- User can increase/decrease the content assistant size with "control" and "+" or "-" keys.
+- Comment panel added inside the content assistant
+- DTD parser manages SGML/DTD comments
+- Auto closing tag will check for already closing part
+- Assistant for closing a tag
+
+* DTD Editor :
+
+- Assistant for the choice of element in the ATTLIST
+- Assistant for the choice of content in the ELEMENT
+- Assistant for the choice of #REQUIRED/CDATA... inside the ATTLIST content
+
+* W3C Schema Editor :
+
+- On-the-fly documentation when choosing an element
+- Code assistant for choosing a type (taking into account the targetNamespace)
+- Code assistant for extension/restriction type (taking into account the targetNamespace)
+- Code assistant for reference (taking into account the targetNamespace)
+- Code assistant for substitutionGroup (taking into account the targetNamespace)
+
+* XSL-FO Editor :
+
+- On-the-fly documentation when choosing an element
+- Completed template
+- Code assistant for referring to a master-reference page
+- Code assistant for referring a region name
+- Added automatic extension and document relative path support from transformation dialog
+- External viewer available for windows platform
+
+* XSLT Editor :
+
+- Prefix color for xs,xsl
+- On-the-fly documentation when choosing an element
+- Schema namespace inside the template for XSLT 2.0
+- A transformation result can be shown with an external browser
+- The data source tree is available
+- Easy selection of the opened xml documents as data source
+- User can drag and drop a data source node to the xslt editor for adding a 'template' or a 'for-each' element
+- Code assistant when calling a template name
+- Code assistant for retrieving the param or variable name following the '$' caracter
+- Default xslt editor state (maximized) in the xslt preference or override inside a project
+- Default template for XSLT 2.0 fixed
+
+* Other :
+
+- The last parameters (path...) are restored when using the "open recent" menu.
+- DTD documentation generator
+- Relative assignation for DTD/W3C Schema,XSLT and CSS
+- The file browser state is saved when restarting editix
+- When opening a document, a character encoding can be choosen
+- Each editor can be extracted to individual window
+- Menu for selecting an extracted window
+- FileBrowser enhanced for ordering by directories or files
+- FileBrowser multiple files selection and autoscroll when moving a file
+- Embedded elements documentation for W3C Schema, XSLT 1.0 and XSL-FO
+- Embedded reference documentation for XML 1.0,W3C Schema,XPath,XSLT 1.0 and XSL-FO
+- Preference file/restoredLastPath for saving the last visited path
+- Copy file location
+- XQuery dialog improved
+- Using opened documents when assigning DTD,W3C Schema or RelaxNG
+- About dialog contains the XERCES,SAXON,FOP current version
+
+Bugs fixed :
+==========
+
+- 'a:' reading from the filebrowser for windows platform
+- When canceling a saving operation, an empty document was added in the open recent menu
+- Problem on tree filter choose
+- Scrolling while drag'n drop a tree node
+- Big entity name or value displayed correctly inside the content assistant
+- Copy/Paste could add some extra lines
+- Whitespace for attributes value preserved
+- Scrolling to the end when opening a DTD document fixed
+- Some dialog buttons fixed
+- XQuery usage for document validated by a W3C Schema
+- DocBook path for windows platform
+
+Version : 4.3
+Build : 121205
+
+News :
+====
+
+- Global performance improvement
+- The first text characters are displayed in the tree
+- The tree text node is selected on a full text selection
+- The XPath on-the-fly includes text selection
+- The redefine element is managed for W3C Schema content assistant
+- RTF rendering for FOP
+
+Bugs Fixed :
+==========
+
+- Various problems on cardinalities with the content assistant for W3C schema fixed
+- Tag delimiters were removed for a custor at the location 0
+- 'All' connector for W3C Schema
+- include element for W3C Schema fixed
+- Graphics preview for FO
+- Tree actions could not operate when editing multiple documents
+- Buttons size for the XSLT mode
+- When trying transforming and closing the OK button could be disabled after
+- Some dialogs location and size couldn't be saved
+- FOP Renderer fixed
+- FOP Error line fixed
+- Line added after each element when generating a W3C Schema
+- Namespace declaration ignored when generating a DTD,W3CSchema,RelaxNG document
+- Apos character not replaced by an entity while formatting inside an XSLT document
+- Unicode management for XPath expressions
+
+Version : 4.2
+Build : 010805
+
+News :
+====
+
+- Content assistant for attribute value working with DTD, W3C Schema and RelaxNG
+- Better management for the "Open recent" menus (file and project)
+- Type assistant for the DTD, W3C and RelaxNG generator
+- Reporting list enhanced
+- Various user interface parts improved
+
+Bugs fixed :
+==========
+
+- When assigning a W3C schema xsi attribute was duplicated
+- Default action inside the find/replace dialog fixed
+- Shorcut for repeating the last reseach fixed on Mac OS X
+- SimpleContent with attributes extension managed for W3C Schema content assistant
+- Various RelaxNG content assistant bugs fixed
+- When closing a modified document without saving a dialog will ask to confirm the operation
+- Element with text and attributes managed for the W3C Schema generator
+
+Version : 4.1
+Build : 280605
+
+News:
+====
+
+- Coloration enhanced for DTD
+- XPath evaluation works with unicode
+- Search again action
+- Access to a debug/feature database
+- Total error number available in the statusbar
+- Preferences for formatting and default entities
+
+Bugs fixed :
+==========
+
+- Assigning a DTD or a W3C schema under XP could add a wrong path
+- XSLT 2.0 error details now displayed
+- When assigning a W3C schema previous root attributes were lost
+- First element color fixed for inner DTD
+- Wrong find/replace matching
+- When plugging a custom XSLT engine the errors weren't displayed
+- EditiX descriptor could be corrupted by file name containing '&'
+- File overwritting query can be displayed when saving a file
+
+Version : 4.0
+Build : 090505
+
+News:
+====
+
+- XSLT 2.0 Transformation and Debugging
+- XSLT 2.0 Content assistant
+- XQuery support
+- Namespace manager
+- CSV (Excel) Import
+- The column line for the debugging variable has been removed, clicking on the variable highlights the source line
+- Namespace management inside the content assistant
+- Content assistant ordered
+- The default template for W3C Schema uses an 'xs' prefix
+- URL supported when using 'Open At'
+
+Bugs fixed :
+==========
+
+- Formatting a document bound to a W3C schema didn't work
+- When closing a document, the next active document could be in a wrong action state
+- Search/Replace dialog was working for one document
+- Checking a DTD fixed could let an error line
+- Empty file fixed for wrong file when using 'Open At'
+- A wrong XML catalog path could stop EditiX starting
+- Default namespace was for XHTML inside the non XHTML output XSLT templates
+- W3C Schema content assistant fixed
+- The content assistant ignored the prefix for W3C Schema or XSLT
+- MathML template restored
+
+Version : 3.3
+Build : 150405
+
+News :
+====
+
+- closing button inside the content assistant
+- default look and feel improvement
+- better message when copying  / moving a node from the tree
+- 'include' managed for the W3C Schema content assistant
+
+Bugs fixed :
+==========
+
+- DTD completion added a '!' character
+- DTD coloration fixed
+- Search was failing the first time on XP and Linux
+- xsl:otherwise was unavailable inside the XSLT content assistant
+- Font name update for Mac OS X
+- Parsing error when inserting a '<' with a content assistant
+- When copying a text from the tree a character was added
+
+Version : 3.2
+Build : 300305
+
+News :
+====
+
+- Plug easily your JAXP parser or transformer
+- Import HTML documents
+- The target node is displayed when dragging & dropping
+- When quitting EditiX without saving a dialog box asks to confirm
+- The manual and the search box are inside a non modal dialog
+- ctrl alt F shorcut key for opening / closing the File browser
+- Forms for reporting a bug or a feature request
+
+Bugs fixed :
+==========
+
+- The file browser for Windows was reading a: when opening
+- Previous research was not saved
+- &#10; preserved when formatting
+
+Version : 3.1
+Build : 170305
+
+News :
+====
+
+- Powerful file browser (creating a new file or directory, drag'n drop, multiple filtering)
+- Project file enhancement including the last browsed directory
+- The full text view is enabled by default
+- Preference xmlconfig / format-canonical : For preserving carriage return as &#10;
+
+Bugs fixed :
+==========
+
+- Color selection for Mac OS X wasn't visible
+- Font couldn't be updated for Mac OS X
+- User couldn't restore the full text view (without a wrapping mode)
+
+Version : 3.0
+Build : 090205
+
+News :
+====
+
+- New view for tags, entities, declarations and comments
+- XML OASIS Catalog management (including template for fast creating)
+- XInclude support
+- Mode for large XML document
+- Preference for a wrapping line view (preference editor/lineWrapped)
+- Preference for a full text view (preference editor/fullTextView)
+- A custom JAXP compatible XML parser or XSLT transformer can be plugged
+- Dialog for inserting a character reference
+- Memory optimization when using several times the same schema/dtd
+- Content assistant available by ctrl+space, ctrl+shift+space, ctrl+alt+space
+- Preference improvement : Ordered list, Import, Export, Reset actions
+- Better memory management while parsing
+- When loading a document with a wrong W3C XML schema or DTD location the error is shown
+- Template content can be edited inside EditiX
+- User templates are stored inside the user home path
+- New template parameters (company,phone,email...)
+- HTML content assistant for XSLT with HTML output
+- Preference interface / beep when ending a task (xslt,fop,docbook).
+- A button inside the XSLT editor for copying the current XPath location
+- When clicking on a variable name while debugging XSLT the line is shown
+- Background color for XSLT tags
+
+Bugs fixed :
+==========
+
+- Content assistant was enabled inside a CDATA or comment section
+- The user couldn't create a new file for webdav, ftp or archive content
+- schemaLocation was managed as noNamespaceSchemaLocation
+- Some DTD could be wrongly cached
+- Default DTD for svg, xhtml and docbook fixed
+- A dialog for reminding to wait could appear inside an XSLT action
+- A variable name for the XSLT debugger could be '?'
+- The XSLT File field name was not filled when starting debugging a new document
+- W3C Schema assignation could insert a new root tag
+
+Version : 2.1.1
+
+Build : 291104
+
+Bugs fixed :
+==========
+
+- Relative DTD or W3C Schema were rejected while transforming by XSLT
+- The content assistant didn't work for a local DTD
+- Parsing wasn't validating for a local DTD
+- Problem fixed with carriage return inside text for formatting
+- '>' inserted after a tag could add another tag
+- An order for a namespace declaration could throw an invalid syntax error
+
+Version : 2.1
+
+Build : 191104
+
+News :
+====
+
+- Powerful content assistant for DTD and Relax NG ( working with cardinality, ordered and non ordered list )
+- The error line is shown when validating by Relax NG
+- SubstitutionGroup' and 'abstract' element are managed by the W3C Schema content assistant
+- The parsing error message is maximized inside the statusbar
+- Update for the DocBook XSL stylesheets
+- New docking windows for the XSLT Editor
+- The XSLT editor, XML data source or the XSLT result can be maximized
+- HTML 4 output preview for XSLT usage
+- Coloration for XSLT tags inside the XSLT editor
+- Regular expression and incremental search
+- Assign a Relax NG document is now available inside the DTD/Schema menu
+- XML Relax NG generator from an XML document
+- Size of each file is shown while browsing by FTP or WebDAV
+- A beep is sent for each terminated background task
+
+Bugs fixed : 
+==========
+
+- Syntax coloration for DOCTYPE usage
+- Empty XPath expression was processed when clicking inside the XPath text field
+
+Version : 2.0
+Build : 270804
+
+News :
+====
+
+- XSLT Debugger (Stop on breakpoints, step by step, variables, nodeset and stack analysis)
+- XML Diff (menu XML / compare to...)
+- DocBook transformation support inside the DocBook menu
+- FTP, WebDAV, ZIP, JAR Access
+- DocBook template
+- When opening a document the filter is used for choosing the document type
+- New document's container management
+- The document type icon is shown inside the "open recent" sub-menu.
+- All transforming action operates in background (XSLT,FO,DocBook)
+- A toolBar added for the tree for selecting, cutting, copying or commenting nodes
+- The first attribute value is shown inside the document tree
+- Multiple filters for the tree (for prefix, namespace, qualified name...)
+- User can run external commands (menu options)
+- "tip of the day" dialog
+- ANT document type
+- Encoding menu (File menu)
+- Action for checking the last editix version from the editix site
+- The surround tag action takes into account the current schema
+- "Search in a tree" action (Search menu)
+- It is possible to run editix with a file argument from the command line
+- The order of the templates can be changed
+- "ctrl shift T" shortcut for surrounding a tag
+- New W3C XML Schema content assistant
+- Preference interface / initialDocument for adding a new empty editor at starting
+- The preference dialog is now hidden
+- Tree node speed selection improvement
+- Horizontal split
+- Proxy preference
+- User can resize the content assistant popup
+- Default relaxNG path and project usage
+
+Bugs fixed :
+==========
+
+- DTD Validation was not available while creating a new document
+- Encoding problem fixed for XSLT and XSL-FO
+- Sometimes actions were available in a bad context
+- Some external frames could persist after an XSLT document closing
+- The default encoding is taken into account inside the XSLT editor
+- Various problems for the relaxNG content assistant
+- Preference editing fixed
+- Better Unicode support
+- Empty attributes were ignored
+- JDK 1.5 support
+
+Version : 1.4.2
+Build : 05072004
+
+Bugs fixed :
+==========
+
+- Various DTD parsing errors fixed
+- Multiple Formatting created new tabulations
+- The assistant popup could be outside the width of the editor
+
+Version : 1.4.1
+Build : 01072004
+
+News : 
+====
+
+- "Delete and Close action" from the tabbed pane popup
+
+Bugs fixed :
+==========
+
+- The cursor was not at the right location for long line under Mac OS X
+
+Version : 1.4
+Build : 28062004
+
+News : 
+====
+
+- Surround CDATA action from the edit menu
+- Surround Comment action takes the place of the comment/uncomment action
+- Global performance improvement
+- Last path saved/restored while assigning a DTD, a schema or an XML or result document for XSLT
+- New syntax assistant system (header for the context and a filter for user entries supported)
+- Multiple errors popup available from the status bar
+- Multiple file extensions is supported for a same document type
+- Parts of the XSLT editor are now dockable
+- A preference file / tab-size has been added
+- The XSLT search works on the XML document during the XSLT editing
+
+* Mac OS X News :
+
+- The "alt F4" shortcut for closing the current document has been replaced by "ctrl Q"
+- Multiple drag'n drop from the finder is managed for editing a file
+
+Bugs fixed :
+==========
+
+- When starting a new document, the focus was not initialized
+- Formatting action with special characters contained '???' sequence
+- Various bugs fixed for synchronizing the text and the tree
+
+Release Node :
+
+- Improvement for RelaxNG is reported to a next version
+
+Version : 1.3
+Build : 14052004
+
+News :
+====
+
+- Tree element view for fast editing
+- The 'editor / dividerLocation' preference is now in percent (by defaut 20%)
+- Action for disabling/enabling completion with XSLT editing
+- Better XSLT completion
+- New surround action (available in the edit menu and the editor popup)
+- Used attributes are disabled for completion
+- Add a 'Line Break' entity helper
+- EditiX saves its last location and size
+- Last opening directory is now preserved
+- Global performance improvement
+- XSLT XPath evaluation improvement (support for relative evaluation)
+
+Bugs fixed :
+==========
+
+- History for opening file and project file were wrong
+- Default previous / next tag are now tied by default to U and I key
+- Entities parsing error
+
+Version : 1.2.1
+Build : 19032004
+
+News (Mac OS X) :
+====
+
+- drag'n drop support from the finder for opening xml/project file
+- editix About / editix Quit Menu item working
+- Embedded FAQ
+
+Bugs fixed : 
+==========
+
+- ':' missing for simple elements while generating a W3C XML schema from a document instance
+- Duplicate processing instruction when formatting
+- multiple charsets (preference file->rw-encoding) support for XSLT
+
+Version : 1.2
+Build : 15032004
+
+News : 
+====
+
+- New XSLT Editor (multiple view : XSLT / Data / Result and fast XPath test)
+- User can generate a temporary schema for document completion (menu XML -> Generate a temporary schema for completion)
+- SVG Preview (menu View -> SVG Preview)
+- A popup is visible each time the parsing action result is correct
+- The focus is now visible for the text part
+- Space key (more already escape) is available for removing the completion popup
+- User can disabled/enabled temporary the syntax completion popup (menu XML -> Disabled / Enabled syntax popup)
+- DTD syntax checker
+- Embedded Menu documentation
+- User can change the default 'xs' schema prefix when generating a schema from an instance (preference xml-W3C XML Schema prefix)
+
+Bugs fixed : 
+==========
+
+- Empty root tag with attributes showed a syntax error
+- Result file for XSLT didn't manage unicode
+- EditiX could Freeze when editing XSLT
+- Dialog box for XSLT parameters was incoherently accessible
+- User has to confirm to open more than once the same document
+- Completion improvement
+
+Version : 1.1
+Build : 01032004
+
+News :
+====
+
+- W3C XML Schema generator from the current XML document (menu DTD/Schema -> Generate a W3C XML Schema from this document)
+- DTD generator from the current XML document (menu DTD/Schema -> Generate a DTD from this document)
+- Template generator from the current XML document (menu Template -> Generate a minimal template)
+- Project file contains now all user parameters ( XSLT parameters... )
+- Fast comment/uncomment action popup
+- The 'use default DTD' and 'use default Schema' actions have been removed
+- Drag'n'drop for copying/moving nodes
+
+Bugs fixed : 
+==========
+
+- Default file encoding can now be updated using the preference file/rw-encoding
+- DTD template was using an illegal header
+- DTD root is updated when assigning a new DTD
+- Document root is updated by default when assigning a Schema
+- Undo/Redo state is now saved when alterning to a document
+
+Version : 1.03
+Build : 15022004
+
+News : 
+====
+
+- File/encoding preference for reading/writing other file encoding (like UTF_8)
+- Preferences are now fully initialized when starting
+- LookAndFeel improvement for Mac OS X
+
+Version : 1.02
+Build : 13022004
+
+News :
+====
+
+- Support for Mac OS X 10.3.2 / Java 1.4.2
+
+Version : 1.01
+Build : 09022004
+
+News :
+====
+
+- Add a 'editor/dividerLocation' preference for the tree/text divider initial location
+- User can store any dialog location and size
+- User can update from the 'dialog/...' preference any dialog location and size
+- User can update the default look-and-feel from the 'interface/lookAndFeel' preference
+- User can update the dfault XML encoding from the 'xml/default-encoding' preference
+- User can update any menu shortcut from the 'shortcut/...' preference
+- Default shortcut use the default system action control (like ctrl...)
+- Add a template for ant
+
+Bugs fixed :
+==========
+
+- Formatting added extra white-space
+- file: was used rather than file:// in xsl, dtd, schema choice
+
+Notes :
+=====
+
+- User preferences are available from the 'Options' menu
+- Mac OS X users : Use the preferences 'interface/lookAndFeel' and 'shorcut/...'
+- Western european countries can update the default ISO-8859-1 encoding with the preference 'xml/default-encoding'

@@ -1,0 +1,132 @@
+
+Ecrivez les expressions XPath qui retournent 
+1.	les noeuds "Employee" 
+
+/descendant::Employee
+//Employee
+//child::Employee
+
+/Company/Employee
+
+
+
+
+
+2.	les nœuds "Employee" triés par ordre alphabétique de leurs noms
+
+
+3.	les emails 
+
+//Email
+/Company/Employee/Email
+
+4.	les salaires
+
+//@salary
+//*/@salary
+//Employee/@salary
+//Employee/attribute::salary
+/Company/Employee/@salary
+
+5.	le nombre d'employés
+
+count(//Employee)
+
+6.	le deuxième employé 
+
+//Employee[position()=2]
+//Employee[2]
+
+
+7.	les 3 premiers employés
+//Employee[position() < 4]
+
+8.	l’âge de l’employé ayant l’identifiant "06" 
+//Employee[attribute::id="06"]/child::Age
+//Employee[attribute::id="06"]/Age
+//Employee[@id="06"]/Age
+
+//Age[../@id="06"]
+//Age[parent::*/@id="06"]
+
+9.	l’âge de l’employé "Wayne"
+//Employee[LastName="Wayne"]/Age
+//Employee[LastName/text()="Wayne"]/Age
+
+//LastName[.="Wayne"]/../Age
+//LastName[self::*="Wayne"]/parent::*/Age
+//LastName[self::*="Wayne"]/parent::Employee/Age
+
+//Age[../LastName="Wayne"]
+
+//LastName[self::*="Wayne"]/following-sibling::Age
+
+10.	les noms des employées dont la catégorie est "Officer" 
+
+//Employee[Category="Officer"]/LastName
+
+//Category[.="Officer"]/preceding-sibling::LastName
+
+
+11.	les employés dont la longueur du prénom est d’au moins 4 caractères 
+
+//Employee[string-length(FirstName) >3]
+
+//FirstName[string-length(.)>3]/..
+
+
+12.	les employés dont le poste (Position) contient "Chief"
+//Employee[contains(Position,"Chief")]
+//Employee[contains(Position/text(),"Chief")]
+
+//Employee/Position[contains(text(),"Chief")]/parent::Employee
+//Employee/Position[contains(.,"Chief")]/parent::Employee
+//Employee/Position[contains(.,"Chief")]/..
+
+//Position[contains(.,"Chief")]/parent::Employee
+//Position[contains(.,"Chief")]/..
+
+13.	les employés dont le nom est le même que le domaine de leur email
+
+//Employee[contains(substring-after(Email,"@"), LastName)]
+
+//Employee[LastName=substring-before(substring-after(Email,"@"),".")]
+
+//Employee[contains(Email, concat("@",LastName))]
+
+
+
+14.	le dernier noeud fils de l'avant dernier noeud "Employee"
+
+//Employee[position()=last()-1]/*[last()]
+//Employee[last()-1]/*[last()]
+//Employee[last()-1]/child::*[last()]
+//Employee[position()=last()-1]/child::*[position()=last()]
+//Employee[position()=last()-1]/node()[position()=last()]
+
+//Employee[count(//Employee)-1]/*[last()]
+//Employee[count(//Employee)-1]/*[count(../*)]
+
+//Employee[last()]/preceding-sibling::*[1]/*[last()]
+
+(//Employee/*[last()])[last()-1]
+
+
+15.	les employés plus jeunes que 30 ans
+
+//Employee[Age<30]
+
+16.	la somme des salaires
+sum(//@salary)
+sum(//*/@salary)
+sum(//Employee/@salary)
+
+17.	l’employé après John Wayne
+
+//Employee[LastName="Wayne" and FirstName="John" ]/following-sibling::Employee[1]
+
+
+//Employee[count(//Employee[LastName="Wayne"]/preceding-sibling::*)+2]
+
+18.	la position de l’employé Wayne
+count(//Employee[LastName="Wayne"]/preceding-sibling::*)+1
