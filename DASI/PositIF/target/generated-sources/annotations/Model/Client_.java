@@ -9,7 +9,7 @@ import model.ClientIdentite;
 import model.ClientProfilAstrologique;
 import model.Voyance;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2018-03-15T12:44:17")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2018-03-17T11:59:48")
 @StaticMetamodel(Client.class)
 public class Client_ { 
 

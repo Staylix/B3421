@@ -5,10 +5,10 @@
     <class>model.Client</class>
     <class>model.Employe</class>
     <class>model.Medium</class>
-    <class>model.Voyance</class>
     <class>model.MediumAstrologue</class>
-    <class>model.MediumVoyant</class>
     <class>model.MediumTarologue</class>
+    <class>model.MediumVoyant</class>
+    <class>model.Voyance</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/PositIF"/>
       <property name="javax.persistence.jdbc.user" value="b3405"/>
