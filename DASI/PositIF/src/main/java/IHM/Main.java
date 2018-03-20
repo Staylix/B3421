@@ -1,26 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package ihm;
 
 import service.Service;
 import dao.JpaUtil;
-import java.text.ParseException;
-import java.util.Date;
-import java.text.SimpleDateFormat;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import model.Client;
-import model.Employe;
-import model.Medium;
-import model.MediumAstrologue;
-import model.Voyance;
 
 /**
+ * Cette classe sert à lancer l'application.
  *
- * @author ggentil
+ * @author B3421
  */
 public class Main {
 
@@ -29,7 +15,9 @@ public class Main {
      */
     public static void main(String[] args) {
         JpaUtil.init();
+        //Service.testerConcurrence(args[0]);
         Service.initialisation();
+        Service.simulation();
         JpaUtil.destroy();
     }
     

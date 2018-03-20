@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
 import java.io.Serializable;
@@ -12,8 +7,9 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 /**
- *
- * @author ggentil
+ * Cette classe définie l'objet métier ClientIdentite, représentant les
+ * informations relatives à l'identité du client.
+ * @author B3421
  */
 @Embeddable
 public class ClientIdentite implements Serializable {
@@ -26,8 +22,6 @@ public class ClientIdentite implements Serializable {
     public ClientIdentite() {
     }
     
-    
-
     public ClientIdentite(String civilite, String Nom, String Prenom, Date dateNaissance) {
         this.civilite = civilite;
         this.nom = Nom;
@@ -46,7 +40,5 @@ public class ClientIdentite implements Serializable {
     public String getNom() {
         return nom;
     }
-    
-    
-    
+   
 }

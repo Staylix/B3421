@@ -8,7 +8,6 @@ package model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -34,7 +33,6 @@ public class Medium implements Serializable {
     public String getNom() {
         return nom;
     }
-    
     
     @OneToMany(mappedBy="medium")
     private List<Voyance> histoMedium;

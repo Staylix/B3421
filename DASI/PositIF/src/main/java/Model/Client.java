@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model;
 
 import java.io.Serializable;
@@ -18,11 +13,12 @@ import javax.persistence.OneToMany;
 
 
 /**
- *
- * @author ggentil
+ * Cette classe représente l'objet métier Client.
+ * @author B3421
  */
 @Entity
 public class Client implements Serializable {
+    
     @Id 
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idClient;
@@ -32,7 +28,6 @@ public class Client implements Serializable {
     private ClientCoordonnees coordonnees;
     @Embedded
     private ClientProfilAstrologique profileAstrologique;
-
     @OneToMany(mappedBy="client")
     private List<Voyance> histoClient;
     
@@ -42,17 +37,13 @@ public class Client implements Serializable {
     public Client(String civilite, String nom, String prenom, Date dateNaissance, String adresse, String numero, String adresseElectronique) {
         identite = new ClientIdentite(civilite, nom, prenom, dateNaissance);
         coordonnees = new ClientCoordonnees(adresse, numero, adresseElectronique); 
-        histoClient=new ArrayList<Voyance>();
+        histoClient=new ArrayList<>();
     }
 
     public ClientIdentite getIdentite() {
         return identite;
     }
     
-    public void setProfileAstrologique(ClientProfilAstrologique profileAstrologique) {
-        this.profileAstrologique = profileAstrologique;
-    }
-
     public ClientProfilAstrologique getProfileAstrologique() {
         return profileAstrologique;
     }
@@ -69,7 +60,8 @@ public class Client implements Serializable {
         return idClient;
     }
     
-    
-    
+    public void setProfileAstrologique(ClientProfilAstrologique profileAstrologique) {
+        this.profileAstrologique = profileAstrologique;
+    }
     
 }

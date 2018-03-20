@@ -32,6 +32,7 @@ public class Voyance implements Serializable {
     int amour;
     int sante;
     int travail;
+    
     @ManyToOne
     private Employe employe;
     @ManyToOne
@@ -82,6 +83,34 @@ public class Voyance implements Serializable {
 
     public void setTravail(int travail) {
         this.travail = travail;
+    }
+
+    public Long getIdVoyance() {
+        return idVoyance;
+    }
+
+    public Date getHeureDebut() {
+        return heureDebut;
+    }
+
+    public Date getHeureFin() {
+        return heureFin;
+    }
+
+    public String getCommentaire() {
+        return commentaire;
+    }
+
+    public int getAmour() {
+        return amour;
+    }
+
+    public int getSante() {
+        return sante;
+    }
+
+    public int getTravail() {
+        return travail;
     }
 
      

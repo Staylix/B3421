@@ -8,6 +8,7 @@ package model;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,10 +22,14 @@ import javax.persistence.Version;
  * @author ggentil
  */
 @Entity
-public class Employe implements Serializable {
+public class Employe implements Serializable, Comparable<Employe> {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idEmploye;
+    
+    @OneToMany(mappedBy="employe",cascade=CascadeType.ALL)
+    private List<Voyance> histoEmploye;
+    private Client clientEnCours;
     private String nom;
     private String prenom;
     private boolean disponible;
@@ -32,10 +37,9 @@ public class Employe implements Serializable {
     private String numero;
     @Version
     private Integer version;
-    @OneToMany(mappedBy="employe")
-    private List<Voyance> histoEmploye;
-    public static final int debut=8;
-    public static final int fin=18;
+    
+    public static final int DEBUT=8;
+    public static final int FIN=24;
     @ManyToMany(mappedBy="incarnePar")
     private List<Medium> incarne;
     
@@ -51,16 +55,37 @@ public class Employe implements Serializable {
         this.numero=numero;
         histoEmploye=new ArrayList<Voyance>();
         incarne=new ArrayList<Medium>();
-        
+        clientEnCours=null;
     } 
 
-    public boolean isDisponible() {
-        return disponible;
+    public void setClientEnCours(Client clientEnCours) {
+        this.clientEnCours = clientEnCours;
+    }
+
+    public Long getIdEmploye() {
+        return idEmploye;
+    }
+    
+    
+    public String getMail() {
+        return mail;
     }
     
     
 
+    public boolean isDisponible() {
+        return disponible;
+    }
+
+    public List<Medium> getIncarne() {
+        return incarne;
+    }
+    
     public Employe() {
+    }
+
+    public void setDisponible(boolean disponible) {
+        this.disponible = disponible;
     }
 
     public String getNumero() {
@@ -74,7 +99,9 @@ public class Employe implements Serializable {
     public String getPrenom() {
         return prenom;
     }
-
-    
+    @Override
+    public int compareTo(Employe e){
+        return this.getHistoEmploye().size()-e.getHistoEmploye().size();
+    } 
     
 }
